@@ -1,0 +1,124 @@
+\documentclass[t]{ctexbeamer}
+
+\usepackage[active,pdftex,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength{\PreviewBorder}{0.5bp}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\usefonttheme{professionalfonts}
+
+\begin{document}
+\begin{frame}
+  \begin{preview}
+    \usetikzlibrary{shapes, calc, positioning, decorations.markings}
+    \tdplotsetmaincoords{66}{36}
+    \begin{tikzpicture}[scale = 0.7, tdplot_main_coords, line join = bevel, every node/.style = {scale = 0.65}]
+      \draw (0, 0, 0) -- (8.6, 0, 0) edge[densely dotted] (9.1, 0, 0); \node[right] at (9.1, 0, 0) {$2^{\infty}$};
+      \draw (0, 0, 0) -- (0, 8.6, 0) edge[densely dotted] (0, 9.1, 0); \node[above right] at (0, 9.1, 0) {$3^{\infty}$};
+      \draw (0, 0, 0) -- (0, 0, 4.6) edge[densely dotted] (0, 0, 5.1); \node[above] at (0, 0, 5.1) {$5^{\infty}$};
+      
+      \draw (2, 0, 0) -- (2, 6.2, 0) edge[densely dotted] (2, 6.6, 0);
+      \draw (4, 0, 0) -- (4, 4.2, 0) edge[densely dotted] (4, 4.6, 0);
+      \draw (6, 0, 0) -- (6, 2.2, 0) edge[densely dotted] (6, 2.6, 0);
+      \draw (0, 2, 0) -- (6.2, 2, 0) edge[densely dotted] (6.6, 2, 0);
+      \draw (0, 4, 0) -- (4.2, 4, 0) edge[densely dotted] (4.6, 4, 0);
+      \draw (0, 6, 0) -- (2.2, 6, 0) edge[densely dotted] (2.6, 6, 0);
+      
+      \draw (2, 0, 0) -- (2, 0, 4.2) edge[densely dotted] (2, 0, 4.6);
+      \draw (4, 0, 0) -- (4, 0, 2.2) edge[densely dotted] (4, 0, 2.6);
+      \draw (0, 0, 2) -- (4.2, 0, 2) edge[densely dotted] (4.6, 0, 2);
+      \draw (0, 0, 4) -- (2.2, 0, 4) edge[densely dotted] (2.6, 0, 4);
+      
+      \draw (0, 2, 0) -- (0, 2, 4.2) edge[densely dotted] (0, 2, 4.6);
+      \draw (0, 4, 0) -- (0, 4, 2.2) edge[densely dotted] (0, 4, 2.6);
+      \draw (0, 0, 2) -- (0, 4.2, 2) edge[densely dotted] (0, 4.6, 2);
+      \draw (0, 0, 4) -- (0, 2.2, 4) edge[densely dotted] (0, 2.6, 4);
+      
+      \draw (2, 0, 2) -- (2, 4.2, 2) edge[densely dotted] (2, 4.6, 2);
+      \draw (4, 0, 2) -- (4, 2.2, 2) edge[densely dotted] (4, 2.6, 2);
+      \draw (0, 2, 2) -- (4.2, 2, 2) edge[densely dotted] (4.6, 2, 2);
+      \draw (0, 4, 2) -- (2.2, 4, 2) edge[densely dotted] (2.6, 4, 2);
+      
+      \draw (2, 2, 0) -- (2, 2, 4.2) edge[densely dotted] (2, 2, 4.6);
+      \draw (4, 2, 0) -- (4, 2, 2.2) edge[densely dotted] (4, 2, 2.6);
+      
+      \draw (2, 4, 0) -- (2, 4, 2.2) edge[densely dotted] (2, 4, 2.6);
+      
+      \draw (2, 0, 4) -- (2, 2.2, 4) edge[densely dotted] (2, 2.6, 4);
+      \draw (0, 2, 4) -- (2.2, 2, 4) edge[densely dotted] (2.6, 2, 4);
+      
+      \draw (0, 0, 0) edge[densely dashed, line width = 0.8pt, ->] (-.5, -.5, -.5); \node[below] at (-.5, -.5, -.5) {因数方向};
+      \draw (8, 8, 4) edge[densely dashed, line width = 0.8pt, ->] (8.5, 8.5, 4.5); \node[above] at (8.5, 8.5, 4.5) {倍数方向};
+      
+      \draw (0, 0, 0) -- (-.346, .346, .346) edge[densely dotted] (-.635, .635, .635); \node[above right] at (-.635, .635, .635) {$7^{\ast}$};
+      \draw (0, 0, 0) -- (-.384, .136, .384) edge[densely dotted] (-.704, .249, .704); \node[above] at (-.704, .249, .704) {$11^{\ast}$};
+      \draw (0, 0, 0) -- (-.413, -.102, .413) edge[densely dotted] (-.757, -.188, .757); \node[above left] at (-.757, -.188, .757) {$13^{\ast}$};
+      \draw (0, 0, 0) -- (-.424, -.360, .424) edge[densely dotted] (-.778, -.660, .778); \node[left] at (-.778, -.660, .778) {$\cdots$};
+      
+      \draw (8, 0, 0) edge[bend right = 35, densely dashed] (8, 8, 4);
+      \draw (6, 0, 0) edge[bend right = 40, densely dashed] (8, 8, 4);
+      \draw (6, 2, 0) edge[bend right = 25, densely dashed] (8, 8, 4);
+      \draw (4, 2, 0) edge[bend right = 25, densely dashed] (8, 8, 4);
+      \draw (4, 4, 0) edge[bend right = 10, densely dashed] (8, 8, 4);
+      \draw (2, 4, 0) edge[bend right = 11, densely dashed] (8, 8, 4);
+      \draw (2, 6, 0) edge[bend right = 6, densely dashed] (8, 8, 4);
+      \draw (4, 2, 2) edge[densely dashed] (8, 8, 4);
+      \draw (0, 6, 0) edge[densely dashed] (8, 8, 4);
+      \draw (0, 8, 0) edge[bend left = 2.5, densely dashed] (8, 8, 4);
+      \draw (2, 4, 2) edge[bend left = 5, densely dashed] (8, 8, 4);
+      \draw (0, 4, 2) edge[bend left = 5, densely dashed] (8, 8, 4);
+      \draw (2, 2, 4) edge[bend left = 7.5, densely dashed] (8, 8, 4);
+      \draw (0, 2, 4) edge[bend left = 10, densely dashed] (8, 8, 4);
+      
+      \draw (8, 8, 4) edge[bend right = 6, densely dashed] +(-1.5, 0, 0);
+      \draw (8, 8, 4) edge[bend right = 7, densely dashed] +(-1.4, 0.5, 0);
+      \draw (8, 8, 4) edge[bend left = 7, densely dashed] +(0, 0, -1.732);
+      \draw (8, 8, 4) edge[bend left = 7, densely dashed] +(1, -1, -1);
+      
+      \fill [gray!50, opacity = 0.4] (0, 0, 0) -- (6, 0, 0) -- (6, 2, 0) -- (4, 2, 0) -- (4, 4, 0) -- (2, 4, 0) -- (2, 6, 0) -- (0, 6, 0) -- cycle;
+      \fill [gray!50, opacity = 0.4] (0, 0, 2) -- (4, 0, 2) -- (4, 2, 2) -- (2, 2, 2) -- (2, 4, 2) -- (0, 4, 2) -- cycle;
+      \fill [gray!50, opacity = 0.4] (0, 0, 4) -- (2, 0, 4) -- (2, 2, 4) -- (0, 2, 4) -- cycle;
+      
+      \fill (0, 0, 0) circle (1.7pt); \node[below] at (0, 0, 0) {$\pm 1$};
+      \fill (2, 0, 0) circle (1.4pt); \node[below] at (2, 0, 0) {$\pm 2$};
+      \fill (0, 2, 0) circle (1.4pt); \node[below] at (0, 2, 0) {$\pm 3$};
+      \fill (0, 0, 2) circle (1.4pt); \node[left] at (0, 0, 2) {$\pm 5$};
+      \fill (2, 2, 0) circle (1.4pt); \node[below] at (2, 2, 0) {$\pm 6$};
+      \fill (2, 0, 2) circle (1.4pt); \node[above] at (2, 0, 2) {$\pm 10$};
+      \fill (0, 2, 2) circle (1.4pt); \node[above] at (0, 2, 2) {$\pm 15$};
+      \fill (2, 2, 2) circle (1.4pt); \node[above] at (2, 2, 2) {$\pm 30$};
+      
+      \fill (4, 0, 0) circle (1.4pt); \node[below] at (4, 0, 0) {$\pm 4$};
+      \fill (6, 0, 0) circle (1.4pt); \node[below] at (6, 0, 0) {$\pm 8$};
+      \fill (8, 0, 0) circle (1.4pt); \node[below] at (8, 0, 0) {$\pm 16$};
+      
+      \fill (0, 4, 0) circle (1.4pt); \node[below] at (0, 4, 0) {$\pm 9$};
+      \fill (2, 4, 0) circle (1.4pt); \node[below] at (2, 4, 0) {$\pm 18$};
+      \fill (0, 6, 0) circle (1.4pt); \node[below] at (0, 6, 0) {$\pm 27$};
+      \fill (4, 4, 0) circle (1.4pt); \node[below] at (4, 4, 0) {$\pm 36$};
+      \fill (2, 6, 0) circle (1.4pt); \node[above] at (2, 6, 0) {$\pm 54$};
+      \fill (0, 8, 0) circle (1.4pt); \node[below] at (0, 8, 0) {$\pm 81$};
+      
+      \fill (4, 2, 0) circle (1.4pt); \node[below] at (4, 2, 0) {$\pm 12$};
+      \fill (6, 2, 0) circle (1.4pt); \node[below] at (6, 2, 0) {$\pm 24$};
+      
+      \fill (4, 0, 2) circle (1.4pt); \node[above] at (4, 0, 2) {$\pm 20$};
+      \fill (4, 2, 2) circle (1.4pt); \node[below] at (4, 2, 2) {$\pm 60$};
+      
+      \fill (0, 4, 2) circle (1.4pt); \node[below] at (0, 4, 2) {$\pm 45$};
+      \fill (2, 4, 2) circle (1.4pt); \node[above] at (2, 4, 2) {$\pm 90$};
+      
+      \fill (0, 0, 4) circle (1.4pt); \node[left] at (0, 0, 4) {$\pm 25$};
+      \fill (0, 2, 4) circle (1.4pt); \node[above] at (0, 2, 4) {$\pm 75$};
+      \fill (2, 0, 4) circle (1.4pt); \node[above] at (2, 0, 4) {$\pm 50$};
+      \fill (2, 2, 4) circle (1.4pt); \node[above] at (2, 2, 4) {$\pm 150$};
+      
+      \fill (8, 8, 4) circle (1.7pt); \node[above] at (8, 8, 4) {$0$};
+    \end{tikzpicture}
+  \end{preview}
+\end{frame}
+\end{document}
