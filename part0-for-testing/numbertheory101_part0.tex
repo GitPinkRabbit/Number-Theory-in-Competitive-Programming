@@ -1,0 +1,600 @@
+% 使用自定义文档类
+\documentclass{../pkslide}
+
+
+
+
+% =============================================================================
+% 以下是导言区
+
+
+
+% ===================================================================
+% 调用宏包
+
+
+% \usepackage{relsize}
+
+
+
+% ===================================================================
+% 自定义一些命令
+
+
+% C++ 符号宏，依赖 hyperref 和 relsize
+% 来自 GitHub 上的仓库 tcbrindle/wg21papertemplate 中的 ./common.tex 文件
+\newcommand{\Cpp}{\texorpdfstring{C\kern-0.05em\protect\raisebox{.35ex}{\textsmaller[2]{+\kern-0.05em+}}}{C++}}
+
+
+% 用于数学公式中的自定义命令
+\newcommand{\nequiv}{\not\equiv} % 不同余
+\newcommand{\lcm}{\operatorname{lcm}} % 最小公倍数
+\newcommand{\lpd}{\operatorname{lpd}} % 最小素因数
+
+
+
+% ===================================================================
+% 不影响显示形式的，需要在导言区引入的信息
+
+
+% 标题、作者、学校/机构与日期信息，用于标题页显示和页脚显示：页脚将会显示短形式
+\title[算法竞赛中的数论（零）]{算法竞赛中的数论}
+\subtitle{\texorpdfstring{\textsuperscript{0.}}{0. }beamer 格式测试}
+\firstauthor{%
+  陈亮舟%
+  %\inst{1}%
+}[PinkRabbit]
+\firstinstitute{%
+  %\inst{1}%
+  福建师范大学附属中学%
+}[The Affiliated High School of Fujian Normal University]{AHSFNU}
+\originalfinaldate*[2022 年 7 月 2 日]{2022 年 7 月 4 日}
+
+% 如果需要引入更多作者或学校/机构（注意控制文字高度）：
+% \addauthor{忆艾\inst{2}}[Elegia]
+% \addinstitute{\inst{2}艾兰学院，理论计算机科学学院}[Department of Theoretical Computer Science\\AiLan Academy]{AiLan}
+
+% 一些其他格式为：
+% \firstauthor{陈亮舟}
+% \firstauthor{陈亮舟}[PinkRabbit][PK]
+% \firstinstitute{清华大学}{THU}
+
+
+
+% 以上是导言区
+% =============================================================================
+
+
+
+
+% =============================================================================
+% 正文自此开始
+
+
+\begin{document}
+
+\begin{frame}
+  \frametitle{中文演示文档}
+  
+  \begin{itemize}
+    \item 你需要将所有源文件保存为 UTF-8 编码
+    \item 你可以使用 \XeLaTeX{}、\LuaLaTeX{} 或 \upLaTeX{} 编译
+    \item 也可以使用 \pdfLaTeX{} 编译
+    \item 推荐使用 \XeLaTeX{} 或 \LuaLaTeX{} 编译
+    \item 对高级用户，我们也推荐使用 \upLaTeX{} 编译
+  \end{itemize}
+  
+  此页面来自《\CTeX{} 宏集手册》。
+  
+  事实上，应统一使用 \XeLaTeX{} 编译本系列课件。
+  
+  使用 \emph{latexmk} 可以自动处理 {\sffamily beamer} 可能需要的多次编译流程。
+  
+  使用 rm 族 \textrm{\XeLaTeX} 和 tt 族 \texttt{\XeLaTeX}。
+\end{frame}
+
+\begin{frame}
+  \frametitle{含有公式的页面}
+  
+  Leonhard Euler 于 1734 年解决了 Basel 问题：$\sum_{i = 1}^{+\infty} \frac{1}{i^2} = \frac{\pi^2}{6}$，或
+  
+  \[ \sum_{i = 1}^{+\infty} \frac{1}{i^2} = \frac{\pi^2}{6} \text{。} \]
+  
+  这里使用一些由 \AmSLaTeX{} 提供的数学公式：
+  
+  \[ \sum_{i = 0}^{n} \binom{n}{i} = 2^n \text{。} \]
+  
+  使用 \texttt{\textbackslash{}mathbb}、\textcolor{red}{\texttt{\textbackslash{}mathsc}}、\texttt{\textbackslash{}mathcal} 和 \texttt{\textbackslash{}mathscr}：
+  
+  $\mathbb{R} \subset \mathbb{C}$、$\mathsc{Mset}(\mathcal{A})$ 和 $\mathscr{W} \cdot \mathscr{K}$。
+\end{frame}
+
+\begin{frame}
+  \frametitle{beamer 版面设置}
+  
+  beamer 使用的是进行调整过后的 Berlin 主题。具体调整为：
+  
+  将页脚（footline）更换为 infolines 外部主题的形式。
+  
+  让页眉增加了显示 subsubsection 名的位置。
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{显示代码}
+  
+  要使用 \verb|\verb|、\verb|verbatim| 环境、或 \verb|listings|、\verb|minted| 宏包等工具显示代码，需要在 \verb|\begin{frame}| 后添加 \verb|fragile| 选项。下面展示使用原生 \verb|verbatim| 环境显示 \Cpp{} 代码：
+  
+\begin{verbatim}
+int gcd(int a, int b) {
+  return b ? gcd(b, a % b) : a;
+}
+\end{verbatim}
+  
+  如上显示了函数 \verb|gcd|。
+\end{frame}
+
+\begin{frame}
+  \frametitle{英文字体测试}
+  
+  每行依次为 rm、sf、tt 族。每三行依次为 up、it、sl 形。后一半使用 bf 加粗。
+  
+  {%
+    {\upshape {\rmfamily Ab-cd--ffig, hmw.} {\sffamily Ab-cd--ffig, hmw.} {\ttfamily Ab-cd--ffig, hmw.}}
+    
+    {\itshape {\rmfamily Ab-cd--ffig, hmw.} {\sffamily Ab-cd--ffig, hmw.} {\ttfamily Ab-cd--ffig, hmw.}}
+    
+    {\slshape {\rmfamily Ab-cd--ffig, hmw.} {\sffamily Ab-cd--ffig, hmw.} {\ttfamily Ab-cd--ffig, hmw.}}
+  }%
+  
+  {\bfseries%
+    {\upshape {\rmfamily Ab-cd--ffig, hmw.} {\sffamily Ab-cd--ffig, hmw.} {\ttfamily Ab-cd--ffig, hmw.}}
+    
+    {\itshape {\rmfamily Ab-cd--ffig, hmw.} {\sffamily Ab-cd--ffig, hmw.} {\ttfamily Ab-cd--ffig, hmw.}}
+    
+    {\slshape {\rmfamily Ab-cd--ffig, hmw.} {\sffamily Ab-cd--ffig, hmw.} {\ttfamily Ab-cd--ffig, hmw.}}
+  }%
+  
+  我更换了英文 tt 族字体变为 \texttt{Cascadia Mono}。sl 形似只对 rm 族起作用。
+\end{frame}
+
+\begin{frame}
+  \frametitle{中文字体测试}
+  
+  每行依次为 rm、sf、tt 族。每两行依次为 up、it 形。后一半使用 bf 加粗。
+  
+  {%
+    {\upshape {\rmfamily{}我能吞下玻璃而不伤身体。}{\sffamily{}我能吞下玻璃而不伤身体。}{\ttfamily{}我能吞下玻璃而不伤身体。}}
+    
+    {\itshape {\rmfamily{}我能吞下玻璃而不伤身体。}{\sffamily{}我能吞下玻璃而不伤身体。}{\ttfamily{}我能吞下玻璃而不伤身体。}}
+    
+    {\bfseries%
+      {\upshape {\rmfamily{}我能吞下玻璃而不伤身体。}{\sffamily{}我能吞下玻璃而不伤身体。}{\ttfamily{}我能吞下玻璃而不伤身体。}}
+      
+      {\itshape {\rmfamily{}我能吞下玻璃而不伤身体。}{\sffamily{}我能吞下玻璃而不伤身体。}{\ttfamily{}我能吞下玻璃而不伤身体。}}
+    }%
+  }%
+  
+  我对于 rm、sf、tt 族选用的中文字体分别是“\textrm{思源宋体}”、“\textsf{思源黑体}”、“\texttt{方正黑仿\ 简}”，it 形统一使用“\textit{霞鹜文楷}”。
+\end{frame}
+
+\begin{frame}
+  \frametitle{其他拉丁文字字体测试}
+  
+  每行依次为 rm、sf、tt 族。每两行依次为 up、it、sl 形。后一页使用 bf 加粗。
+  
+  拉丁字母：
+  
+  {%
+    \only<1>{%
+      {\upshape {\rmfamily François Viète, Gauß, Pǎtraşcu.} {\sffamily François Viète, Gauß, Pǎtraşcu.} {\ttfamily François Viète, Gauß, Pǎtraşcu.}}
+      
+      {\itshape {\rmfamily François Viète, Gauß, Pǎtraşcu.} {\sffamily François Viète, Gauß, Pǎtraşcu.} {\ttfamily François Viète, Gauß, Pǎtraşcu.}}
+      
+      {\slshape {\rmfamily François Viète, Gauß, Pǎtraşcu.} {\sffamily François Viète, Gauß, Pǎtraşcu.} {\ttfamily François Viète, Gauß, Pǎtraşcu.}}
+    }%
+    
+    \only<2>{\bfseries%
+      {\upshape {\rmfamily François Viète, Gauß, Pǎtraşcu.} {\sffamily François Viète, Gauß, Pǎtraşcu.} {\ttfamily François Viète, Gauß, Pǎtraşcu.}}
+      
+      {\itshape {\rmfamily François Viète, Gauß, Pǎtraşcu.} {\sffamily François Viète, Gauß, Pǎtraşcu.} {\ttfamily François Viète, Gauß, Pǎtraşcu.}}
+      
+      {\slshape {\rmfamily François Viète, Gauß, Pǎtraşcu.} {\sffamily François Viète, Gauß, Pǎtraşcu.} {\ttfamily François Viète, Gauß, Pǎtraşcu.}}
+    }%
+  }%
+  
+  由于字体原因，不打算直接使用希腊字母和西里尔字母，有需求应使用拉丁文转写。
+\end{frame}
+
+\begin{frame}[c]
+  \frametitle{一页简单的定理环境与动画测试}
+  
+  \only<5>{此例子改编自 beamer 用户手册。注意前后文间距。}
+  
+  \begin{theorem}[可选定理名]
+    不存在最大的素数。
+  \end{theorem}
+  
+  \begin{proof}[可选证明附加文字]
+    \begin{enumerate}
+      \item<1-> 假设 $p$ 为最大的素数。
+      \item<3-> Let $q$ be the product of the first $p$ numbers. 以下跳一步。
+      \item<2-> But $q + 1$ is greater than $1$, thus divisible by some prime
+      number not in the first $p$ numbers.\qedhere
+    \end{enumerate}
+  \end{proof}
+  
+  \only<4>{此例子改编自 beamer 用户手册。本页特意使用纵向居中。}
+\end{frame}
+
+\begin{frame}[c]
+  \frametitle{“定义”环境}
+  
+  前文。注意环境与前后文间距。
+  
+  \begin{definition}[素数]
+    恰好有 $2$ 个正因数的正整数称为{素数（质数，prime number）}。
+    
+    即，唯二的两个正因数为 $1$ 和它本身。
+  \end{definition}
+  
+  后文。本页特意使用纵向居中。
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{测试自定义命令}
+  
+  第一行。以下使用 \verb|\emptyline| 空一行。
+  
+  \emptyline
+  
+  第二行。
+  
+  测试数学公式：$\lcm(10, 15) = 30$，$\lpd(45) = 3$。
+  \begin{align*}
+    \lcm(10, 15) &= 30 \\
+    \lpd(45) &= 3
+  \end{align*}
+  {\tiny
+    在 \verb|\tiny| 下。第一行。以下使用 \verb|\emptyline| 空一行。
+    
+    \emptyline
+    
+    第二行。\verb|\baselineskip|${}={}$\the\baselineskip
+    
+    \vspace{0.6\baselineskip}
+    
+    第三行。
+    
+  } % 注意前面的换行，这确保最后有文字的行一定完整包含在 \tiny 内
+\end{frame}
+
+\begin{frame}[c]
+  \frametitle{以下是文档结构测试}
+  
+  确保不报 overfull vbox。除此文件不跨级使用 subsubsection。
+  
+  \begin{multicols}{2}
+    \tableofcontents
+  \end{multicols}
+\end{frame}
+
+\section{第一节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第一节的第一小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsubsection{更小的小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsubsection{更小的小节二}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第一节的第二小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsubsection{更小的小节三}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第一节的第三小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\section{第二节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第二节的第一小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第二节的第二小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsubsection{更小的小节四}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\section{第三节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\section{第四节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsubsection{更小的小节五}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\section*{不编号的第五节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第五节的第一小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第五节的第二小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\section{第六节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第六节的第一小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection*{不编号的第六节的第二小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\subsection{第六节的第三小节}
+
+\begin{frame}
+  \frametitle{空着的一页}
+\end{frame}
+
+\begin{frame}
+  \frametitle{空着的第二页}
+  \framesubtitle{我是空着的（吗？）}
+  
+  算了还是写点东西吧？
+  
+  \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
+\end{frame}
+
+\end{document}
+
+
+% 正文自此结束
+% =============================================================================
