@@ -71,12 +71,16 @@
 \RequirePackage{bxtexlogo}
 
 
-% 用于 textlarger、textsmaller 等相对当前字体大小改变字体大小的宏
+% 用于 larger、smaller、textlarger、textsmaller 等相对当前字体大小改变字体大小的宏
 \RequirePackage{relsize}
 
 
 % etoolbox 和 xparse 宏包对在文档类中方便地定义命令有很大帮助
 \RequirePackage{etoolbox, xparse}
+
+
+% 目前最新的画表格宏包，使用 tblr 环境
+\RequirePackage{tabularray}
 
 
 
@@ -158,6 +162,12 @@
 
 % 正文字体应使用无衬线字体，但数学公式统一调整为原本 article 等文档类下的衬线字体
 \usefonttheme{professionalfonts}
+
+
+% tabularry 宏包进行了行列间距调整，这里调整回与原本的 array 相同的间距
+% 原版 tabular 的列间距比 array 宽一点，为 6pt，与 tblr 相同
+\SetTblrInner{rowsep = 0pt} % tabularry : match the original array
+\SetTblrInner{colsep = 5pt} % tabularry : match the original array
 
 
 % 使用 bxtexlogo 宏包提供的 primary logos 以使用 \XeLaTeX 等类似命令
@@ -266,6 +276,14 @@
 
 % 空一行
 \newcommand{\emptyline}{\vspace{0.6\baselineskip}}
+
+
+% \textboldcolor 相当于变色 + 文字加粗 + 公式加粗
+% 通过 \boldmath 和 \unboldmath 实现公式加粗
+% 不应跨段落使用
+\newcommand{\textboldcolor}[2]{\textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}}
+% 意为 first-define，即概念定义时使用
+\newcommand{\fdf}[1]{\textboldcolor{red}{#1}}
 
 
 
