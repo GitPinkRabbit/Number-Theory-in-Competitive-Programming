@@ -8,3 +8,5 @@
 *.toc
 *.vrb
 *.xdv
+*.fls
+_minted-*
