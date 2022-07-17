@@ -9,4 +9,5 @@
 *.vrb
 *.xdv
 *.fls
+*.pyg
 _minted-*
