@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2022/07/17 PinkRabbit Slide class]
+[2022/07/19 PinkRabbit Slide class]
 
 
 
@@ -96,6 +96,10 @@
 \setCJKmainfont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{Source Han Serif SC}
 \setCJKsansfont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{Source Han Sans SC}
 \setCJKmonofont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{FZHeiFangS}
+
+
+% 此为 hyperref 宏包的设置，令 PDF 书签显示到 subsubsection 级别
+\hypersetup{bookmarksdepth=4}
 
 
 % 使用 Berlin 主题
@@ -247,21 +251,23 @@
 }
 
 
-% 自动在 subsubsection 前插入当前进度
-\AtBeginSubsubsection{
+% 定义 \progressnow 以显示当前进度，在 frame 环境外部使用
+\newcommand{\progressnow}{%
   \begin{frame}[c]
     \frametitle{当前进度}
-    
     \setbeamercolor{subsection in toc}{fg = red}
     \setbeamercolor{subsection in toc shaded}{fg = black}
     \setbeamercolor{subsubsection in toc}{fg = red}
     \setbeamercolor{subsubsection in toc shaded}{fg = black}
-    
     \begin{mymulticols}{2}
       \tableofcontents[sectionstyle = show/shaded, subsectionstyle = show/shaded/hide, subsubsectionstyle = show/shaded/hide]
     \end{mymulticols}
-  \end{frame}
+  \end{frame}%
 }
+% 自动在 subsubsection 前插入当前进度
+\AtBeginSubsubsection{\progressnow}
+% 定义 \pseudosubsubsection 以在小节不需要进一步分段时显示当前进度
+\newcommand{\pseudosubsubsection}{\progressnow}
 
 
 
