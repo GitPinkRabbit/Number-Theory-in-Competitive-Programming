@@ -30,5 +30,7 @@
 格式：
 
 - 行间数学公式优先考虑使用 `\[ \]` 或 `\begin{align*} \end{align*}`，记得在前后文添加 `%` 注释防止多余换行。
+- 关于上一条中的多余换行问题，注意 `center` 环境前后是否分段应由上下文决定。
 - 换行后手动缩进记得添加 `\-`。
 - mymulticols 环境相比 multicol 宏包的 multicols 环境，删除了附加垂直间距，并提供对开头与（或）结尾为 list（itemize、enumerate、description）的适配（添加对应的垂直 `\topsep` 间距）（具体见自定义文档类）。
+- 尽量多地使用 `\pause` 进行简单动画。为了与 `\pause` 相符，应使用 `\uncover` 和 `uncoverenv` 环境，而不是 `\visible` 和 `visibleevn` 环境。这也方便他人进行 `\setbeamercovered{transparent}` 等设置。旧课件中一些问题需要修改。
