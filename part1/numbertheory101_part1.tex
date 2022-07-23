@@ -167,7 +167,6 @@
 
 \begin{frame}
   \frametitle{有余数的除法}
-  
   \begin{definition}[有余数的除法]
     对于整数 $a$ 和正整数 $m$，存在且仅存在一对整数 $\langle q, r \rangle$ 满足%
     %
@@ -180,6 +179,11 @@
     
     记作 $a \div m = q \cdots \cdots r$。
   \end{definition}
+  
+  \pause
+  \emptyline
+  在计算上，很简单地有 $q = \big\lfloor \frac{a}{m} \big\rfloor$ 和 $r = a - q \cdot m = a - \big\lfloor \frac{a}{m} \big\rfloor \cdot m$。\\
+  这里 $\lfloor x \rfloor$ 指向下取整，例如 $\lfloor 3.8 \rfloor = 3$、$\lfloor -4.2 \rfloor = -5$、$\lfloor 7 \rfloor = 7$、$\lfloor -9 \rfloor = -9$。
 \end{frame}
 
 \begin{frame}
@@ -707,7 +711,8 @@
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{素性测试}
+\begin{frame}
+  \frametitle{素性测试}
   \fdf{素性测试}，即判断一个正整数 $n$ 是否是素数。
   
   \visible<2->{
@@ -736,7 +741,7 @@
   
   \pause
   
-  试除法枚举所有在 $2$ 到 \only<2-3>{$n - 1$}\only<4>{\textboldcolor{orange}{$\left\lfloor \sqrt{n} \right\rfloor$}} 之间的整数 $d$，并通过计算 $n \bmod d$ 是否为 $0$ 判断 $d$ 是否为 $n$ 的因数。如果 $n \ne 1$ 并且不存在这样的因数，则可以确认 $n$ 是素数。%
+  试除法枚举所有在 $2$ 到 \only<2-3>{$n - 1$}\only<4>{\textboldcolor[orange]{$\left\lfloor \sqrt{n} \right\rfloor$}} 之间的整数 $d$，并通过计算 $n \bmod d$ 是否为 $0$ 判断 $d$ 是否为 $n$ 的因数。如果 $n \ne 1$ 并且不存在这样的因数，则可以确认 $n$ 是素数。%
   \pause%
   试除法的 \Cpp{} 代码：
   
@@ -762,7 +767,7 @@ bool primality_test(int n) {
 \end{minted}
   \end{onlyenv}
   
-  可以看出，此算法的时间复杂度为 \only<3>{$\mathcal O (n)$}\only<4>{\textboldcolor{orange}{$\mathcal O \! \left( \sqrt{n} \right)$}}。
+  可以看出，此算法的时间复杂度为 \only<3>{$\mathcal O (n)$}\only<4>{\textboldcolor[orange]{$\mathcal O \! \left( \sqrt{n} \right)$}}。
   
   \only<4>{此优化成立的原因是：如果 $n$ 拥有非平凡因数，则其最小非平凡正因数 $\le \sqrt{n}$。}
 \end{frame}
@@ -849,8 +854,9 @@ std::vector<std::pair<int, int>> prime_factorization(int n) {
   注意，前文提到过，求非平凡因数在经典计算模型下是否有多项式时间算法还未知。事实上，包括 Pollard's rho 算法在内的许多数论算法都以 Euclid 算法为基础。
 \end{frame}
 
-\begin{frame}[fragile]{Euclid 算法}
-  \only<1-2>{
+\begin{frame}
+  \frametitle{Euclid 算法}
+  \begin{onlyenv}<1-2>
     Euclid 算法基于如下结论：
     
     \begin{itemize}
@@ -858,41 +864,56 @@ std::vector<std::pair<int, int>> prime_factorization(int n) {
       \item 当 $b \ne 0$ 时，$\gcd(a, b) = \gcd(b, a \bmod b)$。
     \end{itemize}
     
-    \visible<2->{
-      \begin{proof}
-        \renewcommand{\qedsymbol}{\visible<2->{（续）}}
-        
-        \begin{itemize}
-          \item 当 $b = 0$ 时，由前文结论可知 $\gcd(a, b) = \gcd(a, 0) = a$。
-        \end{itemize}
+    \begin{uncoverenv}<2->
+      \begin{proof}[证明（当 $b = 0$ 时）]
+        \renewcommand{\qedsymbol}{（续……）}
+        由前文结论可知 $\gcd(a, b) = \gcd(a, 0) = a$。
       \end{proof}
-    }
-  }
+    \end{uncoverenv}
+  \end{onlyenv}
   
-  \only<3>{
+  \begin{onlyenv}<3-10>
     \begin{itemize}
       \item 当 $b \ne 0$ 时，$\gcd(a, b) = \gcd(b, a \bmod b)$。
     \end{itemize}
     
-    \begin{block}{证明（续）.}
-      \begin{itemize}
-        \item 当 $b \ne 0$ 时，有关于整除的结论 $d \mid a \iff d \mid (a - k \cdot b)$，\\
-          取 $k = \left\lfloor \frac{a}{b} \right\rfloor$ 即得 $d \mid a \iff d \mspace{5mu} \! \left| \mspace{5mu} \middle( a - \left\lfloor \frac{a}{b} \right\rfloor \cdot b \right)$。
+    \begin{uncoverenv}<4-10>
+      \begin{proof}[证明（当 $b \ne 0$ 时）]
+        \begin{onlyenv}<4-7>
+          \textboldcolor{在取 $d$ 为 $b$ 的任一因数的大前提下}，注意到：\\
+          \uncover<5->{对于任意整数 $x$，如果 $d \mid x$，则 $d \mid (x + k \cdot b)$ 对于任意整数 $k$ 均成立。形式化地说，即 $d \mid x \implies d \mid (x + k \cdot b)$。}
           
-          根据有余数的除法，有 $a - \left\lfloor \frac{a}{b} \right\rfloor \cdot b = a \bmod b$。
+          \begin{uncoverenv}<6->
+            \emptyline
+            此时，我们令 $q = \big\lfloor \frac{a}{b} \big\rfloor$ 和 $r = a \bmod b$。注意 $r = a - q \cdot b$。
+          \end{uncoverenv}
           
-          于是 $(d \mid a) \land (d \mid b) \iff ( d \mid (a \bmod b)) \land (d \mid b)$。
+          \begin{uncoverenv}<7->
+            请注意此处 $a - q \cdot b = r$ 和 $r + q \cdot b = a$ 的对称性，基于此我们有
+            \begin{center}
+              $d \mid a \implies d \mid (a - q \cdot b)$ 和 $d \mid r \implies d \mid (r + q \cdot b)$
+            \end{center}
+            的双向关系。换句话说，即 $d \mid a \iff d \mid r$。
+          \end{uncoverenv}
+        \end{onlyenv}
+        
+        \begin{onlyenv}<8-10>
+          考虑到 $d \mid b$ 的大前提，还可以形式化地写作
+          \[
+            (d \mid b) \land (d \mid \textboldcolor[orange]{a}) \iff (d \mid b) \land (d \mid \textboldcolor[orange]{a \bmod b}) \text{。}
+          \]
           
-          结合前文已证的 $(d \mid a) \land (d \mid b) \iff d \mid \gcd(a, b)$，可得 $d \mid \gcd(a, b) \iff d \mid \gcd(a \bmod b, b)$。
+          \uncover<9->{结合前文已证的 $(d \mid b) \land (d \mid a) \iff d \mid \gcd(b, a)$，可得 $d \mid \gcd(b, a) \iff d \mid \gcd(b, a \bmod b)$。}
           
-          由于 $\gcd(a, b)$ 和 $\gcd(a \bmod b, b)$ 都是正整数，得到最终结论 $\gcd(a, b) = \gcd(a \bmod b, b) = \gcd(b, a \bmod b)$。\hfill \qedsymbol
-      \end{itemize}
-    \end{block}
-  }
+          \uncover<10->{由于 $\gcd(b, a)$ 和 $\gcd(a \bmod b, b)$ 都是正整数，得到最终结论 $\gcd(a, b) = \gcd(b, a) = \gcd(b, a \bmod b)$。\qedhere}
+        \end{onlyenv}
+      \end{proof}
+    \end{uncoverenv}
+  \end{onlyenv}
 \end{frame}
 
 \begin{frame}[fragile]{Euclid 算法 -- \Cpp{} 代码实现}
-  Euclid 算法基于如下结论
+  Euclid 算法基于如下结论：
   
   \begin{itemize}
     \item 当 $b = 0$ 时，$\gcd(a, b) = a$。
