@@ -83,6 +83,10 @@
 \RequirePackage{tabularray}
 
 
+% 用于给公式内加粗
+\RequirePackage{bm}
+
+
 
 % ===================================================================
 % 设置 beamer 显示形式
@@ -287,13 +291,21 @@
 
 
 % \textboldcolor 相当于变色 + 文字加粗 + 公式加粗
-% 通过 \boldmath 和 \unboldmath 实现公式加粗
-% 不应跨段落使用
+% 在水平模式中，通过 \boldmath 和 \unboldmath 实现公式加粗，不应跨段落使用
+% 在数学模式中，通过 bm 宏包中的 \bm 实现公式加粗，不应跨数学公式内外使用
 \NewDocumentCommand{\textboldcolor}{om}{%
   \IfNoValueTF{#1}{%
-    {\bfseries{}\boldmath{}#2\unboldmath{}}%
+    \ifmmode%
+      \bm{#2}%
+    \else%
+      {\bfseries{}\boldmath{}#2\unboldmath{}}%
+    \fi%
   }{%
-    \textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}%
+    \ifmmode%
+      \textcolor{#1}{\bm{#2}}%
+    \else%
+      \textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}%
+    \fi
   }%
 }
 % 意为 first-define，即概念定义时使用
