@@ -736,7 +736,7 @@
   
   \pause
   
-  试除法枚举所有在 $2$ 到 \only<3>{$n - 1$}\only<4>{\textboldcolor{orange}{$\left\lfloor \sqrt{n} \right\rfloor$}} 之间的整数 $d$，并通过计算 $n \bmod d$ 是否为 $0$ 判断 $d$ 是否为 $n$ 的因数。如果 $n \ne 1$ 并且不存在这样的因数，则可以确认 $n$ 是素数。%
+  试除法枚举所有在 $2$ 到 \only<2-3>{$n - 1$}\only<4>{\textboldcolor{orange}{$\left\lfloor \sqrt{n} \right\rfloor$}} 之间的整数 $d$，并通过计算 $n \bmod d$ 是否为 $0$ 判断 $d$ 是否为 $n$ 的因数。如果 $n \ne 1$ 并且不存在这样的因数，则可以确认 $n$ 是素数。%
   \pause%
   试除法的 \Cpp{} 代码：
   
