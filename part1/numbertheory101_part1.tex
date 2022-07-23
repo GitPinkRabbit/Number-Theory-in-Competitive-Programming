@@ -125,21 +125,24 @@
   
   关于整除的一些基本性质：
   
+  \pause
   \begin{itemize}
     \setlength{\itemsep}{2pt}
-    \item<2-> 对于任意整数 $a$，均有 $a \mid a$（自反性）以及 $a \mid (-a)$。
-    \item<2-> 如果 $a \mid b$ 且 $b \mid c$，那么 $a \mid c$。（传递性）
-    \item<3-> 如果 $a \mid b$ 且 $b \ne 0$，那么 $|a| \le |b|$。
-    \item<3-> 如果 $a \mid b$ 且 $b \mid a$，那么 $a = \pm b$。
-    \item<4-> 如果 $a \mid b$ 且 $k$ 为整数，那么 $a \mid (k \cdot b)$ 且 $(k \cdot a) \mid (k \cdot b)$。
-    \item<4-> 如果 $d \mid a$ 且 $d \mid b$，那么 $d \mid (a \pm b)$。
-    \item<5-> 一般地，如果有 $n$ 个整数 $a_1, a_2, \ldots, a_n$，对于 $i = 1 \sim n$ 均有 $d \mid a_i$，且另给 $n$ 个整数 $k_1, k_2, \ldots, k_n$，则有%
-      %
+    \item 对于任意整数 $a$，均有 $a \mid a$（自反性）以及 $a \mid (-a)$。
+    \item 如果 $a \mid b$ 且 $b \mid c$，那么 $a \mid c$（传递性）。
+      \pause
+    \item 如果 $a \mid b$ 且 $b \ne 0$，那么 $|a| \le |b|$。
+    \item 如果 $a \mid b$ 且 $b \mid a$，那么 $a = \pm b$。
+      \pause
+    \item 如果 $a \mid b$ 且 $k$ 为整数，那么 $a \mid (k \cdot b)$ 且 $(k \cdot a) \mid (k \cdot b)$。
+    \item 如果 $d \mid a$ 且 $d \mid b$，那么 $d \mid (a \pm b)$。
+      \pause
+    \item 一般地，如果有 $n$ 个整数 $a_1, a_2, \ldots, a_n$，对于 $i = 1 \sim n$ 均有 $d \mid a_i$，且另给 $n$ 个整数 $k_1, k_2, \ldots, k_n$，则有
       \begin{center}
         $\displaystyle d \mid (k_1 a_1 + k_2 a_2 + \cdots + k_n a_n)$。
-      \end{center}%
-      %
-      \uncover<6>{其中 $k_1 a_1 + k_2 a_2 + \cdots + k_n a_n$ 被称作 $a_{1 \sim n}$ 的{\color{red} \textbf{整系数线性组合}}。}
+      \end{center}
+        \pause
+      其中 $k_1 a_1 + k_2 a_2 + \cdots + k_n a_n$ 被称作 $a_{1 \sim n}$ 的{\color{red} \textbf{整系数线性组合}}。
   \end{itemize}
 \end{frame}
 
@@ -519,8 +522,7 @@
   
   \only<1-5>{
     \begin{proof}[算术基本定理 -- 唯一性]
-      \renewcommand{\qedsymbol}{\uncover<5>{（续）}}
-      
+      \renewcommand{\qedsymbol}{（续……）}
       假设存在正整数拥有多于一种表示方法，令其中最小的数为 $n$。\\
       显然，满足条件的 $n$ 必须为合数。
       
@@ -538,7 +540,7 @@
       
       \begin{itemize}
         \item<4-> 如果 $p_1 = q_1$，那么 $P = Q < n$ 拥有两种表示方法，与 $n$ 的最小性矛盾。
-        \item<5> 否则 $p_1 \ne q_1$，不失一般性，设 $p_1 < q_1$，则 $Q < P < n$。
+        \item<5> 否则 $p_1 \ne q_1$，不失一般性，设 $p_1 < q_1$，则 $Q < P < n$。\qedhere
       \end{itemize}
     \end{proof}
   }
@@ -741,11 +743,11 @@
   
   \pause
   
-  试除法枚举所有在 $2$ 到 \only<2-3>{$n - 1$}\only<4>{\textboldcolor[orange]{$\left\lfloor \sqrt{n} \right\rfloor$}} 之间的整数 $d$，并通过计算 $n \bmod d$ 是否为 $0$ 判断 $d$ 是否为 $n$ 的因数。如果 $n \ne 1$ 并且不存在这样的因数，则可以确认 $n$ 是素数。%
-  \pause%
+  试除法枚举所有在 $2$ 到 \only<1-3>{$n - 1$}\only<4>{\textboldcolor[orange]{$\left\lfloor \sqrt{n} \right\rfloor$}} 之间的整数 $d$，并通过计算 $n \bmod d$ 是否为 $0$ 判断 $d$ 是否为 $n$ 的因数。如果 $n \ne 1$ 并且不存在这样的因数，则可以确认 $n$ 是素数。%
+    \pause%
   试除法的 \Cpp{} 代码：
   
-  \begin{onlyenv}<3>
+  \begin{onlyenv}<1-3>
 \begin{minted}[fontsize = \scriptsize]{cpp}
 bool primality_test(int n) {
   for (int d = 2; d <= n - 1; ++d)
@@ -767,9 +769,10 @@ bool primality_test(int n) {
 \end{minted}
   \end{onlyenv}
   
-  可以看出，此算法的时间复杂度为 \only<3>{$\mathcal O (n)$}\only<4>{\textboldcolor[orange]{$\mathcal O \! \left( \sqrt{n} \right)$}}。
+  可以看出，此算法的时间复杂度为 \only<1-3>{$\mathcal O (n)$}\only<4>{\textboldcolor[orange]{$\mathcal O \! \left( \sqrt{n} \right)$}}。
   
-  \only<4>{此优化成立的原因是：如果 $n$ 拥有非平凡因数，则其最小非平凡正因数 $\le \sqrt{n}$。}
+  \pause
+  此优化成立的原因是：如果 $n$ 拥有非平凡因数，则其最小非平凡正因数 $\le \sqrt{n}$。
 \end{frame}
 
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -866,51 +869,52 @@ std::vector<std::pair<int, int>> prime_factorization(int n) {
       \item 当 $b \ne 0$ 时，$\gcd(a, b) = \gcd(b, a \bmod b)$。
     \end{itemize}
     
-    \begin{uncoverenv}<2->
-      \begin{proof}[证明（当 $b = 0$ 时）]
-        \renewcommand{\qedsymbol}{（续……）}
-        由前文结论可知 $\gcd(a, b) = \gcd(a, 0) = a$。
-      \end{proof}
-    \end{uncoverenv}
+    \pause
+    \begin{proof}[证明（当 $b = 0$ 时）]
+      \renewcommand{\qedsymbol}{（续……）}
+      由前文结论可知 $\gcd(a, b) = \gcd(a, 0) = a$。
+    \end{proof}
   \end{onlyenv}
   
+  \pause
   \begin{onlyenv}<3-10>
     \begin{itemize}
       \item 当 $b \ne 0$ 时，$\gcd(a, b) = \gcd(b, a \bmod b)$。
     \end{itemize}
     
-    \begin{uncoverenv}<4-10>
-      \begin{proof}[证明（当 $b \ne 0$ 时）]
-        \begin{onlyenv}<4-7>
-          \textboldcolor{在取 $d$ 为 $b$ 的任一因数的大前提下}，注意到：\\
-          \uncover<5->{对于任意整数 $x$，如果 $d \mid x$，则 $d \mid (x + k \cdot b)$ 对于任意整数 $k$ 均成立。形式化地说，即 $d \mid x \implies d \mid (x + k \cdot b)$。}
-          
-          \begin{uncoverenv}<6->
-            \emptyline
-            此时，我们令 $q = \big\lfloor \frac{a}{b} \big\rfloor$ 和 $r = a \bmod b$。注意 $r = a - q \cdot b$。
-          \end{uncoverenv}
-          
-          \begin{uncoverenv}<7->
-            请注意此处 $a - q \cdot b = r$ 和 $r + q \cdot b = a$ 的对称性，基于此我们有
-            \begin{center}
-              $d \mid a \implies d \mid (a - q \cdot b)$ 和 $d \mid r \implies d \mid (r + q \cdot b)$
-            \end{center}
-            的双向关系。换句话说，即 $d \mid a \iff d \mid r$。
-          \end{uncoverenv}
-        \end{onlyenv}
+    \pause
+    \begin{proof}[证明（当 $b \ne 0$ 时）]
+      \begin{onlyenv}<-7>
+        \textboldcolor{在取 $d$ 为 $b$ 的任一因数的大前提下}，注意到：\\
+          \pause%
+        对于任意整数 $x$，如果 $d \mid x$，则 $d \mid (x + k \cdot b)$ 对于任意整数 $k$ 均成立。形式化地说，即 $d \mid x \implies d \mid (x + k \cdot b)$。
         
-        \begin{onlyenv}<8-10>
-          考虑到 $d \mid b$ 的大前提，还可以形式化地写作
-          \[
-            (d \mid b) \land (d \mid \textboldcolor[orange]{a}) \iff (d \mid b) \land (d \mid \textboldcolor[orange]{a \bmod b}) \text{。}
-          \]
-          
-          \uncover<9->{结合前文已证的 $(d \mid b) \land (d \mid a) \iff d \mid \gcd(b, a)$，可得 $d \mid \gcd(b, a) \iff d \mid \gcd(b, a \bmod b)$。}
-          
-          \uncover<10->{由于 $\gcd(b, a)$ 和 $\gcd(a \bmod b, b)$ 都是正整数，得到最终结论 $\gcd(a, b) = \gcd(b, a) = \gcd(b, a \bmod b)$。\qedhere}
-        \end{onlyenv}
-      \end{proof}
-    \end{uncoverenv}
+        \pause
+        \emptyline
+        此时，我们令 $q = \big\lfloor \frac{a}{b} \big\rfloor$ 和 $r = a \bmod b$。注意 $r = a - q \cdot b$。
+        
+        \pause
+        请注意此处 $a - q \cdot b = r$ 和 $r + q \cdot b = a$ 的对称性，基于此我们有
+        \begin{center}
+          $d \mid a \implies d \mid (a - q \cdot b)$ 和 $d \mid r \implies d \mid (r + q \cdot b)$
+        \end{center}
+        的双向关系。换句话说，即 $d \mid a \iff d \mid r$。
+      \end{onlyenv}
+      
+      \pause
+      \begin{onlyenv}<8->
+        考虑到 $d \mid b$ 的大前提，还可以形式化地写作
+        \[
+          (d \mid b) \land (d \mid \textboldcolor[orange]{a}) \iff (d \mid b) \land (d \mid \textboldcolor[orange]{a \bmod b}) \text{。}
+        \]
+        
+        \pause
+        结合前文已证的 $(d \mid b) \land (d \mid a) \iff d \mid \gcd(b, a)$，可得 $d \mid \gcd(b, a) \iff d \mid \gcd(b, a \bmod b)$。
+        
+        \pause
+        由于 $\gcd(b, a)$ 和 $\gcd(a \bmod b, b)$ 都是正整数，得到最终结论 $\gcd(a, b) = \gcd(b, a) = \gcd(b, a \bmod b)$。\qedhere
+      \end{onlyenv}
+    \end{proof}
   \end{onlyenv}
 \end{frame}
 
@@ -1045,28 +1049,33 @@ int gcd_Euclidean(int a, int b) {
 
 \begin{frame}
   \frametitle{Eratosthenes 筛法}
-  \only<1>{
-    小明描述的算法相当于对 $1 \sim n$ 中每个数都进行一次素性测试。
-    
-    小红描述的过程就是 \fdf{Eratosthenes 筛法}。
-    
-    小天使的问题“划到几的倍数就可以了？”的回答是“划到 $\left\lfloor \sqrt{n} \right\rfloor$ 的倍数就可以了”。这与试除法中只对不超过 $\left\lfloor \sqrt{n} \right\rfloor$ 的数进行因数判断原因相同。
-  }
+  小明描述的算法相当于对 $1 \sim n$ 中每个数都进行一次素性测试。
   
-  \only<2->{
-    让我们再描述一次算法流程：
-    
-    \begin{enumerate}
-      \item 维护一个下标范围在 $2 \sim n$ 的 Boolean 数组，表示每个数是否被划去，初始时所有数都未被划去。
-      \item 从上一个找到的素数开始，找到数组中下一个未被划去的下标，将其标记为素数，并将其所有非本身的正倍数划去。
-      \item 重复步骤 2，直到不存在下一个未被划去的下标或此下标大于 $\left\lfloor \sqrt{n} \right\rfloor$ 即可停止，这意味着 $2 \sim n$ 中的所有素数均已被找到。
-      \item 将数组中剩余的未被划去的下标标记为素数。
-    \end{enumerate}
-    
-    \emptyline
-    
-    算法结束后，所有的素数按照从小到大的顺序被找到，并且 Boolean 数组记录了每个数的素性：如果被划去则是合数，否则是素数。
-  }
+  \pause
+  小红描述的过程就是 \fdf{Eratosthenes 筛法}。
+  
+  \pause
+  小天使的问题“划到几的倍数就可以了？”的回答是“划到 $\left\lfloor \sqrt{n} \right\rfloor$ 的倍数就可以了”。这与试除法中只对不超过 $\left\lfloor \sqrt{n} \right\rfloor$ 的数进行因数判断原因相同。
+\end{frame}
+
+\begin{frame}
+  \frametitle{Eratosthenes 筛法 -- 算法流程}
+  让我们再描述一次算法流程：
+  
+  \pause
+  \begin{enumerate}
+    \item 维护一个下标范围在 $2 \sim n$ 的 Boolean 数组，表示每个数是否被划去，初始时所有数都未被划去。
+      \pause
+    \item 从上一个找到的素数开始，找到数组中下一个未被划去的下标，将其标记为素数，并将其所有非本身的正倍数划去。
+      \pause
+    \item 重复步骤 2，直到不存在下一个未被划去的下标或此下标大于 $\left\lfloor \sqrt{n} \right\rfloor$ 即可停止，这意味着 $2 \sim n$ 中的所有素数均已被找到。
+      \pause
+    \item 将数组中剩余的未被划去的下标标记为素数。
+  \end{enumerate}
+  
+  \pause
+  \emptyline
+  算法结束后，所有的素数按照从小到大的顺序被找到，并且 Boolean 数组记录了每个数的素性：如果被划去则是合数，否则是素数。
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1141,17 +1150,15 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \frametitle{对 Eratosthenes 筛法进行改造}
   注意到，在 Eratosthenes 筛法中，每个合数被其每个素因数均划去了一次。实际上，若使用 $\omega(n)$ 表示正整数 $n$ 的不同素因数个数，则 Eratosthenes 筛法的复杂度说明了 $\displaystyle \sum_{i = 1}^{n} \omega(i) = \mathcal O (n \log \log n)$。
   
-  \uncover<2->{
-    \emptyline
-    
-    这启发我们改造 Eratosthenes 筛法，使得每个合数仅被其最小素因数划去。也即，每个素数 $p$ 不会划去最小素因数不为它的合数。
-  }
+  \pause
+  \emptyline
+  这启发我们改造 Eratosthenes 筛法，使得每个合数仅被其最小素因数划去。也即，每个素数 $p$ 不会划去最小素因数不为它的合数。
   
-  \uncover<3->{
-    \emptyline
-    
-    换句话说，考虑该合数为 $k = p \cdot i$，则 $i$ 应为一个最小素因数大于等于 $p$ 的正整数。\uncover<4->{接下来，我们将展示改造后的算法的具体细节。}
-  }
+  \pause
+  \emptyline
+  换句话说，考虑该合数为 $k = p \cdot i$，则 $i$ 应为一个最小素因数大于等于 $p$ 的正整数。
+    \pause%
+  接下来，我们将展示改造后的算法的具体细节。
 \end{frame}
 
 \begin{frame}
@@ -1161,21 +1168,19 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \emptyline
   
   对于正整数 $n \ge 2$，记 $\lpd(n)$ 为 $n$ 的最小素因数。\\
-  根据前文结果，在使用素数 $p$ 筛去其倍数 $k = p \cdot i$ 时，需要确保 $\lpd(i)$ 大于等于 $p$。\uncover<2->{为了在对 $p$ 和 $i$ 的双重枚举中确保这一点，有以下两种实现手段：}
+  根据前文结果，在使用素数 $p$ 筛去其倍数 $k = p \cdot i$ 时，需要确保 $\lpd(i)$ 大于等于 $p$。%
+    \pause%
+  为了在对 $p$ 和 $i$ 的双重枚举中确保这一点，有以下两种实现手段：
   
-  \uncover<2->{
-    \begin{enumerate}
-      \item 外层枚举素数 $p$，内层枚举乘数 $i$，内层需要确保 $\lpd(i) \ge p$。
-      \item 外层枚举乘数 $i$，内层枚举素数 $p$，内层需要确保 $p \le \lpd(i)$。
-    \end{enumerate}
-  }
+  \begin{enumerate}
+    \item 外层枚举素数 $p$，内层枚举乘数 $i$，内层需要确保 $\lpd(i) \ge p$。
+    \item 外层枚举乘数 $i$，内层枚举素数 $p$，内层需要确保 $p \le \lpd(i)$。
+  \end{enumerate}
   
-  \uncover<3->{
-    \emptyline
-    
-    在算法竞赛中，常见的是第 2 种实现手段。其原因是自然的：\\
-    枚举 $p \le \lpd(i)$ 时，只需要从小到大枚举目前求出的素数 $p$，直到发现 $i \bmod p = 0$，即 $p \mid i$ 时跳出循环即可。
-  }
+  \pause
+  \emptyline
+  在算法竞赛中，常见的是第 2 种实现手段。其原因是自然的：\\
+  枚举 $p \le \lpd(i)$ 时，只需要从小到大枚举目前求出的素数 $p$，直到发现 $i \bmod p = 0$，即 $p \mid i$ 时跳出循环即可。
 \end{frame}
 
 \begin{frame}[fragile]
@@ -1434,8 +1439,7 @@ std::vector<int> sieve_of_Euler(int n) {
   \frametitle{Bézout 定理 -- 证明}
   \begin{onlyenv}<1-7>
     \begin{proof}[Bézout 定理]
-      \renewcommand{\qedsymbol}{\uncover<7>{\leavevmode （续）}}
-      
+      \renewcommand{\qedsymbol}{（续……）}
       \uncover<2->{当 $g = 0$，即 $a_{1 \sim n}$ 均为 $0$ 时，定理显然成立。接下来假定 $g \ge 1$。}
       
       \uncover<3->{
@@ -1450,19 +1454,17 @@ std::vector<int> sieve_of_Euler(int n) {
       
       \uncover<6->{由 $i$ 的任意性，这说明 $s$ 是 $a_{1 \sim n}$ 的一个公因数。于是 $s \mid g$。}
       
-      \uncover<7>{然而 $g$ 应整除任意整系数线性组合，即 $g \mid s$。于是只能有 $g = s$。}
+      \uncover<7>{然而 $g$ 应整除任意整系数线性组合，即 $g \mid s$。于是只能有 $g = s$。\qedhere}
     \end{proof}
   \end{onlyenv}
   
   \begin{onlyenv}<8-10>
     \begin{proof}[Bézout 定理（续）]
-      \renewcommand{\qedsymbol}{\uncover<10>{\leavevmode \hbox {\usebeamertemplate *{qed symbol}}}}
-      
       \uncover<8->{已证 $g$ 即为所有整系数线性组合中的最小正元素。}
       
       \uncover<9->{若某一整系数线性组合 $x$ 不是 $g$ 的倍数，则根据已证结论，$\gcd(g, x)$ 也为一整系数线性组合。然而由于 $g \nmid x$，有 $0 < \gcd(g, x) < g$，与 $g$ 的最小性矛盾。}
       
-      \uncover<10>{故所有整系数线性组合均是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的倍数。又有整系数线性组合的倍数自然也为整系数线性组合，故所有整系数线性组合恰好就是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的所有倍数。}
+      \uncover<10>{故所有整系数线性组合均是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的倍数。又有整系数线性组合的倍数自然也为整系数线性组合，故所有整系数线性组合恰好就是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的所有倍数。\qedhere}
     \end{proof}
   \end{onlyenv}
 \end{frame}
@@ -1490,10 +1492,12 @@ std::vector<int> sieve_of_Euler(int n) {
   \frametitle{齐次情况}
   考察当 $c = 0$ 时的齐次情况：$a x + b y = 0$。
   
-  \begin{onlyenv}<2-4>
-    若在所有整数上枚举 $y$ 的取值，对 $x$ 解得 $x = -\frac{b y}{a}$。
-    
-    要让 $x$ 为整数，需要 $a \mid b y$。
+  \begin{onlyenv}<1-4>
+    \begin{uncoverenv}<2->
+      若在所有整数上枚举 $y$ 的取值，对 $x$ 解得 $x = -\frac{b y}{a}$。
+      
+      要让 $x$ 为整数，需要 $a \mid b y$。
+    \end{uncoverenv}
     
     \begin{uncoverenv}<3->
       \emptyline
@@ -1835,7 +1839,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   \frametitle{参考文献与致谢}
   \begin{itemize}
     \item OI Wiki，\url{https://oi-wiki.org/}
-    \item Wikipedia，\url{https://en.wikipedia.org/}
+    \item Wikipedia，\url{https://en.wikipedia.org/wiki/Main_Page}
+    \item \textsf{Pr}$\infty$\textsf{fWiki}，\url{https://proofwiki.org/wiki/Main_Page}
     \item 具体数学（\textit{Concrete Mathematics: A Foundation for Computer Science}），R.~L.~Graham, D.~E.~Knuth, and O.~Patashnik
     \item 数论导引，华罗庚
     \item 本课件编写时的哔哩哔哩直播间观众
