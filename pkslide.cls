@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2022/07/19 PinkRabbit Slide class]
+[2022/07/24 PinkRabbit Slide class]
 
 
 
@@ -98,8 +98,10 @@
 \setCJKmonofont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{FZHeiFangS}
 
 
-% 此为 hyperref 宏包的设置，令 PDF 书签显示到 subsubsection 级别
-\hypersetup{bookmarksdepth=4}
+% 此为 hyperref 宏包的设置
+% 令 PDF 书签显示到 subsubsection 级别
+% 添加 colorlinks 选项，但不设置 linkcolor
+\hypersetup{bookmarksdepth=4,colorlinks,linkcolor=}
 
 
 % 使用 Berlin 主题
@@ -287,9 +289,26 @@
 % \textboldcolor 相当于变色 + 文字加粗 + 公式加粗
 % 通过 \boldmath 和 \unboldmath 实现公式加粗
 % 不应跨段落使用
-\newcommand{\textboldcolor}[2]{\textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}}
+\NewDocumentCommand{\textboldcolor}{om}{%
+  \IfNoValueTF{#1}{%
+    {\bfseries{}\boldmath{}#2\unboldmath{}}%
+  }{%
+    \textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}%
+  }%
+}
 % 意为 first-define，即概念定义时使用
-\newcommand{\fdf}[1]{\textboldcolor{red}{#1}}
+\newcommand{\fdf}[1]{\textboldcolor[red]{#1}}
+
+
+% 切换主题颜色，来自 beamercolorthemespruce.sty
+\definecolor{MSUgreen}{RGB}{0,102,51}
+\makeatletter
+\NewDocumentEnvironment{structuregreen}{}{%
+  \setbeamercolor{structure}{fg=MSUgreen}%
+}{%
+  \setbeamercolor{structure}{fg=beamer@blendedblue}%
+}
+\makeatother
 
 
 
