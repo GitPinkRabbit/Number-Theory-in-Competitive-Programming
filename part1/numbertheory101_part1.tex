@@ -82,7 +82,7 @@
     
     \emptyline
     
-    \visible<2>{
+    \uncover<2>{
       同时，我们\alert{约定} $0$ 整除 $0$，但不整除其他任何整数。
       
       即 $0 \mid 0$，但是对于所有 $n \ne 0$ 均有 $0 \nmid n$。
@@ -139,7 +139,7 @@
         $\displaystyle d \mid (k_1 a_1 + k_2 a_2 + \cdots + k_n a_n)$。
       \end{center}%
       %
-      \visible<6>{其中 $k_1 a_1 + k_2 a_2 + \cdots + k_n a_n$ 被称作 $a_{1 \sim n}$ 的{\color{red} \textbf{整系数线性组合}}。}
+      \uncover<6>{其中 $k_1 a_1 + k_2 a_2 + \cdots + k_n a_n$ 被称作 $a_{1 \sim n}$ 的{\color{red} \textbf{整系数线性组合}}。}
   \end{itemize}
 \end{frame}
 
@@ -157,7 +157,7 @@
       并且，$-a$ 是 $a$ 的最小因数，也是 $a$ 的最大负倍数。
   \end{itemize}
   
-  \visible<5>{
+  \uncover<5>{
     一般地，对于任意整数 $a$，一定有 $1, -1, a, -a$ 是 $a$ 的因数，\\
     \-\hspace{10em}\hphantom{ $a$}也一定有 $\phantom{0, -{}}0, a, -a$ 是 $a$ 的倍数。
     
@@ -202,7 +202,7 @@
     \end{itemize}
   \end{examples}
   
-  \visible<2>{注意到，如果 $a$ 除以 $m$ 的余数为 $0$，则 $m \mid a$，否则 $m \nmid a$。}
+  \uncover<2>{注意到，如果 $a$ 除以 $m$ 的余数为 $0$，则 $m \mid a$，否则 $m \nmid a$。}
 \end{frame}
 
 \begin{frame}
@@ -226,13 +226,13 @@
     \-\hspace{5em}如果数值结果 $< 0$，则运算结果 $\ge$ 数值结果，\\
     \-\hspace{5em}如果数值结果 $= 0$，则运算结果 $=$ 数值结果 $= 0$。
     
-    \visible<3->{
+    \uncover<3->{
       \emptyline
       
       注意，\Cpp{} 中除法和求余运算符的第二操作数均可以为负数，这与前文中“有余数的除法”不同。
     }
     
-    \visible<4>{
+    \uncover<4>{
       \emptyline
       
       特别地，如果第二操作数为 $0$，则行为未定义（UB）。典型的编译器实现可能导致运行时错误（RE）。
@@ -265,7 +265,7 @@
   
   \emptyline
   
-  \visible<2>{所以，对于非负数 $a$ 和正数 $m$，\Cpp{} 产生的商和余数与前文“有余数的除法”中定义的相同。}
+  \uncover<2>{所以，对于非负数 $a$ 和正数 $m$，\Cpp{} 产生的商和余数与前文“有余数的除法”中定义的相同。}
 \end{frame}
 
 \begin{frame}
@@ -294,7 +294,7 @@
   
   \emptyline
   
-  \visible<2>{在操作数可能为负数或 $0$ 时，需要特别注意。}
+  \uncover<2>{在操作数可能为负数或 $0$ 时，需要特别注意。}
 \end{frame}
 
 \begin{frame}
@@ -307,7 +307,7 @@
       即，唯二的两个正因数为 $1$ 和它本身。
     \end{definition}
     
-    \visible<2->{
+    \uncover<2->{
       \begin{examples}[素数]
         \begin{itemize}
           \item $7$ 是素数，因为 $7$ 恰好有 $2$ 个正因数 $1, 7$。
@@ -318,7 +318,7 @@
       \end{examples}
     }
     
-    \visible<3>{
+    \uncover<3>{
       若无特殊说明，下文中的字母 $p$ 均表示素数，$\mathbb P$ 为素数集。
     }
   }
@@ -330,7 +330,7 @@
       $\mathbb P = \{ 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, \ldots \}$。
     \end{center}
     
-    \visible<5->{
+    \uncover<5->{
       \begin{definition}[合数]
         有多于 $2$ 个正因数的正整数称为\fdf{合数}。
         
@@ -340,7 +340,7 @@
       \end{definition}
     }
     
-    \visible<6->{
+    \uncover<6->{
       这里列举一下前几个合数：
       
       \begin{center}
@@ -368,13 +368,13 @@
     
     如果 $m \nmid (a - b)$，则称 $a$ 不同余于 $b$ 模 $m$，记作 $a \nequiv b \pmod{m}$。
     
-    \visible<2->{
+    \uncover<2->{
       \emptyline
       
       固定模 $m$ 下的同余关系是一种等价关系，即如果 $a \equiv b$ 且 $b \equiv c$，则 $a \equiv c$。还可以记作 $a \equiv b \equiv c \pmod{m}$。
     }
     
-    \visible<3->{
+    \uncover<3->{
       \emptyline
       
       若 $a$ 除以 $m$ 的余数为 $r$，也可以称 \fdf{$a$ 对 $m$ 的模为 $r$}，\\
@@ -409,7 +409,7 @@
     
     特别地，约定 $0$ 与 $0$ 的最大公因数为 $\gcd(0, 0) = 0$。
     
-    \visible<2->{
+    \uncover<2->{
       \emptyline
       
       对于 $n$ 个整数 $a_1, a_2, \ldots, a_n$，若存在整数 $d$ 使得对于 $i = 1 \sim n$ 均有 $d \mid a_i$，则称 $d$ 是 $a_1, a_2, \ldots, a_n$ 的一个公因数。\\
@@ -432,7 +432,7 @@
     \end{itemize}
   \end{examples}
   
-  \visible<4>{
+  \uncover<4>{
     \begin{definition}[互素]
       如果 $\gcd(a, b) = 1$，那么称 \fdf{$a$ 与 $b$ 互素}。记作 \fdf{$a \perp b$}。
       
@@ -451,7 +451,7 @@
     
     \emptyline
     
-    \visible<2>{
+    \uncover<2>{
       对于 $n$ 个整数 $a_1, a_2, \ldots, a_n$，若存在整数 $m$ 使得对于 $i = 1 \sim n$ 均有 $a_i \mid m$，则称 $m$ 是 $a_1, a_2, \ldots, a_n$ 的一个公倍数。\\
       $a_1, a_2, \ldots, a_n$ 的公倍数中的最小正值称为 $a_1, a_2, \ldots, a_n$ 的最小公倍数，记作 $\lcm(a_1, a_2, \ldots, a_n)$。
       
@@ -492,7 +492,7 @@
     当 $n = 1$ 时，可视作 $k = 0$，即 $1$ 可以表示成 $0$ 个素数的乘积（我们约定 $0$ 个数的乘积为 $1$）。
   \end{theorem}
   
-  \visible<2>{
+  \uncover<2>{
     \begin{examples}[标准分解式]
       \begin{mymulticols}[l][l]{2}
         \begin{itemize}
@@ -519,16 +519,16 @@
   
   \only<1-5>{
     \begin{proof}[算术基本定理 -- 唯一性]
-      \renewcommand{\qedsymbol}{\visible<5>{（续）}}
+      \renewcommand{\qedsymbol}{\uncover<5>{（续）}}
       
       假设存在正整数拥有多于一种表示方法，令其中最小的数为 $n$。\\
       显然，满足条件的 $n$ 必须为合数。
       
-      \visible<2->{
+      \uncover<2->{
         设 $n$ 的两种表示方法为 $p_1^{\alpha_1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ 和 $q_1^{\beta_1} q_2^{\beta_2} \cdots q_l^{\beta_l}$。
       }
       
-      \visible<3->{
+      \uncover<3->{
         \emptyline
         
         令 $P = p_1^{\alpha_1 - 1} p_2^{\alpha_2} \cdots p_k^{\alpha_k}$ 以及 $Q = q_1^{\beta_1 - 1} q_2^{\beta_2} \cdots q_l^{\beta_l}$。
@@ -545,21 +545,21 @@
   
   \only<6-11>{
     \begin{proof}[算术基本定理 -- 唯一性（续）]
-      \renewcommand{\qedsymbol}{\visible<11>{\leavevmode \hbox {\usebeamertemplate *{qed symbol}}}}
+      \renewcommand{\qedsymbol}{\uncover<11>{\leavevmode \hbox {\usebeamertemplate *{qed symbol}}}}
       
       \begin{itemize}
         \item 否则 $p_1 \ne q_1$，不失一般性，设 $p_1 < q_1$，则 $Q < P < n$。
           
-          \visible<7->{令 $s = p_1 \cdot (P - Q)$，则 $2 \le s < n$，然而同时 $s = (q_1 - p_1) \cdot Q$。}
+          \uncover<7->{令 $s = p_1 \cdot (P - Q)$，则 $2 \le s < n$，然而同时 $s = (q_1 - p_1) \cdot Q$。}
           
-          \visible<8->{由 $s < n$ 可知 $s$ 的表示方法唯一。注意到 $p_1 \cdot (P - Q)$ 中包含 $p_1$，这说明 $q_1 - p_1$ 或 $Q$ 中必然包含 $p_1$。}
+          \uncover<8->{由 $s < n$ 可知 $s$ 的表示方法唯一。注意到 $p_1 \cdot (P - Q)$ 中包含 $p_1$，这说明 $q_1 - p_1$ 或 $Q$ 中必然包含 $p_1$。}
           
-          \visible<9->{然而 $p_1 \mid (q_1 - p_1) \iff p_1 \mid q_1$ 是不可能的，因为 $q_1$ 是素数。}
+          \uncover<9->{然而 $p_1 \mid (q_1 - p_1) \iff p_1 \mid q_1$ 是不可能的，因为 $q_1$ 是素数。}
           
-          \visible<10->{并且 $p_1 \mid Q$ 也是不可能的，因为由 $Q < n$ 可知 $Q$ 的表示方法唯一，而所有 $q_j$ 均大于 $p_1$（$1 \le j \le l$），故 $p_1 \nmid Q$。}
+          \uncover<10->{并且 $p_1 \mid Q$ 也是不可能的，因为由 $Q < n$ 可知 $Q$ 的表示方法唯一，而所有 $q_j$ 均大于 $p_1$（$1 \le j \le l$），故 $p_1 \nmid Q$。}
       \end{itemize}
       
-      \visible<11>{至此，所有可能性已被排除，故假设有误，不存在拥有多于一种表示方法的正整数。}
+      \uncover<11>{至此，所有可能性已被排除，故假设有误，不存在拥有多于一种表示方法的正整数。}
     \end{proof}
   }
 \end{frame}
@@ -613,12 +613,12 @@
     
     即，如果 $n$ 的 $p$ 进阶数 $\nu_p(n) = \alpha$，则 $p^\alpha \mid n$ 但 $p^{\alpha + 1} \nmid n$，此时也记作 $p^\alpha \parallel n$，如果 $p^\alpha \parallel n$ 不成立，记作 $p^\alpha \nparallel n$。
     
-    \visible<2->{
+    \uncover<2->{
       同时，定义 $n$ 的 \fdf{$p$ 进赋值序列}为 $\langle \nu_2(n), \nu_3(n), \nu_5(n), \ldots \rangle$。
     }
   \end{definition}
   
-  \visible<3->{
+  \uncover<3->{
     \begin{examples}[$p$ 进赋值序列]
       \begin{mymulticols}[l][l]{2}
         \raggedcolumns
@@ -636,13 +636,13 @@
   
   由算术基本定理可知，每个正整数与其 $p$ 进赋值序列一一对应。
   
-  \visible<2->{
+  \uncover<2->{
     \emptyline
     
     反之，每个只有有限项非零的非负整数序列，在看作 $p$ 进赋值序列后，可以对应到所有正整数。
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     所以，可以使用 $p$ 进赋值序列来表示正整数，在 $p$ 进赋值序列的视角下，每个正整数均位于无穷维空间的一个整点上，而每个维度均对应一个素数。
@@ -668,9 +668,9 @@
     \item<3-> 于是，$\gcd(a, b) \cdot \lcm(a, b) = a \cdot b$ 是显然的。
   \end{itemize}
   
-  \visible<4->{其中，$a, b$ 为非 $0$ 正整数，$p$ 为任意素数。}
+  \uncover<4->{其中，$a, b$ 为非 $0$ 正整数，$p$ 为任意素数。}
   
-  \visible<5->{
+  \uncover<5->{
     \emptyline
     
     据此，可以证明 $a, b$ 的全体公因数就是 $\gcd(a, b)$ 的全体因数，\\
@@ -690,11 +690,11 @@
       $-n$ 的 $p$ 进赋值序列与 $n$ 的 $p$ 进赋值序列相同。
   \end{itemize}
   
-  \visible<2->{
+  \uncover<2->{
     如此，前述的 $\gcd$ 和 $\lcm$ 相关公式便可以拓展到 $0$ 和负整数。
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     并且，每个只有有限项非零的非负整数序列，在看作 $p$ 进赋值序列后，恰好对应一正一负两个整数。而序列 $\langle \infty, \infty, \infty, \ldots \rangle$ 对应在无穷维空间的无穷远点上的 $0$。
@@ -715,13 +715,13 @@
   \frametitle{素性测试}
   \fdf{素性测试}，即判断一个正整数 $n$ 是否是素数。
   
-  \visible<2->{
+  \uncover<2->{
   \emptyline
     
     算法竞赛中，常用的素性测试算法有试除法和 Miller--Rabin 算法。Miller--Rabin 算法是一个多项式时间的素性测试算法，即它的最坏时间复杂度关于 $\log n$ 呈多项式增长。
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     一般的 Miller--Rabin 算法实现是非确定性的，有概率将合数报告为素数。对于确定性算法，有 Agrawal--Kayal--Saxena 算法同样是多项式时间的。
@@ -784,13 +784,13 @@ bool primality_test(int n) {
   
   素因数分解，即给出一个正整数 $n$ 的标准分解式。
   
-  \visible<2->{
+  \uncover<2->{
     \emptyline
     
     算法竞赛中，常用的素因数分解算法有试除法和 Pollard's rho 算法。Pollard's rho 算法首先对 $n$ 执行任意素性测试算法，如果 $n$ 为合数，设 $n$ 的最小素因数为 $p$，该算法可以在 $\tilde{\mathcal O} \! \left( \sqrt{p} \right)$ 的时间复杂度内求出 $n$ 的一个非平凡因数 $a$。对 $a$ 和 $\frac{n}{a}$ 递归执行 Pollard's rho 算法即可完成素因数分解。
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     素因数分解在经典计算模型下是否有多项式时间算法还未知，目前最高效的算法为普通数域筛法。\\
@@ -806,7 +806,7 @@ bool primality_test(int n) {
   \frametitle{试除法}
   \fdf{试除法}是素因数分解的一种最简单的算法。
   
-  \visible<2->{
+  \uncover<2->{
     \emptyline
     
     与素性测试类似，素因数分解的试除法枚举所有 $2$ 到 $\left\lfloor \sqrt{n} \right\rfloor$ 之间的整数 $d$，并判断 $d$ 是否为 $n$ 的因数。\\
@@ -923,7 +923,7 @@ std::vector<std::pair<int, int>> prime_factorization(int n) {
     \item 当 $b \ne 0$ 时，$\gcd(a, b) = \gcd(b, a \bmod b)$。
   \end{itemize}
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \emptyline
     
     直接利用如上结论，可以给出 Euclid 算法的 \Cpp{} 代码：
@@ -933,9 +933,9 @@ int gcd_Euclidean(int a, int b) {
   return b ? gcd_Euclidean(b, a % b) : a;
 }
 \end{minted}
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     我们将证明 Euclid 算法的时间复杂度为 $\mathcal O \!\left( \log \frac{\min(a, b)}{\gcd(a, b)} \right)$。
@@ -963,7 +963,7 @@ int gcd_Euclidean(int a, int b) {
   \frametitle{Euclid 算法 -- 时间复杂度证明}
   称 Euclid 算法的一次递归为一步。
   
-  \visible<2->{
+  \uncover<2->{
     \emptyline
     
     如果给定的 $\langle a, b \rangle$ 有其中之一为 $0$，则算法将在 $2$ 步内结束。接下来假定 $a, b \ne 0$。
@@ -971,7 +971,7 @@ int gcd_Euclidean(int a, int b) {
     如果 $a < b$，则算法的第 $1$ 步将交换 $a, b$，接下来假定 $a \ge b$。
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     有此结论：对于正整数 $a, b$，如果 $a \ge b$，则 $a \bmod b < \frac{a}{2}$。\\
@@ -979,7 +979,7 @@ int gcd_Euclidean(int a, int b) {
     \-\hspace{5em}否则 $a \ge 2 \cdot b$，则 $a \bmod b < b \le \frac{a}{2}$。
   }
   
-  \visible<4>{
+  \uncover<4>{
     \emptyline
     
     所以，在算法接下来的每一步，$a, b$ 两数中均有一个会变为原来的至多一半。总步数将被控制在 $\mathcal O (\log a + \log b)$ 内。
@@ -990,13 +990,13 @@ int gcd_Euclidean(int a, int b) {
   \frametitle{Euclid 算法 -- 时间复杂度证明（续）}
   又注意到，如果 $a \ge b$，则第 $1$ 步后两数为 $\langle b, a \bmod b \rangle$，两数均小于等于 $b$，接下来的时间复杂度为 $\mathcal O (\log b)$。所以，总步数将被控制在 $\mathcal O (\log \min(a, b))$ 内。
   
-  \begin{visibleenv}<2>
+  \begin{uncoverenv}<2>
     \emptyline
     
     又由于 Euclid 算法在计算 $\langle a, b \rangle$ 时的过程和 $\left\langle \frac{a}{\gcd(a, b)}, \frac{b}{\gcd(a, b)} \right\rangle$ 完全一致（后者在计算中的值乘 $\gcd(a, b)$ 即得到前者）。
     
     所以，Euclid 算法的时间复杂度为 $\mathcal O \!\left( \log \frac{\min(a, b)}{\gcd(a, b)} \right)$。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1018,7 +1018,7 @@ int gcd_Euclidean(int a, int b) {
     \item ……
   \end{itemize}
   
-  \visible<2>{
+  \uncover<2>{
     \emptyline
     
     素数筛法可以解决这些问题，本课件中，我们介绍 Eratosthenes 筛法和 Euler 筛法。
@@ -1088,7 +1088,7 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
 }
 \end{minted}
   
-  \visible<2>{接下来将解释 Eratosthenes 筛法的时间复杂度为 $\mathcal O (n \log \log n)$。}
+  \uncover<2>{接下来将解释 Eratosthenes 筛法的时间复杂度为 $\mathcal O (n \log \log n)$。}
 \end{frame}
 
 \begin{frame}
@@ -1099,7 +1099,7 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \]%
   其中，基于一结论 $\displaystyle \sum_{p \le n} \frac{1}{p} = \ln \ln n + \mathcal O (1)$。\footnote{此结论即 Mertens 第二定理}
   
-  \visible<2>{
+  \uncover<2>{
     \emptyline
     
     运行在一般个人电脑上时，如前述朴素实现的 Eratosthenes 筛法可以在 1 秒内处理出 $2 \sim n = 3 \times {10}^7$ 甚至更大范围内的所有素数。
@@ -1116,7 +1116,7 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
     \end{itemize}
   \end{block}
   
-  \visible<2->{
+  \uncover<2->{
     可以对 Eratosthenes 筛法进行拓展以解决此问题。
     
     考虑使用 Eratosthenes 筛法求出 $1 \sim \left\lfloor \sqrt{r} \right\rfloor$ 内的所有素数。
@@ -1141,16 +1141,16 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \frametitle{对 Eratosthenes 筛法进行改造}
   注意到，在 Eratosthenes 筛法中，每个合数被其每个素因数均划去了一次。实际上，若使用 $\omega(n)$ 表示正整数 $n$ 的不同素因数个数，则 Eratosthenes 筛法的复杂度说明了 $\displaystyle \sum_{i = 1}^{n} \omega(i) = \mathcal O (n \log \log n)$。
   
-  \visible<2->{
+  \uncover<2->{
     \emptyline
     
     这启发我们改造 Eratosthenes 筛法，使得每个合数仅被其最小素因数划去。也即，每个素数 $p$ 不会划去最小素因数不为它的合数。
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
-    换句话说，考虑该合数为 $k = p \cdot i$，则 $i$ 应为一个最小素因数大于等于 $p$ 的正整数。\visible<4->{接下来，我们将展示改造后的算法的具体细节。}
+    换句话说，考虑该合数为 $k = p \cdot i$，则 $i$ 应为一个最小素因数大于等于 $p$ 的正整数。\uncover<4->{接下来，我们将展示改造后的算法的具体细节。}
   }
 \end{frame}
 
@@ -1161,16 +1161,16 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \emptyline
   
   对于正整数 $n \ge 2$，记 $\lpd(n)$ 为 $n$ 的最小素因数。\\
-  根据前文结果，在使用素数 $p$ 筛去其倍数 $k = p \cdot i$ 时，需要确保 $\lpd(i)$ 大于等于 $p$。\visible<2->{为了在对 $p$ 和 $i$ 的双重枚举中确保这一点，有以下两种实现手段：}
+  根据前文结果，在使用素数 $p$ 筛去其倍数 $k = p \cdot i$ 时，需要确保 $\lpd(i)$ 大于等于 $p$。\uncover<2->{为了在对 $p$ 和 $i$ 的双重枚举中确保这一点，有以下两种实现手段：}
   
-  \visible<2->{
+  \uncover<2->{
     \begin{enumerate}
       \item 外层枚举素数 $p$，内层枚举乘数 $i$，内层需要确保 $\lpd(i) \ge p$。
       \item 外层枚举乘数 $i$，内层枚举素数 $p$，内层需要确保 $p \le \lpd(i)$。
     \end{enumerate}
   }
   
-  \visible<3->{
+  \uncover<3->{
     \emptyline
     
     在算法竞赛中，常见的是第 2 种实现手段。其原因是自然的：\\
@@ -1230,7 +1230,7 @@ std::vector<int> sieve_of_Euler(int n) {
     \end{itemize}
   \end{examples}
   
-  \visible<3->{
+  \uncover<3->{
     \begin{figure}
       \begin{tikzpicture}[remember picture,overlay]
         \node [xshift = .3775\pdfpagewidth, yshift = -.4945\pdfpageheight] at (current page.center) {\includegraphics[scale = 0.82313]{pics/fruits_equation_solution.pdf}};
@@ -1246,7 +1246,7 @@ std::vector<int> sieve_of_Euler(int n) {
     其中 $a, b, c$ 均为整数，并要求 $a, b$ 不能同时为 $0$。
   \end{definition}
   
-  \visible<2->{
+  \uncover<2->{
     \begin{examples}[线性 Diophantus 方程]
       \begin{itemize}
         \item $\phantom{1} x + \phantom{0}2 y = 0$ 为线性 Diophantus 方程。
@@ -1299,7 +1299,7 @@ std::vector<int> sieve_of_Euler(int n) {
     其中 $m$ 为正整数，$a, b$ 为整数。
   \end{definition}
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \begin{examples}[线性同余方程]
       \begin{itemize}
         \item $\phantom{1}x \equiv 0 \pmod{\phantom{0}2}$ 为线性同余方程。
@@ -1307,7 +1307,7 @@ std::vector<int> sieve_of_Euler(int n) {
         \item $6 x \equiv 3 \pmod{10}$ 为线性同余方程。
       \end{itemize}
     \end{examples}
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}
@@ -1322,7 +1322,7 @@ std::vector<int> sieve_of_Euler(int n) {
     \end{itemize}
   \end{examples}
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     可以看出，线性同余方程的解集形式是以下二者之一：
     
     \begin{mymulticols}[l][l]{2}
@@ -1335,18 +1335,18 @@ std::vector<int> sieve_of_Euler(int n) {
     \emptyline
     
     我们需要对某个特定方程的解集分类，并给出具体形式。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}
   \frametitle{线性同余方程 -- 与线性 Diophantus 方程的联系}
   事实上，有线性同余方程 $a x \equiv b \pmod{m}$ 与 $m \mid (a x - b)$ 等价，并进一步等价于存在 $k$ 使得 $k m = a x - b$ 成立，令 $y = -k$，移项后变为 $a x + m y = b$，可以看作一个关于 $x, y$ 的线性 Diophantus 方程。
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \emptyline
     
     这意味着，只需要解决 $a x + m y = b$ 这一线性 Diophantus 方程，即可解决原线性同余方程。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}
@@ -1372,9 +1372,9 @@ std::vector<int> sieve_of_Euler(int n) {
       其中，$a, b$ 为任意有理数。
     \end{definition}
     
-    \begin{visibleenv}<3->
+    \begin{uncoverenv}<3->
       然而，注意到，当我们取 $a = m$ 而 $b = \frac{1}{m}$ 时，如果 $b \mapsto x$，则必须有 $0 \cdot x \equiv 1 \pmod{m}$，而这当 $m \ne 1$ 时是不可能的。
-    \end{visibleenv}
+    \end{uncoverenv}
   \end{onlyenv}
 \end{frame}
 
@@ -1382,25 +1382,25 @@ std::vector<int> sieve_of_Euler(int n) {
   \frametitle{有理数取模 -- 困难与联系}
   正如前文所述，在定义 $m \ne 1$ 时的有理数取模时遇到了困难。
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \emptyline
     
     让我们考虑一有理数的最简分数表示为 $x = \frac{b}{a}$，则根据上述定义，需要满足 $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (x \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = b \mathbin{\mathrm{mod}_{\mathbb Q}} m$。
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \begin{visibleenv}<3->
+  \begin{uncoverenv}<3->
     令 $x' = x \mathbin{\mathrm{mod}_{\mathbb Q}} m$。上式即%
     %
     \[ a x' \equiv b \pmod{m} \text{。} \]
     %
     即一线性同余方程。如果此方程有解，则有希望定义有理数 $x$ 对 $m$ 的模。
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \begin{visibleenv}<4->
+  \begin{uncoverenv}<4->
     \emptyline
     
     而线性同余方程可以被转化为线性 Diophantus 方程。接下来我们将展示线性 Diophantus 方程的求解方法。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1414,55 +1414,55 @@ std::vector<int> sieve_of_Euler(int n) {
   \frametitle{Bézout 定理}
   为了解决方程 $a x + b y = c$，首先考察当 $x, y$ 任取时，$a x + b y$ 的取值。接下来我们给出 \fdf{Bézout 定理（Bézout's lemma）}。
   
-  \begin{visibleenv}<2-3>
+  \begin{uncoverenv}<2-3>
     \begin{theorem}[Bézout 定理]
       回顾前文提到过的 $a_1, a_2, \ldots, a_n$ 的整系数线性组合。\\
       令 $g = \gcd(a_1, a_2, \ldots, a_n)$，则 $a_{1 \sim n}$ 的所有整系数线性组合恰好就是 $g$ 的所有倍数。
     \end{theorem}
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \begin{visibleenv}<3>
+  \begin{uncoverenv}<3>
     \begin{examples}[Bézout 定理]
       \begin{itemize}
         \item 当 $a = [ 6, 12, 16 ]$ 时，$a$ 的整系数线性组合有 $\{ \ldots, -4, -2, 0, 2, 4, \ldots \}$，其中 $2 = \gcd(6, 12, 16)$。
       \end{itemize}
     \end{examples}
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}
   \frametitle{Bézout 定理 -- 证明}
   \begin{onlyenv}<1-7>
     \begin{proof}[Bézout 定理]
-      \renewcommand{\qedsymbol}{\visible<7>{\leavevmode （续）}}
+      \renewcommand{\qedsymbol}{\uncover<7>{\leavevmode （续）}}
       
-      \visible<2->{当 $g = 0$，即 $a_{1 \sim n}$ 均为 $0$ 时，定理显然成立。接下来假定 $g \ge 1$。}
+      \uncover<2->{当 $g = 0$，即 $a_{1 \sim n}$ 均为 $0$ 时，定理显然成立。接下来假定 $g \ge 1$。}
       
-      \visible<3->{
+      \uncover<3->{
         \emptyline
         
         若 $g \ge 1$ 则说明至少有一个 $a_k \ne 0$，则 $a$ 的整系数线性组合中至少有一正元素 $|a_k|$。取 $s$ 为 $a$ 的整系数线性组合中的\alert{最小正元素}。
       }
       
-      \visible<4->{考虑进行有余数的除法，令 $a_i$ 除以 $s$ 的商为 $q$，余数为 $r$。那么有 $r = a_i - q \cdot s$，同样是一个整系数线性组合。}
+      \uncover<4->{考虑进行有余数的除法，令 $a_i$ 除以 $s$ 的商为 $q$，余数为 $r$。那么有 $r = a_i - q \cdot s$，同样是一个整系数线性组合。}
       
-      \visible<5->{然而 $0 \le r < s$，结合 $s$ 的最小性，只能有 $r = 0$，这说明 $s \mid a_i$。}
+      \uncover<5->{然而 $0 \le r < s$，结合 $s$ 的最小性，只能有 $r = 0$，这说明 $s \mid a_i$。}
       
-      \visible<6->{由 $i$ 的任意性，这说明 $s$ 是 $a_{1 \sim n}$ 的一个公因数。于是 $s \mid g$。}
+      \uncover<6->{由 $i$ 的任意性，这说明 $s$ 是 $a_{1 \sim n}$ 的一个公因数。于是 $s \mid g$。}
       
-      \visible<7>{然而 $g$ 应整除任意整系数线性组合，即 $g \mid s$。于是只能有 $g = s$。}
+      \uncover<7>{然而 $g$ 应整除任意整系数线性组合，即 $g \mid s$。于是只能有 $g = s$。}
     \end{proof}
   \end{onlyenv}
   
   \begin{onlyenv}<8-10>
     \begin{proof}[Bézout 定理（续）]
-      \renewcommand{\qedsymbol}{\visible<10>{\leavevmode \hbox {\usebeamertemplate *{qed symbol}}}}
+      \renewcommand{\qedsymbol}{\uncover<10>{\leavevmode \hbox {\usebeamertemplate *{qed symbol}}}}
       
-      \visible<8->{已证 $g$ 即为所有整系数线性组合中的最小正元素。}
+      \uncover<8->{已证 $g$ 即为所有整系数线性组合中的最小正元素。}
       
-      \visible<9->{若某一整系数线性组合 $x$ 不是 $g$ 的倍数，则根据已证结论，$\gcd(g, x)$ 也为一整系数线性组合。然而由于 $g \nmid x$，有 $0 < \gcd(g, x) < g$，与 $g$ 的最小性矛盾。}
+      \uncover<9->{若某一整系数线性组合 $x$ 不是 $g$ 的倍数，则根据已证结论，$\gcd(g, x)$ 也为一整系数线性组合。然而由于 $g \nmid x$，有 $0 < \gcd(g, x) < g$，与 $g$ 的最小性矛盾。}
       
-      \visible<10>{故所有整系数线性组合均是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的倍数。又有整系数线性组合的倍数自然也为整系数线性组合，故所有整系数线性组合恰好就是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的所有倍数。}
+      \uncover<10>{故所有整系数线性组合均是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的倍数。又有整系数线性组合的倍数自然也为整系数线性组合，故所有整系数线性组合恰好就是 $g = \gcd(a_1, a_2, \ldots, a_n)$ 的所有倍数。}
     \end{proof}
   \end{onlyenv}
 \end{frame}
@@ -1473,11 +1473,11 @@ std::vector<int> sieve_of_Euler(int n) {
   
   对于 $a x + b y = c$，令 $g = \gcd(a, b)$，则方程有解等价于 $g \mid c$。
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \emptyline
     
     方程有解时，对于解的结构，Bézout 定理并未给出更多信息。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1495,7 +1495,7 @@ std::vector<int> sieve_of_Euler(int n) {
     
     要让 $x$ 为整数，需要 $a \mid b y$。
     
-    \begin{visibleenv}<3->
+    \begin{uncoverenv}<3->
       \emptyline
       
       从 $p$ 进赋值序列的视角考虑，即%
@@ -1506,11 +1506,11 @@ std::vector<int> sieve_of_Euler(int n) {
         & = \nu_p(a) - \min(\nu_p(b), \nu_p(a)) \\
         & = \nu_p \!\left( \tfrac{a}{\gcd(a, b)} \right)\! \text{。}
       \end{align*}%
-    \end{visibleenv}%
+    \end{uncoverenv}%
     %
-    \begin{visibleenv}<4->
+    \begin{uncoverenv}<4->
       即 $y$ 应为 $\frac{a}{\gcd(a, b)}$ 的倍数。
-    \end{visibleenv}
+    \end{uncoverenv}
   \end{onlyenv}
   
   \begin{onlyenv}<5->
@@ -1524,10 +1524,10 @@ std::vector<int> sieve_of_Euler(int n) {
     
     \emptyline
     
-    \begin{visibleenv}<6->
+    \begin{uncoverenv}<6->
       也即，令 $a' = \frac{a}{\gcd(a, b)}$ 和 $b' = \frac{b}{\gcd(a, b)}$，\\
       \-\hspace{3em}有通解形式 $\langle x, y \rangle = \langle -k b', k a' \rangle$。
-    \end{visibleenv}
+    \end{uncoverenv}
   \end{onlyenv}
 \end{frame}
 
@@ -1535,25 +1535,25 @@ std::vector<int> sieve_of_Euler(int n) {
   \frametitle{齐次情况 -- 特解与通解}
   如上给出了齐次情况的通解形式 $\langle -k b', k a' \rangle$，这大大简化了问题。
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \emptyline
     
     这是因为，考虑 $a x + b y = c$ 的一特解 $\langle x_0, y_0 \rangle$，则此特解加上任意齐次情况下的解 $\langle x_1, y_1 \rangle$ 得到的 $\langle x_0 + x_1, y_0 + y_1 \rangle$ 必然也是原方程的解。
     
     反之，任意原方程的解 $\langle x_2, y_2 \rangle$ 都能通过与特解 $\langle x_0, y_0 \rangle$ 相减得到齐次情况下的解 $\langle x_0 - x_2, y_0 - y_2 \rangle$。
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \begin{visibleenv}<3->
+  \begin{uncoverenv}<3->
     \emptyline
     
     也即，$a x + b y = c$ 的解集必然呈现一特解 $\langle x_0, y_0 \rangle$ 加上任意齐次情况下的通解 $\left\langle -k \cdot \frac{b}{\gcd(a, b)}, k \cdot \frac{a}{\gcd(a, b)} \right\rangle$ 的形式。
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \begin{visibleenv}<4->
+  \begin{uncoverenv}<4->
     \emptyline
     
     接下来只需解决求出一组特解的问题即可。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1567,11 +1567,11 @@ std::vector<int> sieve_of_Euler(int n) {
   Bézout 定理显示了 $a x + b y = \gcd(a, b)$ 必定有解。\\
   进一步地，注意到 $a x + b y = c$ 有解当且仅当 $\gcd(a, b) \mid c$，则求出 $a x + b y = \gcd(a, b)$ 的一组特解 $\langle x_0, y_0 \rangle$ 后，将其乘 $\frac{c}{\gcd(a, b)}$ 后即可得到 $a x + b y = c$ 的一组特解。
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     \emptyline
     
     接下来介绍\fdf{扩展 Euclid 算法}以解决 $a x + b y = \gcd(a, b)$ 的特解问题。注意到 Bézout 定理给出的形式中带有 $\gcd(a, b)$，这启发我们改造 Euclid 算法，这也就是算法的名字由来。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}
@@ -1595,11 +1595,11 @@ std::vector<int> sieve_of_Euler(int n) {
     
     最终有 $g = \gcd(a, b) = r_n$。
     
-    \begin{visibleenv}<2>
+    \begin{uncoverenv}<2>
       \emptyline
       
       当计算 $\gcd(r_n, r_{n + 1})$ 时有 $1 \cdot r_n + 0 \cdot r_{n + 1} = g$，此即为边界。
-    \end{visibleenv}
+    \end{uncoverenv}
   \end{onlyenv}
   
   \begin{onlyenv}<3-4>
@@ -1613,7 +1613,7 @@ std::vector<int> sieve_of_Euler(int n) {
     
     现在要求 $x_i \cdot r_{i - 2} + y_i \cdot r_{i - 1} = g$ 的一组特解。
     
-    \begin{visibleenv}<4>
+    \begin{uncoverenv}<4>
       考虑 $r_i = {\color{red}r_{i - 2}} {\color{blue}{}- q_i} \cdot {\color{magenta}r_{i - 1}}$，将其代入 ${\color{cyan}x_{i + 1}} \cdot {\color{magenta}r_{i - 1}} + {\color{orange}y_{i + 1}} \cdot r_i = g$ 得%
       %
       \begin{align*}
@@ -1622,7 +1622,7 @@ std::vector<int> sieve_of_Euler(int n) {
       \end{align*}%
       %
       于是有 $\langle x_i, y_i \rangle = \langle {\color{orange}y_{i + 1}}, {\color{cyan}x_{i + 1}} {\color{blue}{}- q_i} \cdot {\color{orange}y_{i + 1}} \rangle$。根据此式从边界 $\langle x_{n + 2}, y_{n + 2} \rangle = \langle 1, 0 \rangle$ 一步步回溯至 $\langle x_1, y_1 \rangle$ 即得原方程的一组特解。
-    \end{visibleenv}
+    \end{uncoverenv}
   \end{onlyenv}
 \end{frame}
 
@@ -1638,7 +1638,7 @@ std::pair<int, int> extended_Euclidean(int a, int b) {
 }
 \end{minted}
   
-  \begin{visibleenv}<2->
+  \begin{uncoverenv}<2->
     在 \Cpp{}98 标准下可过编译的代码：
     
 \begin{minted}[fontsize = \scriptsize]{cpp}
@@ -1648,11 +1648,11 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   return y -= a / b * x, d;
 }
 \end{minted}
-  \end{visibleenv}
+  \end{uncoverenv}
   
-  \begin{visibleenv}<3->
+  \begin{uncoverenv}<3->
     扩展 Euclid 算法的递归过程与 Euclid 算法相同，于是其时间复杂度也为 $\mathcal O \!\left( \log \frac{\min(a, b)}{\gcd(a, b)} \right)$。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}[c]
@@ -1689,9 +1689,9 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
       \end{center}
   \end{itemize}
   
-  \begin{visibleenv}<4>
+  \begin{uncoverenv}<4>
     这意味着解得的 $\langle x, y \rangle$ 是所有解中绝对值最小的一组，并且同时说明算法运行过程中无需担心整型溢出的问题，将 $x, y$ 使用与 $a, b$ 相同的类型存储就足够了。
-  \end{visibleenv}
+  \end{uncoverenv}
 \end{frame}
 
 \begin{frame}
