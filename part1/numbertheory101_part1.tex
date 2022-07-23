@@ -802,7 +802,8 @@ bool primality_test(int n) {
   }
 \end{frame}
 
-\begin{frame}{试除法}
+\begin{frame}
+  \frametitle{试除法}
   \fdf{试除法}是素因数分解的一种最简单的算法。
   
   \visible<2->{
@@ -815,7 +816,8 @@ bool primality_test(int n) {
   }
 \end{frame}
 
-\begin{frame}[fragile]{试除法 -- \Cpp{} 代码}
+\begin{frame}[fragile]
+  \frametitle{试除法 -- \Cpp{} 代码}
   试除法的 \Cpp{} 代码：
   
 \begin{minted}[fontsize = \scriptsize]{cpp}
@@ -912,7 +914,8 @@ std::vector<std::pair<int, int>> prime_factorization(int n) {
   \end{onlyenv}
 \end{frame}
 
-\begin{frame}[fragile]{Euclid 算法 -- \Cpp{} 代码实现}
+\begin{frame}[fragile]
+  \frametitle{Euclid 算法 -- \Cpp{} 代码实现}
   Euclid 算法基于如下结论：
   
   \begin{itemize}
@@ -941,7 +944,8 @@ int gcd_Euclidean(int a, int b) {
   }
 \end{frame}
 
-\begin{frame}{Euclid 算法 -- 例子}
+\begin{frame}
+  \frametitle{Euclid 算法 -- 例子}
   假设我们需要计算 $\gcd(46, 240)$，则 Euclid 算法经过如下递归得到结果：%
   %
   \begin{align*}
@@ -955,7 +959,8 @@ int gcd_Euclidean(int a, int b) {
   \end{align*}
 \end{frame}
 
-\begin{frame}{Euclid 算法 -- 时间复杂度证明}
+\begin{frame}
+  \frametitle{Euclid 算法 -- 时间复杂度证明}
   称 Euclid 算法的一次递归为一步。
   
   \visible<2->{
@@ -981,7 +986,8 @@ int gcd_Euclidean(int a, int b) {
   }
 \end{frame}
 
-\begin{frame}{Euclid 算法 -- 时间复杂度证明（续）}
+\begin{frame}
+  \frametitle{Euclid 算法 -- 时间复杂度证明（续）}
   又注意到，如果 $a \ge b$，则第 $1$ 步后两数为 $\langle b, a \bmod b \rangle$，两数均小于等于 $b$，接下来的时间复杂度为 $\mathcal O (\log b)$。所以，总步数将被控制在 $\mathcal O (\log \min(a, b))$ 内。
   
   \begin{visibleenv}<2>
@@ -1026,7 +1032,8 @@ int gcd_Euclidean(int a, int b) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{小学五年级数学}
+\begin{frame}
+  \frametitle{小学五年级数学}
   \only<1>{让我们复习一下五年级下册数学（人教版）。}
   
   \only<2>{
@@ -1036,7 +1043,8 @@ int gcd_Euclidean(int a, int b) {
   }
 \end{frame}
 
-\begin{frame}{Eratosthenes 筛法}
+\begin{frame}
+  \frametitle{Eratosthenes 筛法}
   \only<1>{
     小明描述的算法相当于对 $1 \sim n$ 中每个数都进行一次素性测试。
     
@@ -1061,7 +1069,8 @@ int gcd_Euclidean(int a, int b) {
   }
 \end{frame}
 
-\begin{frame}[fragile]{Eratosthenes 筛法 -- \Cpp{} 实现}
+\begin{frame}[fragile]
+  \frametitle{Eratosthenes 筛法 -- \Cpp{} 实现}
   以下是 Eratosthenes 筛法的 \Cpp{} 代码：
   
 \begin{minted}[fontsize = \scriptsize]{cpp}
@@ -1082,7 +1091,8 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \visible<2>{接下来将解释 Eratosthenes 筛法的时间复杂度为 $\mathcal O (n \log \log n)$。}
 \end{frame}
 
-\begin{frame}{Eratosthenes 筛法 -- 时间复杂度}
+\begin{frame}
+  \frametitle{Eratosthenes 筛法 -- 时间复杂度}
   Eratosthenes 筛法的时间复杂度由内层循环体的执行次数确定。即%
   \[%
     \text{复杂度} \sim \sum_{p \le \sqrt{n}} \left\lfloor \frac{n}{p} \right\rfloor \sim n \sum_{p \le \sqrt{n}} \frac{1}{p} \sim n \ln \ln \!\left( \sqrt{n} \right) = n \log \log n \text{。}
@@ -1096,7 +1106,8 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   }
 \end{frame}
 
-\begin{frame}{区间筛法}
+\begin{frame}
+  \frametitle{区间筛法}
   \begin{block}{问题 (区间求素数)}
     给定整数 $l, r$，求出 $l \sim r$ 内的所有素数。
     
@@ -1126,7 +1137,8 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{对 Eratosthenes 筛法进行改造}
+\begin{frame}
+  \frametitle{对 Eratosthenes 筛法进行改造}
   注意到，在 Eratosthenes 筛法中，每个合数被其每个素因数均划去了一次。实际上，若使用 $\omega(n)$ 表示正整数 $n$ 的不同素因数个数，则 Eratosthenes 筛法的复杂度说明了 $\displaystyle \sum_{i = 1}^{n} \omega(i) = \mathcal O (n \log \log n)$。
   
   \visible<2->{
@@ -1142,7 +1154,8 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   }
 \end{frame}
 
-\begin{frame}{Euler 筛法}
+\begin{frame}
+  \frametitle{Euler 筛法}
   Eratosthenes 筛法的此改造得名于 (Euler, 1737)，即 \fdf{Euler 筛法}。
   
   \emptyline
@@ -1165,7 +1178,8 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   }
 \end{frame}
 
-\begin{frame}[fragile]{Euler 筛法 -- \Cpp{} 实现}
+\begin{frame}[fragile]
+  \frametitle{Euler 筛法 -- \Cpp{} 实现}
   以下是 Euler 筛法的 \Cpp{} 代码：
   
 \begin{minted}[fontsize = \scriptsize]{cpp}
@@ -1195,7 +1209,8 @@ std::vector<int> sieve_of_Euler(int n) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Diophantus 方程}
+\begin{frame}
+  \frametitle{Diophantus 方程}
   \begin{definition}
     \fdf{Diophantus 方程}指多元整系数方程，求解只在整数范围内进行。
   \end{definition}
@@ -1203,7 +1218,8 @@ std::vector<int> sieve_of_Euler(int n) {
   数论中的许多经典问题与 Diophantus 方程有关，我们通常关心特定形式的 Diophantus 方程是否有解，若有解则试图判断解数是否有限，若有无限组解则希望求出通解形式。
 \end{frame}
 
-\begin{frame}{Diophantus 方程 -- 例子}
+\begin{frame}
+  \frametitle{Diophantus 方程 -- 例子}
   \begin{examples}[Diophantus 方程]
     \begin{itemize}
       \item<2-> 关于 $x, y, z$ 的方程 $x^n + y^n = z^n$ 为 Diophantus 方程。\\
@@ -1223,7 +1239,8 @@ std::vector<int> sieve_of_Euler(int n) {
   }
 \end{frame}
 
-\begin{frame}{线性 Diophantus 方程}
+\begin{frame}
+  \frametitle{线性 Diophantus 方程}
   \begin{definition}
     关于 $x, y$ 的方程 $a x + b y = c$ 称为一个\fdf{线性 Diophantus 方程}。\\
     其中 $a, b, c$ 均为整数，并要求 $a, b$ 不能同时为 $0$。
@@ -1241,7 +1258,8 @@ std::vector<int> sieve_of_Euler(int n) {
   }
 \end{frame}
 
-\begin{frame}{线性 Diophantus 方程 -- 解集形式}
+\begin{frame}
+  \frametitle{线性 Diophantus 方程 -- 解集形式}
   \only<1>{
     \begin{examples}[线性 Diophantus 方程的解集]
       \begin{itemize}
@@ -1274,7 +1292,8 @@ std::vector<int> sieve_of_Euler(int n) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{线性同余方程}
+\begin{frame}
+  \frametitle{线性同余方程}
   \begin{definition}
     \fdf{线性同余方程}指关于 $x$ 的形如 $a x \equiv b \pmod{m}$ 的同余方程。\\
     其中 $m$ 为正整数，$a, b$ 为整数。
@@ -1291,7 +1310,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}{线性同余方程 -- 解集形式}
+\begin{frame}
+  \frametitle{线性同余方程 -- 解集形式}
   \begin{examples}[线性同余方程的解集]
     \begin{itemize}
       \item 线性同余方程 $\phantom{1}x \equiv 0 \pmod{\phantom{0}2}$ 的形式已足够简洁，解集为\\
@@ -1318,7 +1338,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}{线性同余方程 -- 与线性 Diophantus 方程的联系}
+\begin{frame}
+  \frametitle{线性同余方程 -- 与线性 Diophantus 方程的联系}
   事实上，有线性同余方程 $a x \equiv b \pmod{m}$ 与 $m \mid (a x - b)$ 等价，并进一步等价于存在 $k$ 使得 $k m = a x - b$ 成立，令 $y = -k$，移项后变为 $a x + m y = b$，可以看作一个关于 $x, y$ 的线性 Diophantus 方程。
   
   \begin{visibleenv}<2->
@@ -1328,7 +1349,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}{有理数取模}
+\begin{frame}
+  \frametitle{有理数取模}
   \begin{onlyenv}<1>
     目前我们已经定义整数对另一正整数的模，也即进行有余数的除法后得到的余数。
     
@@ -1356,7 +1378,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{onlyenv}
 \end{frame}
 
-\begin{frame}{有理数取模 -- 困难与联系}
+\begin{frame}
+  \frametitle{有理数取模 -- 困难与联系}
   正如前文所述，在定义 $m \ne 1$ 时的有理数取模时遇到了困难。
   
   \begin{visibleenv}<2->
@@ -1387,7 +1410,8 @@ std::vector<int> sieve_of_Euler(int n) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{Bézout 定理}
+\begin{frame}
+  \frametitle{Bézout 定理}
   为了解决方程 $a x + b y = c$，首先考察当 $x, y$ 任取时，$a x + b y$ 的取值。接下来我们给出 \fdf{Bézout 定理（Bézout's lemma）}。
   
   \begin{visibleenv}<2-3>
@@ -1406,7 +1430,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}{Bézout 定理 -- 证明}
+\begin{frame}
+  \frametitle{Bézout 定理 -- 证明}
   \begin{onlyenv}<1-7>
     \begin{proof}[Bézout 定理]
       \renewcommand{\qedsymbol}{\visible<7>{\leavevmode （续）}}
@@ -1442,7 +1467,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{onlyenv}
 \end{frame}
 
-\begin{frame}{解的存在性判定}
+\begin{frame}
+  \frametitle{解的存在性判定}
   Bézout 定理解决了线性 Diophantus 方程的解的存在性判定问题。
   
   对于 $a x + b y = c$，令 $g = \gcd(a, b)$，则方程有解等价于 $g \mid c$。
@@ -1460,7 +1486,8 @@ std::vector<int> sieve_of_Euler(int n) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{齐次情况}
+\begin{frame}
+  \frametitle{齐次情况}
   考察当 $c = 0$ 时的齐次情况：$a x + b y = 0$。
   
   \begin{onlyenv}<2-4>
@@ -1504,7 +1531,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{onlyenv}
 \end{frame}
 
-\begin{frame}{齐次情况 -- 特解与通解}
+\begin{frame}
+  \frametitle{齐次情况 -- 特解与通解}
   如上给出了齐次情况的通解形式 $\langle -k b', k a' \rangle$，这大大简化了问题。
   
   \begin{visibleenv}<2->
@@ -1534,7 +1562,8 @@ std::vector<int> sieve_of_Euler(int n) {
 
 % \iffalse %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{frame}{扩展 Euclid 算法 -- 引入}
+\begin{frame}
+  \frametitle{扩展 Euclid 算法 -- 引入}
   Bézout 定理显示了 $a x + b y = \gcd(a, b)$ 必定有解。\\
   进一步地，注意到 $a x + b y = c$ 有解当且仅当 $\gcd(a, b) \mid c$，则求出 $a x + b y = \gcd(a, b)$ 的一组特解 $\langle x_0, y_0 \rangle$ 后，将其乘 $\frac{c}{\gcd(a, b)}$ 后即可得到 $a x + b y = c$ 的一组特解。
   
@@ -1545,7 +1574,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}{扩展 Euclid 算法}
+\begin{frame}
+  \frametitle{扩展 Euclid 算法}
   \begin{onlyenv}<1-2>
     Euclid 算法依赖有余数的除法进行，其递归形式形如：%
     %
@@ -1596,7 +1626,8 @@ std::vector<int> sieve_of_Euler(int n) {
   \end{onlyenv}
 \end{frame}
 
-\begin{frame}[fragile]{扩展 Euclid 算法 -- \Cpp{} 实现}
+\begin{frame}[fragile]
+  \frametitle{扩展 Euclid 算法 -- \Cpp{} 实现}
   以下是扩展 Euclid 算法的 \Cpp{} 代码（\Cpp{}17）：
   
 \begin{minted}[fontsize = \scriptsize]{cpp}
@@ -1624,7 +1655,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}[c]{扩展 Euclid 算法 -- 例子}
+\begin{frame}[c]
+  \frametitle{扩展 Euclid 算法 -- 例子}
   \[
     \SetTblrInner{colsep = 0pt}
     \begin{tblr}{colspec = {crcrcrcrcrcrrcrcrcrcc}, column{5, 12} = {rightsep+ = 7pt}, column{6, 13} = {leftsep+ = 7pt}, vline{6, 13}}
@@ -1643,7 +1675,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   \]
 \end{frame}
 
-\begin{frame}{扩展 Euclid 算法 -- 特解的最小性}
+\begin{frame}
+  \frametitle{扩展 Euclid 算法 -- 特解的最小性}
   当对不能同时为 $0$ 的非负整数 $a, b$ 运行如上编写的扩展 Euclid 算法时，有性质：
   
   \begin{itemize}
@@ -1661,7 +1694,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   \end{visibleenv}
 \end{frame}
 
-\begin{frame}{解线性 Diophantus 方程 -- 总结}
+\begin{frame}
+  \frametitle{解线性 Diophantus 方程 -- 总结}
   解线性 Diophantus 方程 $a x + b y = c$ 时只需进行下列步骤。
   
   \begin{enumerate}
@@ -1680,7 +1714,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   \end{enumerate}
 \end{frame}
 
-\begin{frame}{线性同余方程 -- 伏笔回收}
+\begin{frame}
+  \frametitle{线性同余方程 -- 伏笔回收}
   如前文所述，线性同余方程 $a x \equiv b \pmod{m}$ 可转化为线性 Diophantus 方程 $a x + m y = b$ 的求解。
   
   \emptyline
@@ -1697,7 +1732,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   只有当 $\gcd(a, m) \ne 1$ 时才有可能发生无解的情况（回顾线性 Diophantus 方程的解的存在性判定条件）。
 \end{frame}
 
-\begin{frame}{有理数取模 -- 伏笔回收}
+\begin{frame}
+  \frametitle{有理数取模 -- 伏笔回收}
   如前文所述，为最简分数 $\frac{b}{a}$ 定义对 $m$ 的模时，可以考虑线性同余方程 $a x \equiv b \pmod{m}$ 的解。
   
   \emptyline
@@ -1715,7 +1751,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   得出结论：最简分数 $\frac{b}{a}$ 的模有定义当且仅当 $a \perp m$。
 \end{frame}
 
-\begin{frame}{有理数取模 -- 乘法逆元}
+\begin{frame}
+  \frametitle{有理数取模 -- 乘法逆元}
   如前文所述，最简分数 $\frac{b}{a}$ 的模有定义当且仅当 $a \perp m$。
   
   考虑模的性质：$(a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (b \mathbin{\mathrm{mod}_{\mathbb Q}} m) \equiv (a \cdot b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$。
@@ -1749,7 +1786,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
 \section{附录}
 \subsection*{附录}
 
-\begin{frame}[c]{中英文对照表}
+\begin{frame}[c]
+  \frametitle{中英文对照表}
   \tiny
   
   \begin{adjustwidth}{-.5cm}{}
@@ -1793,7 +1831,8 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   \end{adjustwidth}
 \end{frame}
 
-\begin{frame}[c]{参考文献与致谢}
+\begin{frame}[c]
+  \frametitle{参考文献与致谢}
   \begin{itemize}
     \item OI Wiki，\url{https://oi-wiki.org/}
     \item Wikipedia，\url{https://en.wikipedia.org/}
