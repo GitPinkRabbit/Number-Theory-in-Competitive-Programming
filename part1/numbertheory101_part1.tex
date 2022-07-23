@@ -1104,7 +1104,7 @@ std::vector<int> sieve_of_Eratosthenes(int n) {
   \frametitle{Eratosthenes 筛法 -- 时间复杂度}
   Eratosthenes 筛法的时间复杂度由内层循环体的执行次数确定。即%
   \[%
-    \text{复杂度} \sim \sum_{p \le \sqrt{n}} \left\lfloor \frac{n}{p} \right\rfloor \sim n \sum_{p \le \sqrt{n}} \frac{1}{p} \sim n \ln \ln \!\left( \sqrt{n} \right) = n \log \log n \text{。}
+    \text{复杂度} \sim \sum_{p \le \sqrt{n}} \left\lfloor \frac{n}{p} \right\rfloor \sim n \sum_{p \le \sqrt{n}} \frac{1}{p} \sim n \ln \ln \!\left( \sqrt{n} \right) = \mathcal O (n \log \log n) \text{。}
   \]%
   其中，基于一结论 $\displaystyle \sum_{p \le n} \frac{1}{p} = \ln \ln n + \mathcal O (1)$。\footnote{此结论即 Mertens 第二定理}
   
