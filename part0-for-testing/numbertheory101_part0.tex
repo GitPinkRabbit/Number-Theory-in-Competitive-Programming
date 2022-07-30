@@ -16,6 +16,18 @@
 % \usepackage{relsize}
 
 
+% 用于添加 CC BY-SA 4.0 版权协议
+\usepackage[
+  type={CC},
+  modifier={by-sa},
+  version={4.0},
+  lang={chinese-utf8}
+]{doclicense}
+\renewcommand{\doclicenseLongText}{%
+  本作品采用\space\href{https://creativecommons.org/licenses/by-sa/4.0/deed.zh}{Creative Commons“署名-相同方式共享 4.0 国际”}许可协议进行许可。\xspace%
+}
+
+
 
 % ===================================================================
 % 自定义一些命令
@@ -58,6 +70,14 @@
 % \firstauthor{陈亮舟}
 % \firstauthor{陈亮舟}[PinkRabbit][PK]
 % \firstinstitute{清华大学}{THU}
+
+
+% 添加关于信息，也可不添加
+\aboutinfotext{%
+  本系列课件的 PDF 版本和 \LaTeX{} 源代码均托管于\href{https://github.com/GitPinkRabbit/Number-Theory-in-Competitive-Programming}{“算法竞赛中的数论 -- 系列课件”-- GitHub/GitPinkRabbit}，后续更新将在此上传。
+  
+  \doclicenseThis%
+}
 
 
 
@@ -271,7 +291,7 @@ int gcd(int a, int b) {
 \begin{frame}[c]
   \frametitle{以下是文档结构测试}
   
-  确保不报 overfull vbox。除此文件不跨级使用 subsubsection。
+  确保不报 overfull vbox。不跨级使用 subsubsection（包括此文件）。
   
   \begin{multicols}{2}
     \tableofcontents
@@ -473,6 +493,7 @@ int gcd(int a, int b) {
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
+\subsection{第四节的第一小节}
 \subsubsection{更小的小节五}
 
 \begin{frame}
