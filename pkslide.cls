@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2022/07/24 PinkRabbit Slide class]
+[2022/07/31 PinkRabbit Slide class]
 
 
 
@@ -195,7 +195,7 @@
 % nonempty <s1> indicates a list-like environment is at the beginning of mymulticols
 % nonempty <s2> indicates a list-like environment is at the end of mymulticols
 % basically, setting <s1> and <s2> to either empty string or "l" can do the job
-\NewDocumentEnvironment{mymulticols}{O{}O{}m}{%
+\NewDocumentEnvironment{mymulticols}{O{} O{} m}{%
   \ifblank{#1}{%
     \vspace*{-\multicolsep}%
   }{%
@@ -218,14 +218,26 @@
 
 
 % 自动插入标题页
+\newbool{PKUseAboutInfoText} % package etoolbox
+\newcommand{\PKAboutInfoText}{}
+\NewDocumentCommand{\aboutinfotext}{+m}{%
+  \booltrue{PKUseAboutInfoText}%
+  \renewcommand{\PKAboutInfoText}{#1}
+}
 \AddToHook{begindocument/end}{
   \begin{frame}
     \titlepage
   \end{frame}
+
+  \ifbool{PKUseAboutInfoText}{%
+    \begin{frame}
+      \frametitle{关于}
+      \PKAboutInfoText
+    \end{frame}%
+  }{}
   
   \begin{frame}[c]
     \frametitle{目录}
-    
     \begin{mymulticols}{2}
       \tableofcontents
     \end{mymulticols}
@@ -293,7 +305,7 @@
 % \textboldcolor 相当于变色 + 文字加粗 + 公式加粗
 % 在水平模式中，通过 \boldmath 和 \unboldmath 实现公式加粗，不应跨段落使用
 % 在数学模式中，通过 bm 宏包中的 \bm 实现公式加粗，不应跨数学公式内外使用
-\NewDocumentCommand{\textboldcolor}{om}{%
+\NewDocumentCommand{\textboldcolor}{o m}{%
   \IfNoValueTF{#1}{%
     \ifmmode%
       \bm{#2}%
