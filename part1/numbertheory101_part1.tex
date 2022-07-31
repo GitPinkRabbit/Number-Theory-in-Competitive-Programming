@@ -25,6 +25,17 @@
 \usepackage{graphbox}
 
 
+% 用于添加 CC BY-SA 4.0 版权协议
+\usepackage[
+type={CC},
+modifier={by-sa},
+version={4.0}
+]{doclicense}
+\renewcommand{\doclicenseLongText}{%
+  本作品采用\space\href{https://creativecommons.org/licenses/by-sa/4.0/deed.zh}{Creative Commons“署名-相同方式共享 4.0 国际”}许可协议进行许可。\xspace%
+}
+
+
 
 % ===================================================================
 % 自定义一些命令
@@ -58,6 +69,14 @@
   福建师范大学附属中学%
 }[The Affiliated High School of Fujian Normal University]{AHSFNU}
 \originalfinaldate[2022 年 1 月 26 日]{\today}
+
+
+% 添加关于信息，也可不添加
+\aboutinfotext{%
+  本系列课件的 PDF 版本和 \LaTeX{} 源代码均托管于\href{https://github.com/GitPinkRabbit/Number-Theory-in-Competitive-Programming}{“算法竞赛中的数论 -- 系列课件”-- GitHub/GitPinkRabbit}，后续更新将在此上传。
+  
+  \doclicenseThis%
+}
 
 
 
@@ -1724,7 +1743,7 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   
   \emptyline
   
-  若 $a x + m y = b$ 通解为 $\langle x_0 + k m', y_0 + k a' \rangle$（$k \in \mathbb Z$），\\
+  若 $a x + m y = b$ 通解为 $\langle x_0 - k m', y_0 + k a' \rangle$（$k \in \mathbb Z$），\\
   则 $a x \equiv b \pmod{m}$ 的解有形式 $x \equiv x_0 \pmod{m'}$。
   
   其中 $m' = \frac{m}{\gcd(a, m)}$。
