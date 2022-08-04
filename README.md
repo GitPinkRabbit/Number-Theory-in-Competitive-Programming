@@ -1,6 +1,6 @@
 # 算法竞赛中的数论 – 系列课件
 
-正在绝赞编写中！
+<img style="width: 40%" align="right" src="./misc/logo.png" />正在绝赞编写中！
 
 本系列课件的 PDF 版本遵循 CC BY-SA 4.0 版权协议。  
 本系列课件的 LaTeX 源代码以 GNU GPL v3.0 协议开源。  
