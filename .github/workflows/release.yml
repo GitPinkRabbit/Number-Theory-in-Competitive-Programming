@@ -32,6 +32,10 @@ jobs:
             ./resource/LXGWWenKai-Bold.ttf
             ./resource/SourceHanSansSC-Regular.otf
             ./resource/FZHeiFJ-R.OTF
+            ./resource/CascadiaMono-SemiLightItalic.otf
+            ./resource/FZHeiFJ-B.OTF
+            ./resource/SourceHanSerifSC-Bold.otf
+            ./resource/SourceHanSansSC-Bold.otf
           latexmk_use_xelatex: true
           work_in_root_file_dir: true
 
@@ -79,6 +83,10 @@ jobs:
             ./resource/LXGWWenKai-Bold.ttf
             ./resource/SourceHanSansSC-Regular.otf
             ./resource/FZHeiFJ-R.OTF
+            ./resource/CascadiaMono-SemiLightItalic.otf
+            ./resource/FZHeiFJ-B.OTF
+            ./resource/SourceHanSerifSC-Bold.otf
+            ./resource/SourceHanSansSC-Bold.otf
           latexmk_shell_escape: true
           latexmk_use_xelatex: true
           work_in_root_file_dir: true
