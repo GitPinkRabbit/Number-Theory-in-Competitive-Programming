@@ -1,9 +1,11 @@
 # 算法竞赛中的数论 – 系列课件
 
-<img style="width: 40%" align="right" src="./misc/logo.png" />正在绝赞编写中！
+<img style="width: 40%" align="right" src="./misc/logo.png" />
 
-本系列课件的 PDF 版本遵循 CC BY-SA 4.0 版权协议。  
-本系列课件的 LaTeX 源代码以 GNU GPL v3.0 协议开源。  
+正在绝赞编写中！
+
+本系列课件的 PDF 版本遵循 CC BY-SA 4.0 版权协议。<br/>
+本系列课件的 LaTeX 源代码以 GNU GPL v3.0 协议开源。<br/>
 （注意 GNU GPL v3.0 包含 CC BY-SA 4.0）
 
 力求做到的目标：
@@ -27,8 +29,8 @@
 
 在阅读课件的过程中，如果发现笔误、逻辑错误、或排版错误等，请通过 QQ 联系我（3507898808）。当然，更推荐发 GitHub issue，但如果没有 GitHub 的账号或使用经验（作为普通 OIer，这很正常），仍然欢迎通过 QQ 联系。
 
-我们不会有读者群之类的东西，但有一个“编写小组” QQ 群，但我希望只让有较大意愿探讨课件编写、或能提供较大帮助的朋友加入，并且要求你必须是一个有在中国的比赛经验的 OIer 或 XCPCer。  
-这个群是推荐 + 邀请制的，我不会通过任何渠道给出加群的方式，包括群号、二维码等。  
+我们不会有读者群之类的东西，但有一个“编写小组” QQ 群，但我希望只让有较大意愿探讨课件编写、或能提供较大帮助的朋友加入，并且要求你必须是一个有在中国的比赛经验的 OIer 或 XCPCer。<br/>
+这个群是推荐 + 邀请制的，我不会通过任何渠道给出加群的方式，包括群号、二维码等。<br/>
 如果你认为你对知识点编排的整体逻辑能提供想法、或者拥有较多的算法竞赛教学经验愿意分享、或者掌握了一些在算法竞赛中不常见的数论技术、或者对一些数论题有独到的理解，欢迎你通过 QQ 联系我（3507898808），我会将你拉进群。
 
 ## 编写指南
@@ -48,9 +50,9 @@
 关于动画：
 
 - 在简单页面，尽量多地使用 `\pause` 进行简单动画，而不是复杂的 overlay specification 例如 `only`、`uncover` 等。
-- 为了与 `\pause` 相符，应使用 `\uncover` 和 `uncoverenv` 环境，而不是 `\visible` 和 `visibleevn` 环境。这也方便他人进行 `\setbeamercovered{transparent}` 等设置。  
+- 为了与 `\pause` 相符，应使用 `\uncover` 和 `uncoverenv` 环境，而不是 `\visible` 和 `visibleevn` 环境。这也方便他人进行 `\setbeamercovered{transparent}` 等设置。<br/>
   注意此时要考虑到 `uncover` 并未隐藏内容而只是增加透明度，所以可以出现内层 `only` 的 overlay specification 超出外层的 `uncover` 的情况。并且需要尽量避免 `uncover` 或其他 overlay specification（非 `only`）的嵌套造成透明度不正确，也需要避免 `\pause` 后的 `uncover` 或其他 overlay specification（非 `only`），或 `uncover` 或其他 overlay specification（非 `only`）内部的 `\pause`，而连续的 `\pause` 当然是允许的。
-- 在 `\pause` 需要嵌套在 `only` 内部时，使用与 `only` 同步的 `\pause` 而非 `\pause[number]`（否则可能造成页脚消失），见 Part 1 中 Euclid 算法一页（frame 45）。  
+- 在 `\pause` 需要嵌套在 `only` 内部时，使用与 `only` 同步的 `\pause` 而非 `\pause[number]`（否则可能造成页脚消失），见 Part 1 中 Euclid 算法一页（frame 45）。
 - PDF 最好要经过 `\setbeamercovered{transparent}` 和 `\setbeamercovered{invisible}` 两重测试。
 
 ## 关于课件与讲稿的分离
