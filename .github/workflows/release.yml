@@ -25,17 +25,18 @@ jobs:
           pre_compile: tlmgr update --self && tlmgr update --all
           root_file: ./part0-for-testing/numbertheory101_part0.tex
           extra_fonts: |
-            ./resource/CascadiaMono-SemiLight.otf
             ./resource/CascadiaMono-SemiBold.otf
-            ./resource/SourceHanSerifSC-Regular.otf
-            ./resource/LXGWWenKai-Regular.ttf
-            ./resource/LXGWWenKai-Bold.ttf
-            ./resource/SourceHanSansSC-Regular.otf
-            ./resource/FZHeiFJ-R.OTF
+            ./resource/CascadiaMono-SemiBoldItalic.otf
+            ./resource/CascadiaMono-SemiLight.otf
             ./resource/CascadiaMono-SemiLightItalic.otf
             ./resource/FZHeiFJ-B.OTF
-            ./resource/SourceHanSerifSC-Bold.otf
+            ./resource/FZHeiFJ-R.OTF
+            ./resource/LXGWWenKai-Bold.ttf
+            ./resource/LXGWWenKai-Regular.ttf
             ./resource/SourceHanSansSC-Bold.otf
+            ./resource/SourceHanSansSC-Regular.otf
+            ./resource/SourceHanSerifSC-Bold.otf
+            ./resource/SourceHanSerifSC-Regular.otf
           latexmk_use_xelatex: true
           work_in_root_file_dir: true
 
@@ -76,17 +77,18 @@ jobs:
           pre_compile: tlmgr update --self && tlmgr update --all
           root_file: ./part1/numbertheory101_part1.tex
           extra_fonts: |
-            ./resource/CascadiaMono-SemiLight.otf
             ./resource/CascadiaMono-SemiBold.otf
-            ./resource/SourceHanSerifSC-Regular.otf
-            ./resource/LXGWWenKai-Regular.ttf
-            ./resource/LXGWWenKai-Bold.ttf
-            ./resource/SourceHanSansSC-Regular.otf
-            ./resource/FZHeiFJ-R.OTF
+            ./resource/CascadiaMono-SemiBoldItalic.otf
+            ./resource/CascadiaMono-SemiLight.otf
             ./resource/CascadiaMono-SemiLightItalic.otf
             ./resource/FZHeiFJ-B.OTF
-            ./resource/SourceHanSerifSC-Bold.otf
+            ./resource/FZHeiFJ-R.OTF
+            ./resource/LXGWWenKai-Bold.ttf
+            ./resource/LXGWWenKai-Regular.ttf
             ./resource/SourceHanSansSC-Bold.otf
+            ./resource/SourceHanSansSC-Regular.otf
+            ./resource/SourceHanSerifSC-Bold.otf
+            ./resource/SourceHanSerifSC-Regular.otf
           latexmk_shell_escape: true
           latexmk_use_xelatex: true
           work_in_root_file_dir: true
