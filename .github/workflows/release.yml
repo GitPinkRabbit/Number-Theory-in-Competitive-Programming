@@ -22,6 +22,7 @@ jobs:
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
+          pre_compile: tlmgr update --self && tlmgr update --all
           root_file: ./part0-for-testing/numbertheory101_part0.tex
           extra_fonts: |
             ./resource/CascadiaMono-SemiLight.otf
@@ -50,6 +51,7 @@ jobs:
       - name: Build pictures
         uses: xu-cheng/latex-action@v2
         with:
+          pre_compile: tlmgr update --self && tlmgr update --all
           root_file: |
             ./part1/pics/division_structure.tex
             ./part1/pics/fruits_equation_solution.tex
@@ -67,6 +69,7 @@ jobs:
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
+          pre_compile: tlmgr update --self && tlmgr update --all
           root_file: ./part1/numbertheory101_part1.tex
           extra_fonts: |
             ./resource/CascadiaMono-SemiLight.otf
