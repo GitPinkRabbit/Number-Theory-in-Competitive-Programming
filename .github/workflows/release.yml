@@ -53,6 +53,19 @@ jobs:
           pre_compile: tlmgr update --self && tlmgr update --all
           root_file: |
             ./part1/pics/division_structure.tex
+          extra_fonts: |
+            ./misc/fonts/CascadiaMono-SemiBold.otf
+            ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
+            ./misc/fonts/CascadiaMono-SemiLight.otf
+            ./misc/fonts/CascadiaMono-SemiLightItalic.otf
+            ./misc/fonts/FZHeiFJ-B.OTF
+            ./misc/fonts/FZHeiFJ-R.OTF
+            ./misc/fonts/LXGWWenKai-Bold.ttf
+            ./misc/fonts/LXGWWenKai-Regular.ttf
+            ./misc/fonts/SourceHanSansSC-Bold.otf
+            ./misc/fonts/SourceHanSansSC-Regular.otf
+            ./misc/fonts/SourceHanSerifSC-Bold.otf
+            ./misc/fonts/SourceHanSerifSC-Regular.otf
           latexmk_use_xelatex: true
           work_in_root_file_dir: true
 
