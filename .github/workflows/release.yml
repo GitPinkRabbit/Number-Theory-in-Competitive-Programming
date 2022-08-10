@@ -53,10 +53,7 @@ jobs:
           pre_compile: tlmgr update --self && tlmgr update --all
           root_file: |
             ./part1/pics/division_structure.tex
-            ./part1/pics/fruits_equation_solution.tex
-            ./part1/pics/fruits_equation.tex
-            ./part1/pics/fruits.tex
-          latexmk_use_lualatex: true
+          latexmk_use_xelatex: true
           work_in_root_file_dir: true
 
       - name: Build
