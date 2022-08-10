@@ -12,3 +12,6 @@ temporary/
 *.fls
 *.pyg
 _minted-*
+
+*.pdf
+*.synctex.gz
