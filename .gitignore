@@ -11,6 +11,7 @@ temporary/
 *.xdv
 *.fls
 *.pyg
+*.synctex(busy)
 _minted-*
 
 *.pdf

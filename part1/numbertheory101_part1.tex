@@ -25,6 +25,10 @@
 \usepackage{graphbox}
 
 
+\usepackage{twemojis}
+\newcommand{\myemoji}[1]{\raisebox{-.2ex}{\twemoji[height=1.25\fontcharht\font`X]{#1}}}
+
+
 % 用于添加 CC BY-SA 4.0 版权协议
 \usepackage[
 type={CC},
@@ -1245,22 +1249,16 @@ std::vector<int> sieve_of_Euler(int n) {
 \begin{frame}
   \frametitle{Diophantus 方程 -- 例子}
   \begin{examples}[Diophantus 方程]
+    \pause
     \begin{itemize}
-      \item<2-> 关于 $x, y, z$ 的方程 $x^n + y^n = z^n$ 为 Diophantus 方程。\\
+      \item 关于 $x, y, z$ 的方程 $x^n + y^n = z^n$ 为 Diophantus 方程。\\
         已知 $n = 1, 2$ 时，此方程的通解形式已得到清晰理解。\footnote<2->{Pythagorean 三元组}\\
-        \-\hspace{2em} $n \ge 3$ 时，Fermat 猜想此方程仅有平凡解 $(0, 0, 0)$。\footnote<2->{Fermat 猜想 ($\sim$1637)，Fermat 大定理 (Wiles, 1995)}
-      \item<3-> 关于 \includegraphics[align = c]{pics/fruits.pdf} 的方程 \includegraphics[align = c]{pics/fruits_equation.pdf} 通分后可以变为 Diophantus 方程的形式。\\
-        据说有 $99 \%$ 的人无法找到正整数解。\footnote<3->{一组正整数解为}
+        \-\hspace{2em} $n \ge 3$ 时，Fermat 猜想此方程仅有平凡解 $(0, 0, 0)$。\footnote<2->{Fermat 猜想 (1637)，Fermat 大定理 (Wiles, 1995)}
+        \pause
+      \item 关于 $\displaystyle \myemoji{red apple}, \myemoji{banana}, \myemoji{pineapple}$ 的方程 $\displaystyle \frac{\myemoji{red apple}}{\myemoji{banana} + \myemoji{pineapple}} + \frac{\myemoji{banana}}{\myemoji{red apple} + \myemoji{pineapple}} + \frac{\myemoji{pineapple}}{\myemoji{red apple} + \myemoji{banana}} = 4$ 通分后可以变为 Diophantus 方程的形式。\\
+        据说有 $99 \%$ 的人无法找到正整数解。\footnote<3->{\parbox[t][\lineskip]{3 \textwidth}{一组正整数解为 $\langle \myemoji{red apple}, \myemoji{banana}, \myemoji{pineapple} \rangle = \nolinebreak \langle \begin{aligned}[t] & 154476802108746166441951315019919837485664325669565431700026634898253202035277999, \\ & 36875131794129999827197811565225474825492979968971970996283137471637224634055579, \\ & 4373612677928697257861252602371390152816537558161613618621437993378423467772036 \rangle \end{aligned}$}}
     \end{itemize}
   \end{examples}
-  
-  \uncover<3->{
-    \begin{figure}
-      \begin{tikzpicture}[remember picture,overlay]
-        \node [xshift = .3775\pdfpagewidth, yshift = -.4945\pdfpageheight] at (current page.center) {\includegraphics[scale = 0.82313]{pics/fruits_equation_solution.pdf}};
-      \end{tikzpicture}
-    \end{figure}
-  }
 \end{frame}
 
 \begin{frame}
