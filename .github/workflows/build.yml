@@ -1,0 +1,73 @@
+name: Build LaTeX Document
+
+on:
+  workflow_call:
+    inputs:
+      name:
+        description: The name of this build
+        required: true
+        type: string
+      file:
+        description: The LaTeX source file to be built (without `.tex`)
+        required: true
+        type: string
+      shell_escape:
+        description: Whether to use -shell-escape or not
+        required: false
+        type: boolean
+      need:
+        description: The dependencies
+        required: false
+        type: string
+      need_dir:
+        description: The directory to place dependencies in
+        default: ./
+        required: false
+        type: string
+
+jobs:
+  build:
+    name: Build ${{ inputs.name }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Download dependencies
+        uses: actions/download-artifact@v3
+        if: ${{ inputs.need != '' }}
+
+      - name: Move dependencies
+        run: mv ./${{ inputs.need }}/${{ inputs.need }}.pdf ${{ inputs.need_dir }}
+        if: ${{ inputs.need != '' }}
+
+      - name: Build
+        uses: xu-cheng/latex-action@v2
+        with:
+          pre_compile: tlmgr update --self && tlmgr update --all
+          work_in_root_file_dir: true
+          latexmk_use_xelatex: true
+          latexmk_shell_escape: ${{ inputs.shell_escape }}
+          root_file: ${{ inputs.file }}.tex
+          extra_fonts: |
+            ./misc/fonts/CascadiaMono-SemiBold.otf
+            ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
+            ./misc/fonts/CascadiaMono-SemiLight.otf
+            ./misc/fonts/CascadiaMono-SemiLightItalic.otf
+            ./misc/fonts/FZHeiFJ-B.OTF
+            ./misc/fonts/FZHeiFJ-R.OTF
+            ./misc/fonts/LXGWWenKai-Bold.ttf
+            ./misc/fonts/LXGWWenKai-Regular.ttf
+            ./misc/fonts/SourceHanSansSC-Bold.otf
+            ./misc/fonts/SourceHanSansSC-Regular.otf
+            ./misc/fonts/SourceHanSerifSC-Bold.otf
+            ./misc/fonts/SourceHanSerifSC-Regular.otf
+
+      - name: Rename result
+        run: mv ${{ inputs.file }}.pdf ${{ inputs.name }}.pdf
+
+      - name: Store result
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.name }}
+          path: ${{ inputs.name }}.pdf

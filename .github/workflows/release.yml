@@ -2,135 +2,38 @@ name: Release when updated
 
 on:
   push:
-    branches: ["part2"] # for test
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
   part0:
-    name: Build Part 0
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    uses: ./.github/workflows/build.yml
+    with:
+      name: Part0
+      file: ./part0-for-testing/numbertheory101_part0
 
-      - name: Build
-        uses: xu-cheng/latex-action@v2
-        with:
-          pre_compile: tlmgr update --self && tlmgr update --all
-          root_file: ./part0-for-testing/numbertheory101_part0.tex
-          extra_fonts: |
-            ./misc/fonts/CascadiaMono-SemiBold.otf
-            ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
-            ./misc/fonts/CascadiaMono-SemiLight.otf
-            ./misc/fonts/CascadiaMono-SemiLightItalic.otf
-            ./misc/fonts/FZHeiFJ-B.OTF
-            ./misc/fonts/FZHeiFJ-R.OTF
-            ./misc/fonts/LXGWWenKai-Bold.ttf
-            ./misc/fonts/LXGWWenKai-Regular.ttf
-            ./misc/fonts/SourceHanSansSC-Bold.otf
-            ./misc/fonts/SourceHanSansSC-Regular.otf
-            ./misc/fonts/SourceHanSerifSC-Bold.otf
-            ./misc/fonts/SourceHanSerifSC-Regular.otf
-          latexmk_use_xelatex: true
-          work_in_root_file_dir: true
-
-      - name: Store result
-        uses: actions/upload-artifact@v3
-        with:
-          name: Part0
-          path: ./part0-for-testing/numbertheory101_part0.pdf
+  part1_picture:
+    uses: ./.github/workflows/build.yml
+    with:
+      name: division_structure
+      file: ./part1/pics/division_structure
 
   part1:
-    name: Build Part 1
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Build pictures
-        uses: xu-cheng/latex-action@v2
-        with:
-          pre_compile: tlmgr update --self && tlmgr update --all
-          root_file: |
-            ./part1/pics/division_structure.tex
-          extra_fonts: |
-            ./misc/fonts/CascadiaMono-SemiBold.otf
-            ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
-            ./misc/fonts/CascadiaMono-SemiLight.otf
-            ./misc/fonts/CascadiaMono-SemiLightItalic.otf
-            ./misc/fonts/FZHeiFJ-B.OTF
-            ./misc/fonts/FZHeiFJ-R.OTF
-            ./misc/fonts/LXGWWenKai-Bold.ttf
-            ./misc/fonts/LXGWWenKai-Regular.ttf
-            ./misc/fonts/SourceHanSansSC-Bold.otf
-            ./misc/fonts/SourceHanSansSC-Regular.otf
-            ./misc/fonts/SourceHanSerifSC-Bold.otf
-            ./misc/fonts/SourceHanSerifSC-Regular.otf
-          latexmk_use_xelatex: true
-          work_in_root_file_dir: true
-
-      - name: Build
-        uses: xu-cheng/latex-action@v2
-        with:
-          pre_compile: tlmgr update --self && tlmgr update --all
-          root_file: ./part1/numbertheory101_part1.tex
-          extra_fonts: |
-            ./misc/fonts/CascadiaMono-SemiBold.otf
-            ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
-            ./misc/fonts/CascadiaMono-SemiLight.otf
-            ./misc/fonts/CascadiaMono-SemiLightItalic.otf
-            ./misc/fonts/FZHeiFJ-B.OTF
-            ./misc/fonts/FZHeiFJ-R.OTF
-            ./misc/fonts/LXGWWenKai-Bold.ttf
-            ./misc/fonts/LXGWWenKai-Regular.ttf
-            ./misc/fonts/SourceHanSansSC-Bold.otf
-            ./misc/fonts/SourceHanSansSC-Regular.otf
-            ./misc/fonts/SourceHanSerifSC-Bold.otf
-            ./misc/fonts/SourceHanSerifSC-Regular.otf
-          latexmk_shell_escape: true
-          latexmk_use_xelatex: true
-          work_in_root_file_dir: true
-
-      - name: Store result
-        uses: actions/upload-artifact@v3
-        with:
-          name: Part1
-          path: ./part1/numbertheory101_part1.pdf
+    needs: [part1_picture]
+    uses: ./.github/workflows/build.yml
+    with:
+      name: Part1
+      file: ./part1/numbertheory101_part1
+      shell_escape: true
+      need: division_structure
+      need_dir: ./part1/pics/
 
   part2:
-    name: Build Part 2
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Build
-        uses: xu-cheng/latex-action@v2
-        with:
-          pre_compile: tlmgr update --self && tlmgr update --all
-          root_file: ./part2/numbertheory101_part2.tex
-          extra_fonts: |
-            ./misc/fonts/CascadiaMono-SemiBold.otf
-            ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
-            ./misc/fonts/CascadiaMono-SemiLight.otf
-            ./misc/fonts/CascadiaMono-SemiLightItalic.otf
-            ./misc/fonts/FZHeiFJ-B.OTF
-            ./misc/fonts/FZHeiFJ-R.OTF
-            ./misc/fonts/LXGWWenKai-Bold.ttf
-            ./misc/fonts/LXGWWenKai-Regular.ttf
-            ./misc/fonts/SourceHanSansSC-Bold.otf
-            ./misc/fonts/SourceHanSansSC-Regular.otf
-            ./misc/fonts/SourceHanSerifSC-Bold.otf
-            ./misc/fonts/SourceHanSerifSC-Regular.otf
-          latexmk_shell_escape: true
-          latexmk_use_xelatex: true
-          work_in_root_file_dir: true
-
-      - name: Store result
-        uses: actions/upload-artifact@v3
-        with:
-          name: Part2
-          path: ./part2/numbertheory101_part2.pdf
+    uses: ./.github/workflows/build.yml
+    with:
+      name: Part2
+      file: ./part2/numbertheory101_part2
+      shell_escape: true
 
   release:
     needs: [part0, part1, part2]
@@ -155,9 +58,9 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./Part0/numbertheory101_part0.pdf
-            ./Part1/numbertheory101_part1.pdf
-            ./Part2/numbertheory101_part2.pdf
+            ./Part0/Part0.pdf
+            ./Part1/Part1.pdf
+            ./Part2/Part2.pdf
           body: 由 GitHub Actions 自动发布，对应 commit ${{ env.release_id }}。
           name: Release ${{ env.release_id }}
           tag_name: release/${{ env.release_id }}
