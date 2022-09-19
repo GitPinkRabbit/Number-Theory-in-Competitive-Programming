@@ -31,9 +31,10 @@
 
 % 用于添加 CC BY-SA 4.0 版权协议
 \usepackage[
-type={CC},
-modifier={by-sa},
-version={4.0}
+  type={CC},
+  modifier={by-sa},
+  version={4.0},
+  lang={chinese-utf8}
 ]{doclicense}
 \renewcommand{\doclicenseLongText}{%
   本作品采用\space\href{https://creativecommons.org/licenses/by-sa/4.0/deed.zh}{Creative Commons“署名-相同方式共享 4.0 国际”}许可协议进行许可。\xspace%
@@ -1368,62 +1369,64 @@ std::vector<int> sieve_of_Euler(int n) {
     \emptyline
     
     这意味着，只需要解决 $a x + m y = b$ 这一线性 Diophantus 方程，即可解决原线性同余方程。
+    
+    接下来我们将展示线性 Diophantus 方程的求解方法。
   \end{uncoverenv}
 \end{frame}
 
-\begin{frame}
-  \frametitle{有理数取模}
-  \begin{onlyenv}<1>
-    目前我们已经定义整数对另一正整数的模，也即进行有余数的除法后得到的余数。
+% \begin{frame}
+%   \frametitle{有理数取模}
+%   \begin{onlyenv}<1>
+%     目前我们已经定义整数对另一正整数的模，也即进行有余数的除法后得到的余数。
     
-    \emptyline
+%     \emptyline
     
-    从同余等价的角度考虑，对于有理数来说，我们也希望通过同余关系定义有理数对一正整数的模，并期望如此定义的模保持运算性质。
-  \end{onlyenv}
+%     从同余等价的角度考虑，对于有理数来说，我们也希望通过同余关系定义有理数对一正整数的模，并期望如此定义的模保持运算性质。
+%   \end{onlyenv}
   
-  \begin{onlyenv}<2-3>
-    \begin{definition}[有理数取模]
-      给定正整数 $m$，定义 $({\ast} \mathbin{\mathrm{mod}_{\mathbb Q}} m) : \mathbb Q \to \{ 0, 1, \ldots, m - 1 \}$，保持：
+%   \begin{onlyenv}<2-3>
+%     \begin{definition}[有理数取模]
+%       给定正整数 $m$，定义 $({\ast} \mathbin{\mathrm{mod}_{\mathbb Q}} m) : \mathbb Q \to \{ 0, 1, \ldots, m - 1 \}$，保持：
       
-      \begin{itemize}
-        \item 对于整数 $n$，$n \mathbin{\mathrm{mod}_{\mathbb Q}} m = n \bmod m$
-        \item $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \pm (b \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = (a \pm b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$
-        \item $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (b \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = (a \cdot b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$
-      \end{itemize}
+%       \begin{itemize}
+%         \item 对于整数 $n$，$n \mathbin{\mathrm{mod}_{\mathbb Q}} m = n \bmod m$
+%         \item $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \pm (b \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = (a \pm b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$
+%         \item $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (b \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = (a \cdot b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$
+%       \end{itemize}
       
-      其中，$a, b$ 为任意有理数。
-    \end{definition}
+%       其中，$a, b$ 为任意有理数。
+%     \end{definition}
     
-    \begin{uncoverenv}<3->
-      然而，注意到，当我们取 $a = m$ 而 $b = \frac{1}{m}$ 时，如果 $b \mapsto x$，则必须有 $0 \cdot x \equiv 1 \pmod{m}$，而这当 $m \ne 1$ 时是不可能的。
-    \end{uncoverenv}
-  \end{onlyenv}
-\end{frame}
+%     \begin{uncoverenv}<3->
+%       然而，注意到，当我们取 $a = m$ 而 $b = \frac{1}{m}$ 时，如果 $b \mapsto x$，则必须有 $0 \cdot x \equiv 1 \pmod{m}$，而这当 $m \ne 1$ 时是不可能的。
+%     \end{uncoverenv}
+%   \end{onlyenv}
+% \end{frame}
 
-\begin{frame}
-  \frametitle{有理数取模 -- 困难与联系}
-  正如前文所述，在定义 $m \ne 1$ 时的有理数取模时遇到了困难。
+% \begin{frame}
+%   \frametitle{有理数取模 -- 困难与联系}
+%   正如前文所述，在定义 $m \ne 1$ 时的有理数取模时遇到了困难。
   
-  \begin{uncoverenv}<2->
-    \emptyline
+%   \begin{uncoverenv}<2->
+%     \emptyline
     
-    让我们考虑一有理数的最简分数表示为 $x = \frac{b}{a}$，则根据上述定义，需要满足 $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (x \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = b \mathbin{\mathrm{mod}_{\mathbb Q}} m$。
-  \end{uncoverenv}
+%     让我们考虑一有理数的最简分数表示为 $x = \frac{b}{a}$，则根据上述定义，需要满足 $((a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (x \mathbin{\mathrm{mod}_{\mathbb Q}} m)) \bmod m = b \mathbin{\mathrm{mod}_{\mathbb Q}} m$。
+%   \end{uncoverenv}
   
-  \begin{uncoverenv}<3->
-    令 $x' = x \mathbin{\mathrm{mod}_{\mathbb Q}} m$。上式即%
-    %
-    \[ a x' \equiv b \pmod{m} \text{。} \]
-    %
-    即一线性同余方程。如果此方程有解，则有希望定义有理数 $x$ 对 $m$ 的模。
-  \end{uncoverenv}
+%   \begin{uncoverenv}<3->
+%     令 $x' = x \mathbin{\mathrm{mod}_{\mathbb Q}} m$。上式即%
+%     %
+%     \[ a x' \equiv b \pmod{m} \text{。} \]
+%     %
+%     即一线性同余方程。如果此方程有解，则有希望定义有理数 $x$ 对 $m$ 的模。
+%   \end{uncoverenv}
   
-  \begin{uncoverenv}<4->
-    \emptyline
+%   \begin{uncoverenv}<4->
+%     \emptyline
     
-    而线性同余方程可以被转化为线性 Diophantus 方程。接下来我们将展示线性 Diophantus 方程的求解方法。
-  \end{uncoverenv}
-\end{frame}
+%     而线性同余方程可以被转化为线性 Diophantus 方程。接下来我们将展示线性 Diophantus 方程的求解方法。
+%   \end{uncoverenv}
+% \end{frame}
 
 % \fi %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1753,47 +1756,47 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
   只有当 $\gcd(a, m) \ne 1$ 时才有可能发生无解的情况（回顾线性 Diophantus 方程的解的存在性判定条件）。
 \end{frame}
 
-\begin{frame}
-  \frametitle{有理数取模 -- 伏笔回收}
-  如前文所述，为最简分数 $\frac{b}{a}$ 定义对 $m$ 的模时，可以考虑线性同余方程 $a x \equiv b \pmod{m}$ 的解。
+% \begin{frame}
+%   \frametitle{有理数取模 -- 伏笔回收}
+%   如前文所述，为最简分数 $\frac{b}{a}$ 定义对 $m$ 的模时，可以考虑线性同余方程 $a x \equiv b \pmod{m}$ 的解。
   
-  \emptyline
+%   \emptyline
   
-  假设 $a x \equiv b \pmod{m}$ 有解 $x \equiv x_0 \pmod{m'}$，其中 $m' = \frac{m}{\gcd(a, m)}$。
+%   假设 $a x \equiv b \pmod{m}$ 有解 $x \equiv x_0 \pmod{m'}$，其中 $m' = \frac{m}{\gcd(a, m)}$。
   
-  \begin{itemize}
-    \item 如果 $m' = m$，即 $\gcd(a, m) = 1$，也即 $a \perp m$，\\
-      \-\hspace{2em}可以定义 $\frac{b}{a} \mathbin{\mathrm{mod}_{\mathbb Q}} m = x_0 \bmod m$。
-    \item 如果 $m' \ne m$，即 $\gcd(a, m) \ne 1$，这是不可能的，因为有解当且仅当 $\gcd(a, m) \mid b$，于是这说明 $\gcd(a, b) \ne 1$，故 $\frac{b}{a}$ 并非最简分数，与前提矛盾。
-  \end{itemize}
+%   \begin{itemize}
+%     \item 如果 $m' = m$，即 $\gcd(a, m) = 1$，也即 $a \perp m$，\\
+%       \-\hspace{2em}可以定义 $\frac{b}{a} \mathbin{\mathrm{mod}_{\mathbb Q}} m = x_0 \bmod m$。
+%     \item 如果 $m' \ne m$，即 $\gcd(a, m) \ne 1$，这是不可能的，因为有解当且仅当 $\gcd(a, m) \mid b$，于是这说明 $\gcd(a, b) \ne 1$，故 $\frac{b}{a}$ 并非最简分数，与前提矛盾。
+%   \end{itemize}
   
-  \emptyline
+%   \emptyline
   
-  得出结论：最简分数 $\frac{b}{a}$ 的模有定义当且仅当 $a \perp m$。
-\end{frame}
+%   得出结论：最简分数 $\frac{b}{a}$ 的模有定义当且仅当 $a \perp m$。
+% \end{frame}
 
-\begin{frame}
-  \frametitle{有理数取模 -- 乘法逆元}
-  如前文所述，最简分数 $\frac{b}{a}$ 的模有定义当且仅当 $a \perp m$。
+% \begin{frame}
+%   \frametitle{有理数取模 -- 乘法逆元}
+%   如前文所述，最简分数 $\frac{b}{a}$ 的模有定义当且仅当 $a \perp m$。
   
-  考虑模的性质：$(a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (b \mathbin{\mathrm{mod}_{\mathbb Q}} m) \equiv (a \cdot b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$。
+%   考虑模的性质：$(a \mathbin{\mathrm{mod}_{\mathbb Q}} m) \cdot (b \mathbin{\mathrm{mod}_{\mathbb Q}} m) \equiv (a \cdot b) \mathbin{\mathrm{mod}_{\mathbb Q}} m$。
   
-  于是有 $\frac{b}{a}$ 的模等于 $b$ 的模乘 $\frac{1}{a}$ 的模。
+%   于是有 $\frac{b}{a}$ 的模等于 $b$ 的模乘 $\frac{1}{a}$ 的模。
   
-  故只需要定义全体与 $m$ 互素的正整数 $a$ 的倒数 $\frac{1}{a}$ 的模即可。
+%   故只需要定义全体与 $m$ 互素的正整数 $a$ 的倒数 $\frac{1}{a}$ 的模即可。
   
-  假设 $\frac{1}{a}$ 的模为 $x$，则 $x$ 将会满足 $a x \equiv 1 \pmod{m}$，在同余式的运算中扮演消去一侧 $a$ 因子的角色：%
-  %
-  \begin{align*}
-    (\mathcal A) \cdot a &\equiv \mathcal B \\
-    (\mathcal A) \cdot a \cdot x &\equiv (\mathcal B) \cdot x \\
-    \mathcal A &\equiv (\mathcal B) \cdot x
-  \end{align*}%
-  %
-  我们称满足 $a x \equiv 1 \pmod{m}$ 的 $x$ 为 $a$ 模 $m$ 的\fdf{乘法逆元}。
+%   假设 $\frac{1}{a}$ 的模为 $x$，则 $x$ 将会满足 $a x \equiv 1 \pmod{m}$，在同余式的运算中扮演消去一侧 $a$ 因子的角色：%
+%   %
+%   \begin{align*}
+%     (\mathcal A) \cdot a &\equiv \mathcal B \\
+%     (\mathcal A) \cdot a \cdot x &\equiv (\mathcal B) \cdot x \\
+%     \mathcal A &\equiv (\mathcal B) \cdot x
+%   \end{align*}%
+%   %
+%   我们称满足 $a x \equiv 1 \pmod{m}$ 的 $x$ 为 $a$ 模 $m$ 的\fdf{乘法逆元}。
   
-  可以证明模 $m$ 同余的所有 $a$ 的乘法逆元相同，并且扩展 Euclid 算法给出了乘法逆元的一种计算方法。
-\end{frame}
+%   可以证明模 $m$ 同余的所有 $a$ 的乘法逆元相同，并且扩展 Euclid 算法给出了乘法逆元的一种计算方法。
+% \end{frame}
 
 \begin{frame}[c]
   \centering
@@ -1846,7 +1849,7 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
         \item 线性同余方程：linear congruence equation
         \item Bézout（裴蜀）定理：Bézout's lemma
         \item 扩展 Euclid（欧几里得）算法：extended Euclidean algorithm
-        \item 乘法逆元：modular multiplicative inverse
+        % \item 乘法逆元：modular multiplicative inverse
       \end{itemize}
     \end{mymulticols}
   \end{adjustwidth}
@@ -1855,9 +1858,9 @@ int extended_Euclidean(int a, int b, int &x, int &y) {
 \begin{frame}[c]
   \frametitle{参考文献与致谢}
   \begin{itemize}
-    \item OI Wiki，\url{https://oi-wiki.org/}
-    \item Wikipedia，\url{https://en.wikipedia.org/wiki/Main_Page}
-    \item \textsf{Pr}$\infty$\textsf{fWiki}，\url{https://proofwiki.org/wiki/Main_Page}
+    \item OI Wiki，{\footnotesize\url{https://oi-wiki.org/}}
+    \item Wikipedia，{\footnotesize\url{https://en.wikipedia.org/wiki/Main_Page}}
+    \item \textsf{Pr}$\infty$\textsf{fWiki}，{\footnotesize\url{https://proofwiki.org/wiki/Main_Page}}
     \item 具体数学（\textit{Concrete Mathematics: A Foundation for Computer Science}），R.~L.~Graham, D.~E.~Knuth, and O.~Patashnik
     \item 数论导引，华罗庚
     \item 本课件编写时的哔哩哔哩直播间观众
