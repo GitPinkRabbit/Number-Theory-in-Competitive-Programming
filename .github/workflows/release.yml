@@ -37,7 +37,7 @@ jobs:
       - name: Store result
         uses: actions/upload-artifact@v3
         with:
-          name: Format Test
+          name: pdf-format-test
           path: ./tex-format-test/NTCP-Format-Test.pdf
 
   part-1:
@@ -94,7 +94,7 @@ jobs:
       - name: Store result
         uses: actions/upload-artifact@v3
         with:
-          name: Part1
+          name: pdf-part-1
           path: ./tex-part-1/NTCP-Part-1.pdf
 
   release:
@@ -120,8 +120,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./tex-format-test/NTCP-Format-Test.pdf
-            ./tex-part-1/NTCP-Part-1.pdf
+            ./pdf-format-test/NTCP-Format-Test.pdf
+            ./pdf-part-1/NTCP-Part-1.pdf
           body: 由 GitHub Actions 自动发布，对应 commit ${{ env.release_id }}。
           name: Release ${{ env.release_id }}
           tag_name: release/${{ env.release_id }}
