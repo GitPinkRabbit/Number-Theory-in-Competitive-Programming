@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  part0:
-    name: Build Part 0
+  format-test:
+    name: Build Format Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -17,7 +17,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           pre_compile: tlmgr update --self && tlmgr update --all
-          root_file: ./part0-for-testing/numbertheory101_part0.tex
+          root_file: ./tex-format-test/NTCP-Format-Test.tex
           extra_fonts: |
             ./misc/fonts/CascadiaMono-SemiBold.otf
             ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
@@ -37,10 +37,10 @@ jobs:
       - name: Store result
         uses: actions/upload-artifact@v3
         with:
-          name: Part0
-          path: ./part0-for-testing/numbertheory101_part0.pdf
+          name: Format Test
+          path: ./tex-format-test/NTCP-Format-Test.pdf
 
-  part1:
+  part-1:
     name: Build Part 1
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +52,7 @@ jobs:
         with:
           pre_compile: tlmgr update --self && tlmgr update --all
           root_file: |
-            ./part1/pics/division_structure.tex
+            ./tex-part-1/pics/division_structure.tex
           extra_fonts: |
             ./misc/fonts/CascadiaMono-SemiBold.otf
             ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
@@ -73,7 +73,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           pre_compile: tlmgr update --self && tlmgr update --all
-          root_file: ./part1/numbertheory101_part1.tex
+          root_file: ./tex-part-1/NTCP-Part-1.tex
           extra_fonts: |
             ./misc/fonts/CascadiaMono-SemiBold.otf
             ./misc/fonts/CascadiaMono-SemiBoldItalic.otf
@@ -95,10 +95,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Part1
-          path: ./part1/numbertheory101_part1.pdf
+          path: ./tex-part-1/NTCP-Part-1.pdf
 
   release:
-    needs: [part0, part1]
+    needs: [format-test, part-1]
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -120,8 +120,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./Part0/numbertheory101_part0.pdf
-            ./Part1/numbertheory101_part1.pdf
+            ./tex-format-test/NTCP-Format-Test.pdf
+            ./tex-part-1/NTCP-Part-1.pdf
           body: 由 GitHub Actions 自动发布，对应 commit ${{ env.release_id }}。
           name: Release ${{ env.release_id }}
           tag_name: release/${{ env.release_id }}
