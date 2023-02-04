@@ -50,8 +50,8 @@
 
 
 % 标题、作者、学校/机构与日期信息，用于标题页显示和页脚显示：页脚将会显示短形式
-\title[算法竞赛中的数论（零）]{算法竞赛中的数论}
-\subtitle{\texorpdfstring{\textsuperscript{0.}}{0. }beamer 格式测试}
+\title[算法竞赛中的数论（格式测试）]{算法竞赛中的数论}
+\subtitle{格式测试}
 \firstauthor{%
   陈亮舟%
   %\inst{1}%
@@ -60,7 +60,7 @@
   %\inst{1}%
   福建师范大学附属中学%
 }[The Affiliated High School of Fujian Normal University]{AHSFNU}
-\originalfinaldate*[2022 年 7 月 2 日]{2022 年 7 月 16 日}
+\originalfinaldate*{2023 年 2 月 4 日}
 
 % 如果需要引入更多作者或学校/机构（注意控制文字高度）：
 % \addauthor{忆艾\inst{2}}[Elegia]
@@ -92,10 +92,8 @@
 
 
 \begin{document}
-
 \begin{frame}
   \frametitle{中文演示文档}
-  
   \begin{itemize}
     \item 你需要将所有源文件保存为 UTF-8 编码
     \item 你可以使用 \XeLaTeX{}、\LuaLaTeX{} 或 \upLaTeX{} 编译
@@ -115,7 +113,6 @@
 
 \begin{frame}
   \frametitle{含有公式的页面}
-  
   Leonhard Euler 于 1734 年解决了 Basel 问题：$\sum_{i = 1}^{+\infty} \frac{1}{i^2} = \frac{\pi^2}{6}$，或
   
   \[ \sum_{i = 1}^{+\infty} \frac{1}{i^2} = \frac{\pi^2}{6} \text{。} \]
@@ -131,7 +128,6 @@
 
 \begin{frame}
   \frametitle{beamer 版面设置}
-  
   beamer 使用的是进行调整过后的 Berlin 主题。具体调整为：
   
   将页脚（footline）更换为 infolines 外部主题的形式。
@@ -141,7 +137,6 @@
 
 \begin{frame}[fragile]
   \frametitle{显示代码}
-  
   要使用 \verb|\verb|、\verb|verbatim| 环境、或 \verb|listings|、\verb|minted| 宏包等工具显示代码，需要在 \verb|\begin{frame}| 后添加 \verb|fragile| 选项。下面展示使用原生 \verb|verbatim| 环境显示 \Cpp{} 代码：
   
 \begin{verbatim}
@@ -155,7 +150,6 @@ int gcd(int a, int b) {
 
 \begin{frame}
   \frametitle{英文字体测试}
-  
   每行依次为 rm、sf、tt 族。每三行依次为 up、it、sl 形。后一半使用 bf 加粗。
   
   {%
@@ -179,7 +173,6 @@ int gcd(int a, int b) {
 
 \begin{frame}
   \frametitle{中文字体测试}
-  
   每行依次为 rm、sf、tt 族。每两行依次为 up、it 形。后一半使用 bf 加粗。
   
   {%
@@ -199,7 +192,6 @@ int gcd(int a, int b) {
 
 \begin{frame}
   \frametitle{其他拉丁文字字体测试}
-  
   每行依次为 rm、sf、tt 族。每两行依次为 up、it、sl 形。后一页使用 bf 加粗。
   
   拉丁字母：
@@ -227,7 +219,6 @@ int gcd(int a, int b) {
 
 \begin{frame}[c]
   \frametitle{一页简单的定理环境与动画测试}
-  
   \only<5>{此例子改编自 beamer 用户手册。注意前后文间距。}
   
   \begin{theorem}[可选定理名]
@@ -248,7 +239,6 @@ int gcd(int a, int b) {
 
 \begin{frame}[c]
   \frametitle{“定义”环境}
-  
   前文。注意环境与前后文间距。
   
   \begin{definition}[素数]
@@ -262,7 +252,6 @@ int gcd(int a, int b) {
 
 \begin{frame}[fragile]
   \frametitle{测试自定义命令}
-  
   第一行。以下使用 \verb|\emptyline| 空一行。
   
   \emptyline
@@ -290,7 +279,6 @@ int gcd(int a, int b) {
 
 \begin{frame}[c]
   \frametitle{以下是文档结构测试}
-  
   确保不报 overfull vbox。不跨级使用 subsubsection（包括此文件）。
   
   \begin{multicols}{2}
@@ -307,9 +295,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -322,9 +308,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -337,9 +321,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -352,9 +334,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -367,9 +347,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -382,9 +360,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -397,9 +373,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -412,9 +386,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -427,9 +399,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -442,9 +412,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -457,9 +425,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -472,9 +438,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -487,9 +451,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -503,9 +465,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -518,9 +478,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -533,9 +491,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -548,9 +504,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -565,9 +519,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -580,9 +532,7 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
 
@@ -595,12 +545,9 @@ int gcd(int a, int b) {
 \begin{frame}
   \frametitle{空着的第二页}
   \framesubtitle{我是空着的（吗？）}
-  
   算了还是写点东西吧？
-  
   \[ \sum_{i = 1}^{n} \mu(i) > 0 \text{。} \]
 \end{frame}
-
 \end{document}
 
 
