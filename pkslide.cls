@@ -245,27 +245,11 @@
 }
 
 
-% 定义 \miniframeson 和 \miniframesoff 命令，以在导航栏中隐藏节标题的小圆圈
-% 来自 https://tex.stackexchange.com/q/234269
-\makeatletter
-\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry
-\def\beamer@writeslidentry@miniframesoff{%
-  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
-  {%else
-    % removed \addtocontents commands
-    \clearpage\beamer@notesactions%
-  }
-}
-\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
-\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
-\makeatother
 % 自动插入节标题
 \AtBeginSection{
-  \miniframesoff    %       remove navigation circle
   \begin{frame}[c]
     \sectionpage
   \end{frame}
-  \miniframeson     % undo: remove navigation circle
 }
 
 
