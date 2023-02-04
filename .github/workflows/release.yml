@@ -16,7 +16,7 @@ jobs:
       - name: Build
         uses: xu-cheng/latex-action@v2
         with:
-          pre_compile: tlmgr update --self && tlmgr update --all
+          pre_compile: tlmgr update --self && tlmgr update --all --reinstall-forcibly-removed
           root_file: ./tex-format-test/NTCP-Format-Test.tex
           extra_fonts: |
             ./misc/fonts/CascadiaMono-SemiBold.otf
