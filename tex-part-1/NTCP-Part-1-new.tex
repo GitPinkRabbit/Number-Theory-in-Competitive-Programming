@@ -1,0 +1,83 @@
+% !TeX = NTCP-Part-1-new.tex
+
+
+
+
+% 使用自定义文档类
+\documentclass[aspectratio = 32]{../pkslide}
+
+
+
+
+% =============================================================================
+% 以下是导言区
+
+
+
+% ===================================================================
+% 调用宏包
+
+
+% 用于添加 CC BY-SA 4.0 版权协议
+\usepackage[
+  type={CC},
+  modifier={by-sa},
+  version={4.0},
+  lang={chinese-utf8}
+]{doclicense}
+\renewcommand{\doclicenseLongText}{%
+  本作品采用\space\href{https://creativecommons.org/licenses/by-sa/4.0/deed.zh}{Creative Commons“署名-相同方式共享 4.0 国际”}许可协议进行许可。\xspace%
+}
+
+
+
+% ===================================================================
+% 自定义一些命令
+
+
+% C++ 符号宏，依赖 hyperref 和 relsize
+% 来自 GitHub 上的仓库 tcbrindle/wg21papertemplate 中的 ./common.tex 文件
+\newcommand{\Cpp}{\texorpdfstring{C\kern-0.05em\protect\raisebox{.35ex}{\textsmaller[2]{+\kern-0.05em+}}}{C++}}
+
+
+
+% ===================================================================
+% 不影响显示形式的，需要在导言区引入的信息
+
+
+% 标题、作者、学校/机构与日期信息，用于标题页显示和页脚显示：页脚将会显示短形式
+\title[算法竞赛中的数论（一）]{算法竞赛中的数论（一）：初识数论}
+\subtitle{基础知识与算法、整除结构、与模运算的基础应用}
+\firstauthor{%
+  陈亮舟%
+  %\inst{1}%
+}[PinkRabbit]
+\firstinstitute{%
+  %\inst{1}%
+  福建师范大学附属中学%
+}[The Affiliated High School of Fujian Normal University]{AHSFNU}
+\originalfinaldate[2022 年 1 月 26 日]{\today}
+
+
+% 添加关于信息，也可不添加
+\aboutinfotext{%
+  本系列课件的 PDF 版本和 \LaTeX{} 源代码均托管于\href{https://github.com/GitPinkRabbit/Number-Theory-in-Competitive-Programming}{“算法竞赛中的数论 -- 系列课件”-- GitHub/GitPinkRabbit}，后续更新将在此上传。
+  
+  \doclicenseThis%
+}
+
+
+
+% 以上是导言区
+% =============================================================================
+
+\begin{document}
+\input{sections/section-prologue.tex}
+% \input{sections/section-1.tex}
+% \input{sections/section-2.tex}
+% \input{sections/section-3.tex}
+% \input{sections/section-4.tex}
+\input{sections/section-5.tex}
+\input{sections/section-6.tex}
+\input{sections/section-epilogue.tex}
+\end{document}

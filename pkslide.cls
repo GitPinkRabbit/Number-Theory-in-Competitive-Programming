@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2022/07/31 PinkRabbit Slide class]
+[2023/02/08 PinkRabbit Slide class]
 
 
 
@@ -214,7 +214,8 @@
 
 
 % ===================================================================
-% 设置自动化插入标题页、节标题、小小节插入进度等功能
+% 设置自动化插入标题页、节标题
+% 以及手动插入进度、感谢页面等功能
 
 
 % 自动插入标题页
@@ -238,8 +239,11 @@
   
   \begin{frame}[c]
     \frametitle{目录}
-    \begin{mymulticols}{2}
-      \tableofcontents
+    \setbeamerfont{section in toc}{size = \small}
+    \setbeamerfont{subsection in toc}{size = \footnotesize}
+    \setbeamerfont{subsubsection in toc}{size = \scriptsize}
+    \begin{mymulticols}{3}
+      \tableofcontents[sectionstyle = show, subsectionstyle = show, subsubsectionstyle = show]
     \end{mymulticols}
   \end{frame}
 }
@@ -253,23 +257,31 @@
 }
 
 
-% 定义 \progressnow 以显示当前进度，在 frame 环境外部使用
-\newcommand{\progressnow}{%
-  \begin{frame}[c]
-    \frametitle{当前进度}
-    \setbeamercolor{subsection in toc}{fg = red}
-    \setbeamercolor{subsection in toc shaded}{fg = black}
-    \setbeamercolor{subsubsection in toc}{fg = red}
-    \setbeamercolor{subsubsection in toc shaded}{fg = black}
-    \begin{mymulticols}{2}
-      \tableofcontents[sectionstyle = show/shaded, subsectionstyle = show/shaded/hide, subsubsectionstyle = show/shaded/hide]
-    \end{mymulticols}
-  \end{frame}%
+% 定义 \progressnow 以显示当前进度，在 frame 环境内部使用
+% 若是在 subsection 开头显示，而非 subsubsection，请加星号（即 \progressnow*）
+\NewDocumentCommand{\progressnow}{s}{%
+  \frametitle{当前进度}
+  \setbeamercolor{subsection in toc}{fg = red}
+  \setbeamercolor{subsection in toc shaded}{fg = black}
+  \setbeamercolor{subsubsection in toc}{fg = red}
+  \setbeamercolor{subsubsection in toc shaded}{fg = black}
+  \begin{mymulticols}{2}
+    \IfBooleanTF{#1}{%
+      \tableofcontents[sectionstyle = show/shaded, subsectionstyle = show/shaded/hide, subsubsectionstyle = hide/hide/hide/hide]%
+    }{%
+      \tableofcontents[sectionstyle = show/shaded, subsectionstyle = show/shaded/hide, subsubsectionstyle = show/shaded/hide/hide]%
+    }
+  \end{mymulticols}%
 }
-% 自动在 subsubsection 前插入当前进度
-\AtBeginSubsubsection{\progressnow}
-% 定义 \pseudosubsubsection 以在小节不需要进一步分段时显示当前进度
-\newcommand{\pseudosubsubsection}{\progressnow}
+
+
+% 定义 \thankspage[...] 以类似节标题页的格式显示课件结束时的感谢文字，在 frame 环境内部使用
+\NewDocumentCommand{\thankspage}{O{感谢倾听}}{
+  \centering
+  \begin{beamercolorbox}[sep = 12pt, center]{section title}
+    \usebeamerfont{section title}#1\par
+  \end{beamercolorbox}
+}
 
 
 
