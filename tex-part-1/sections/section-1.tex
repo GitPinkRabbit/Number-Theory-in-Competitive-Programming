@@ -4,11 +4,13 @@
 \begin{frame}
   \frametitle{前置知识复习}
   在正式开始前，让我们先对一些前置知识进行“特别复习”。请回忆：
-  \begin{itemize}
-    \item 有余数的除法
-    \item 因数与倍数
-    \item 素数与合数
-  \end{itemize}
+  \begin{mymulticols}[l][l]{3}
+    \begin{itemize}
+      \item 有余数的除法
+      \item 因数与倍数
+      \item 素数与合数
+    \end{itemize}
+  \end{mymulticols}
   \pause
   
   \emptyline
@@ -18,7 +20,7 @@
   \pause
   
   \emptyline
-  对于不需要复习的读者，可以只注意本节中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分，明确对于特殊情况的定义。
+  对于不需要复习的读者，可以只注意本节中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分以明确对于特殊情况的定义、了解细节，以及要确保能够正确回答所有练习题。
 \end{frame}
 \subsection{有余数的除法}
 \begin{frame}[c]
@@ -83,6 +85,21 @@
   \pause
   
   \PKMissing{这里需要一张图片}
+\end{frame}
+\begin{frame}
+  \frametitle{开放性问题}
+  可以自行思考这些问题，不会给出答案。
+  \begin{enumerate}
+    \item 在小学，“有余数的除法”的定义是：
+    
+    \alert{把“被除数”个物品平均分成“除数”份，每份的个数尽量多。此时每份的个数就是“商”，余下不能再分的个数就是“余数”。}
+    
+    \emptyline
+    试比较小学课本中的定义与本册的定义。为什么这两种定义等价？
+    \item 在小学，我们都学过列竖式计算除法。
+    
+    在竖式除法的计算过程中，为什么能得出正确的结果？你能使用上面的定义分别进行解释吗？
+  \end{enumerate}
 \end{frame}
 \subsubsection{\texorpdfstring{\textsuperscript{(*) }}{(*) }\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
 \begin{frame}[c]
@@ -293,7 +310,7 @@
   对于非 $0$ 整数 $a$，称 $1, -1, a, -a$ 为 $a$ 的\fdf{平凡因数}。
 \end{frame}
 \begin{frame}
-  \frametitle{习题}
+  \frametitle{练习题}
   仅使用定义，试着证明关于整除性的这些性质（出现的字母都表示整数）：
   \pause
   \begin{enumerate}
@@ -322,8 +339,8 @@
   \end{enumerate}
 \end{frame}
 \begin{frame}
-  \frametitle{习题（补充）}
-  经过上面的习题，我们发现：
+  \frametitle{练习题（补充）}
+  经过上面的练习题，我们发现：
   \pause
   \begin{itemize}
     \item “整除”与“小于等于”较为类似。因为可以写“$a \mid a$”和“$a \mid b \mid c$”，甚至还有 $a \mid b \implies \lvert a \rvert \le \lvert b \rvert$ 的性质（除了 $0$）。但它们的不同之处在于，对任意两个数总有其中一个小于等于另一个，但有可能它们互不整除对方。
@@ -339,8 +356,35 @@
   \frametitle{因数分布}
   \PKMissing{别急}
 \end{frame}
+\begin{frame}
+  \frametitle{开放性问题}
+  可以自行思考这些问题，不会给出答案。
+  \begin{enumerate}
+    \item 整数的“\alert{序关系}”在算法中重要吗？“整除”与“小于等于”的这种相似能够如何指导我们设计算法？
+    \item 因数与倍数看似是对称的。但是在数轴上看，一个数的倍数落在间距相同的无限个点上，十分有规律；而一个数的因数虽有一定性质，但没有如此程度的规律性，枚举因数的算法也称不上优美。
+    
+    这是一种\alert{不对称}，这种不对称能够如何指导我们设计算法？
+    \item 我们已经证明，因数个数函数 $d(n) = \mathcal O (\sqrt{n})$。但从图像上看，$d(n)$ 比 $\sqrt{n}$ 要小得多。试给出一些与此现象有关的因素。
+    \item 枚举因数的复杂度是 $\mathcal O (\sqrt{n})$。这比 $\Theta(1)$ 大了 $\sqrt{n}$ 倍，也比 $\Theta(n)$ 小了 $\sqrt{n}$ 倍。这种复杂度上的“大”与“小”对我们设计算法有何影响？
+  \end{enumerate}
+\end{frame}
 \subsection{素数与合数}
 \begin{frame}[c]
   \progressnow*
 \end{frame}
-\frame{}% delete this ===============================================
+\begin{frame}
+  \frametitle{回忆与定义}
+  \PKMissing{别急}
+\end{frame}
+\begin{frame}
+  \frametitle{例子}
+  \PKMissing{别急}
+\end{frame}
+\begin{frame}
+  \frametitle{素数分布}
+  \PKMissing{别急}
+\end{frame}
+\begin{frame}
+  \frametitle{开放性问题}
+  \PKMissing{别急}
+\end{frame}
