@@ -50,12 +50,18 @@
 \RequirePackage{xeCJK}
 
 
+% 用于给汉字加着重号或下划线
+\RequirePackage{xeCJKfntef}
+\xeCJKsetup{underdot/symbol = {\normalfont\sffamily^^b7}}
+
+
 % 实际上，ctexbeamer 文档类会自动调用以下 AMS 宏包，所以也可注释掉
 \RequirePackage{amsmath, amssymb, amsthm}
 
 
 % 实际上，ctexbeamer 文档类会自动调用 xcolor 宏包，所以也可注释掉
 \RequirePackage{xcolor}
+\colorlet{darkgreen}{green!50!black}
 
 
 % 为了使用 \mathscr 必须调用此宏包
@@ -242,7 +248,7 @@
     \setbeamerfont{section in toc}{size = \small}
     \setbeamerfont{subsection in toc}{size = \footnotesize}
     \setbeamerfont{subsubsection in toc}{size = \scriptsize}
-    \begin{mymulticols}{3}
+    \begin{mymulticols}[l][l]{3}
       \tableofcontents[sectionstyle = show, subsectionstyle = show, subsubsectionstyle = show]
     \end{mymulticols}
   \end{frame}
@@ -265,7 +271,7 @@
   \setbeamercolor{subsection in toc shaded}{fg = black}
   \setbeamercolor{subsubsection in toc}{fg = red}
   \setbeamercolor{subsubsection in toc shaded}{fg = black}
-  \begin{mymulticols}{2}
+  \begin{mymulticols}[l][l]{2}
     \IfBooleanTF{#1}{%
       \tableofcontents[sectionstyle = show/shaded, subsectionstyle = show/shaded/hide, subsubsectionstyle = hide/hide/hide/hide]%
     }{%
@@ -316,8 +322,34 @@
     \fi
   }%
 }
+
+
 % 意为 first-define，即概念定义时使用
 \newcommand{\fdf}[1]{\textboldcolor[red]{#1}}
+
+
+% 用于制造“填空题”下划线、粗体、颜色与动画效果
+% usage: \fillblank<overlay specification>[color]{text}
+% if <overlay specification> not specified, no `\visible' command will be generated
+% if <color> not specified, the text color doesn't change
+% if starred, use original font series instead of bfseries
+\NewDocumentCommand{\fillblank}{s d<> o m}{%
+  \underline{\space%
+  \IfNoValueTF{#2}{%
+    \IfBooleanF{#1}{\bfseries{}\boldmath{}}%
+    \IfNoValueF{#3}{\color{#3}}%
+    {#4}%
+    \IfBooleanF{#1}{\unboldmath{}}%
+  }{%
+    \visible<#2>{%
+      \IfBooleanF{#1}{\bfseries{}\boldmath{}}%
+      \IfNoValueF{#3}{\color{#3}}%
+      {#4}%
+      \IfBooleanF{#1}{\unboldmath{}}%
+    }%
+  }%
+  \space}%
+}
 
 
 % 切换主题颜色，来自 beamercolorthemespruce.sty
@@ -329,6 +361,10 @@
   \setbeamercolor{structure}{fg=beamer@blendedblue}%
 }
 \makeatother
+
+
+% 在编写时，用来提示缺了啥东西的，发布时源代码中不应该有这个
+\newcommand{\PKMissing}[1]{{\huge\hfill\fbox{\textboldcolor[orange]{#1}}\hfill}}
 
 
 

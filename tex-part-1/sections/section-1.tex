@@ -1,22 +1,282 @@
 % !TeX root = ../NTCP-Part-1.tex
 
 \section{前置知识复习}
-\frame{}% delete this ===============================================
+\begin{frame}
+  \frametitle{前置知识复习}
+  在正式开始前，让我们先对一些前置知识进行“特别复习”。请回忆：
+  \begin{itemize}
+    \item 有余数的除法
+    \item 因数与倍数
+    \item 素数与合数
+  \end{itemize}
+  \pause
+  
+  \emptyline
+  除了帮助读者回忆起相关概念，这也是为了在本系列中明确\textbf{这些基础概念的特殊情况}的具体定义。
+  
+  有一些概念在不同文献中的定义不同，特别是对于特殊情况的处理。对于有争议的定义，在阅读本系列时，请以本系列给出的定义为准。
+  \pause
+  
+  \emptyline
+  对于不需要复习的读者，可以只注意本节中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分，明确对于特殊情况的定义。
+\end{frame}
 \subsection{有余数的除法}
 \begin{frame}[c]
   \progressnow*
 \end{frame}
-\frame{}% delete this ===============================================
-\subsubsection{\Cpp{} 中内置类型的 \texttt{/} 和 \texttt{\%} 运算符}
+\begin{frame}
+  \frametitle{有余数的除法}
+  \framesubtitle{回忆与定义}
+  回忆：对于整数 $a$ 和正整数 $m$，可以计算 $a$ 除以 $m$，得到商 $q$ 和余数 $r$。
+  
+  对此，有熟悉的记号：“\textboldcolor[orange]{$a \div m = q \cdots \cdots r$}”。若 $r = 0$，可以省略后部。
+  
+  \emptyline
+  下面我们给出有余数的除法的\textbf{精确定义}。
+  \pause
+  \begin{definition}[有余数的除法]
+    对于整数 $a$ 和正整数 $m$，\textboldcolor[orange]{存在且仅存在}一对整数 $\langle q, r \rangle$ 满足
+    \begin{center}
+      $a = q \cdot m + r$ 且 $0 \le r < m$，
+    \end{center}
+    \pause
+    则称 $a$ 除以 $m$ 的\fdf{商}为 $q$、\fdf{余数}为 $r$。并称其中的 $a$ 为\fdf{被除数}、$m$ 为\fdf{除数}。
+  \end{definition}
+  \pause
+  请注意，被除数可以为\textboldcolor[darkgreen]{任意\CJKunderdot[format=\color{darkgreen}]{整数}}，而除数限定为\textcolor{darkgreen}{\textbf{\CJKunderdot[format=\color{darkgreen}]{正}整数}}。
+\end{frame}
+\begin{frame}
+  \frametitle{有余数的除法}
+  \framesubtitle{例子}
+  \begin{itemize}
+    \item $5$ 除以 $3$ 的商为 \fillblank<2->[red]{$1$}，余数为 \fillblank<2->[red]{$2$}。
+    \pause
+    \pause
+    \item $-9$ 除以 $5$ 的商为 \fillblank<4->[darkgreen]{$-2$}，余数为 \fillblank<4->[darkgreen]{$1$}。
+  \end{itemize}
+  \pause
+  \pause
+  请特别注意，\textboldcolor[darkgreen]{当 $a$ 为负整数时，同样认为 $a$ 除以 $m$ 的余数 $r$ 是非负数}。
+  
+  而此时商 $q$ 仍要满足 $q \cdot m = a - r$。
+  \pause
+  \begin{itemize}
+    \item $-12$ 除以 $4$ 的商为 \fillblank<7->[red]{$-3$}，余数为 \fillblank<7->[red]{$0$}。
+    \pause
+    \pause
+    \item ${10}^6$ 除以 $7$ 的商为 \fillblank<9->[red]{$142857$}，余数为 \fillblank<9->[red]{$1$}。
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{有余数的除法}
+  \framesubtitle{向下取整}
+  向下取整符号“$\lfloor {\cdot} \rfloor$”：对于实数 $x$，定义 $\lfloor x \rfloor$ 为小于等于 $x$ 的最大整数。
+  
+  例如 $\lfloor 3.8 \rfloor = 3$、$\lfloor -4.2 \rfloor = -5$。整数向下取整后不变。
+  \pause
+  
+  \emptyline
+  如果使用向下取整符号，则有 $q = \bigl\lfloor \frac{a}{m} \bigr\rfloor$。
+  \pause
+  
+  结合 $r = a - q \cdot m$，得到
+  \[
+    r = a - \Bigl\lfloor \frac{a}{m} \Bigr\rfloor \cdot m \text{。}
+  \]
+  \pause
+  
+  \PKMissing{这里需要一张图片}
+\end{frame}
+\subsubsection{\texorpdfstring{\textsuperscript{(*) }}{(*) }\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
 \begin{frame}[c]
   \progressnow
 \end{frame}
-\frame{}% delete this ===============================================
+\begin{frame}
+  \frametitle{\Cpp{} 中\textbf{内置类型}的 \texttt{/} 和 \texttt{\%} 运算符}
+  在 \Cpp{} 中，提供了\alert{除法运算符}“\texttt{/}”和\alert{求余运算符}“\texttt{\%}”以支持 \Cpp{} 程序进行相关计算。它们的形式为：
+  \begin{itemize}
+    \item “\texttt{\textcolor{darkgray}{左操作数} / \textcolor{darkgray}{右操作数}}”，
+    \item “\texttt{\textcolor{darkgray}{左操作数} \% \textcolor{darkgray}{右操作数}}”。
+  \end{itemize}
+  \pause
+  
+  \emptyline
+  众所周知，\Cpp{} 中有两类\textbf{内置}的数值类型，分别是\alert{整数类型}和\alert{浮点类型}。
+  \begin{itemize}
+    \item 整型的例子：\texttt{int}、\texttt{long long} 与它们的无符号版本、以及 \texttt{char}。
+    \item 浮点型的例子：\texttt{float}、\texttt{double}、以及 \texttt{long double}。
+  \end{itemize}
+  \pause
+  其中，浮点型之间可以进行 \texttt{/} 运算，但\textboldcolor[orange]{不能}进行 \texttt{\%} 运算。
+  
+  当整型与浮点型之间进行运算时，会将整型操作数转换为浮点型。
+  \pause
+  
+  \emptyline
+  当然，我们关注的是整型之间的 \texttt{/} 和 \texttt{\%} 运算。
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{“\texttt{/}”运算符的舍入方向}
+  从 \Cpp{}11 标准开始，规定了 \texttt{/} 运算符的舍入方向：运算结果为第一操作数除以第二操作数的数值结果（一个小数）\textboldcolor[orange]{向零舍入}得到的整数。
+  \pause
+  
+  \emptyline
+  换句话说，运算结果\alert{在绝对值上}总是小于等于数值结果。
+  
+  更具体地，如果数值结果 $> 0$，则运算结果 $\le$ 数值结果，\\
+  \-\hspace{7em}数值结果 $< 0$，则运算结果 $\ge$ 数值结果，\\
+  \-\hspace{7em}数值结果 $= 0$，则运算结果 $=$ 数值结果 $= 0$。
+  \pause
+  
+  \emptyline
+  与前文“有余数的除法”不同，\Cpp{} 中 \texttt{/} 和 \texttt{\%} 的\alert{第二操作数均可以为负}。
+  \pause
+  
+  \emptyline
+  特别地，如果第二操作数为 $0$，则行为未定义（UB）。典型的编译器实现可能导致运行时错误（RE）。
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{“\texttt{\%}”运算符}
+  \Cpp{} 保证了：若 $a \mathbin{\texttt{\%}} m = r$ 以及 $a \mathbin{\texttt{/}} m = q$，则一定有 $a = q \mathbin{\texttt{*}} m \mathbin{\texttt{+}} r$。
+  
+  特别地，若 $a \mathbin{\texttt{/}} m$ 会触发未定义行为，则 $a \mathbin{\texttt{\%}} m$ 的行为也未定义。
+  \pause
+  
+  \emptyline
+  对比前文“有余数的除法”与 \Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符，异同之处在于：
+  \begin{itemize}
+    \item 相同点：
+    \begin{visibleenv}<3->
+      \begin{itemize}
+        \item 当 $a$ 是非负数且 $m$ 是正数时，两者的结果相同。
+        \item 即使 $a$ 是负数，当 $m$ 是正数且 \textboldcolor[orange]{$a$ 是 $m$ 的倍数}时，两者的结果也相同。
+        \item 当 $m = 0$ 时，两者都是“未定义”的。
+      \end{itemize}
+    \end{visibleenv}
+    \item 不同点：
+    \begin{visibleenv}<4->
+      \begin{itemize}
+        \item 当 $m$ 是负数时，“有余数的除法”没有定义，但在 \Cpp{} 中有定义。
+        \item 当 $m$ 是正数且 $a$ 是负数时，记 $a \div m = r_1$ 而 $a \mathbin{\texttt{/}} m = r_2$，则 $r_2$ 要么与 $r_1$ 相等，要么比 $r_1$ 大 $1$。
+      \end{itemize}
+    \end{visibleenv}
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{例子}
+  \begin{itemize}
+    \item \texttt{ 5 / \ 3} 与 \texttt{ 5 \% \ 3} 的结果分别为 \fillblank*<2->[red]{\texttt{ 1}} 与 \fillblank*<2->[red]{\texttt{ 2}}。
+    \pause
+    \pause
+    \item \texttt{ 5 / -3} 与 \texttt{ 5 \% -3} 的结果分别为 \fillblank*<4->[red]{\texttt{-1}} 与 \fillblank*<4->[red]{\texttt{ 2}}。
+    \pause
+    \item \texttt{-5 / \ 3} 与 \texttt{-5 \% \ 3} 的结果分别为 \fillblank*<5->[red]{\texttt{-1}} 与 \fillblank*<5->[red]{\texttt{-2}}。
+    \pause
+    \item \texttt{-5 / -3} 与 \texttt{-5 \% -3} 的结果分别为 \fillblank*<6->[red]{\texttt{ 1}} 与 \fillblank*<6->[red]{\texttt{-2}}。
+    \pause
+    \pause
+    \item \texttt{-7 / \ 0} 与 \texttt{-7 \% \ 0} 都是 \fillblank<8->[red]{未定义行为}。
+    \pause
+    \item \texttt{ 0 / \ 0} 与 \texttt{ 0 \% \ 0} 都是 \fillblank<9->[red]{未定义行为}。
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{正负性提示}
+  假设 $a \mathbin{\texttt{/}} m = q$ 和 $a \mathbin{\texttt{\%}} m = r$。
+  
+  则有 $q$ 的正负性与 $a \cdot m$ 的正负性相同，\\
+  \-\hspace{1em}而 $r$ 的正负性与 $a$ 的正负性相同。
+  
+  \emptyline
+  在操作数可能为负数或 $0$ 时，需要特别注意。
+  \pause
+  
+  \emptyline
+  为了身心健康，避免记忆乱七八糟的情况，良好的代码实践是：
+  \begin{center}
+    \textboldcolor[darkgreen]{尽量保证第一操作数为\textboldcolor[orange]{非负整数}、第二操作数为正整数。}
+  \end{center}
+  \pause
+  
+  在 \Cpp{} 代码实现上，除此之外，还有其他注意事项，请看下页。
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{\textbf{代码注意事项}：整数提升和整数转换}
+  在 \Cpp{} 中，整型之间的算术运算将经过两道关卡：\alert{整数提升}和\alert{整数转换}。
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{\textbf{代码注意事项}：整数提升}
+  可以认为\alert{整数提升}是，将“小于 \texttt{int}”的类型转换到 \texttt{int} 或 \texttt{unsigned int}。例如对 \texttt{bool}、\texttt{char}、\texttt{short} 或它们的有或无符号版本进行转换。特殊情况按下不表。\textboldcolor[orange]{整数提升\CJKunderdot[format=\color{orange}]{总是保留原数值不变}。整型算术运算\CJKunderdot[format=\color{orange}]{总是}先将两操作数进行整数提升。}
+  
+  \emptyline
+  例如，在 \texttt{char} 之间的减法，实际上会转换为 \texttt{int} 进行。
+  
+  \emptyline
+  如果从不进行小于 \texttt{int} 的类型的算术运算，则无需担心整数提升。
+\end{frame}
+\begin{frame}
+  \frametitle{\Cpp{} 中整型的 \texttt{/} 和 \texttt{\%} 运算符}
+  \framesubtitle{\textbf{代码注意事项}：整数转换}
+  \alert{整数转换}可能对数值进行更改。具体地，进行整型算术运算时，会产生被称作“\alert{公共类型}”的结果类型，同时两操作数也会\textbf{先转换为公共类型}。
+  
+  \emptyline
+  问题在于：当一操作数为有符号，另一操作数为无符号，且无符号操作数的“等级”大于或等于有符号操作数的“等级”时，产生的公共类型就是\textboldcolor[orange]{无符号操作数的类型}。此时将有符号操作数转换为公共类型时，可能发生数值更改。
+  \pause
+  
+  \emptyline
+  例如，计算 \texttt{-4 \% 3u} 时，产生的公共类型为 \texttt{unsigned int}，此时先将 \texttt{-4} 转换得到 \texttt{4294967292u}，进行除法得到结果 \texttt{1431655764u}，与期望的 \texttt{-1} 不同。
+  \pause
+  同样地，良好的实践是：
+  \begin{center}
+    \textboldcolor[darkgreen]{尽量避免使用无符号类型进行 \texttt{/} 或 \texttt{\%} 运算。}
+  \end{center}
+\end{frame}
 \subsection{整除性、因数与倍数}
 \begin{frame}[c]
   \progressnow*
 \end{frame}
-\frame{}% delete this ===============================================
+\begin{frame}
+  \frametitle{整除性、因数与倍数}
+  \framesubtitle{回忆与定义}
+  回忆：在有余数的除法中，如果余数为 $0$，就说“\textboldcolor[orange]{\textit{被除数是除数的倍数}}”。
+  \pause
+  \begin{definition}[整除、因数与倍数]
+    对于整数 $a, b$，且 $a \ne 0$，如果 \textboldcolor[orange]{$\frac{b}{a}$ 也是整数}，则称 \fdf{$b$ 被 $a$ 整除}，或称 \fdf{$a$ 整除 $b$}，记作 \fdf{$a \mid b$}，否则称 $a$ 不整除 $b$，记作 \fdf{$a \nmid b$}。
+   
+    \emptyline
+    此时也称 $b$ 是 \fdf{$a$ 的倍数}，$a$ 是 \fdf{$b$ 的因数（约数）}。
+    \pause
+    
+    \emptyline
+    同时，我们\alert{约定} $0$ 整除 $0$，但不整除其他任何整数。
+    
+    即 $0 \mid 0$，但是对于所有 $n \ne 0$ 均有 $0 \nmid n$。
+  \end{definition}
+  \pause
+  请注意，这里 \textboldcolor[darkgreen]{$a, b$ 均可以为任意整数}。第四节会揭示考虑 $0$ 的原因。
+\end{frame}
+\begin{frame}
+  \frametitle{整除性、因数与倍数}
+  \framesubtitle{例子}
+  下列哪些整除关系是成立的？成立的打“$\surd$”，不成立的打“$\times$”。
+  \begin{enumerate}
+    \item $\hphantom{-{}}2 \mid \hphantom{-{}}6$\hspace{1em}（\visible<2->{\makebox[15pt]{\color{darkgreen}$\surd$}}）
+    \item $-6 \mid \hphantom{-{}}6$\hspace{1em}（\visible<3->{\makebox[15pt]{\color{darkgreen}$\surd$}}）
+    \item $\hphantom{-{}}5 \mid \hphantom{-{}}0$\hspace{1em}（\visible<4->{\makebox[15pt]{\color{darkgreen}$\surd$}}）
+    \item $-4 \mid -6$\hspace{1em}（\visible<5->{\makebox[15pt]{\color{red}$\times$}}）
+    \item $\hphantom{-{}}0 \mid \hphantom{-{}}0$\hspace{1em}（\visible<6->{\makebox[15pt]{\color{darkgreen}$\surd$}}）
+    \item $\hphantom{-{}}0 \mid -7$\hspace{1em}（\visible<7->{\makebox[15pt]{\color{red}$\times$}}）
+  \end{enumerate}
+  \pause\pause\pause\pause\pause\pause\pause
+  \emptyline
+  使用“因数与倍数”的语言，上面的每一条应该如何说？
+\end{frame}
 \subsection{素数与合数}
 \begin{frame}[c]
   \progressnow*
