@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2023/02/08 PinkRabbit Slide class]
+[2023/02/17 PinkRabbit Slide class]
 
 
 
@@ -281,7 +281,7 @@
 }
 
 
-% 定义 \thankspage[...] 以类似节标题页的格式显示课件结束时的感谢文字，在 frame 环境内部使用
+% 定义 \thankspage[...] 以类似节（写作“章”）标题页的格式显示课件结束时的感谢文字，在 frame 环境内部使用
 \NewDocumentCommand{\thankspage}{O{感谢倾听}}{
   \centering
   \begin{beamercolorbox}[sep = 12pt, center]{section title}
@@ -329,7 +329,7 @@
 
 
 % 用于制造“填空题”下划线、粗体、颜色与动画效果
-% usage: \fillblank<overlay specification>[color]{text}
+% usage: \fillblank[*]<overlay specification>[color]{text}
 % if <overlay specification> not specified, no `\visible' command will be generated
 % if <color> not specified, the text color doesn't change
 % if starred, use original font series instead of bfseries
@@ -364,7 +364,7 @@
 
 
 % 在编写时，用来提示缺了啥东西的，发布时源代码中不应该有这个
-\newcommand{\PKMissing}[1]{{\huge\hfill\fbox{\textboldcolor[orange]{#1}}\hfill}}
+\newcommand{\PKMissing}[1]{{\huge\hspace*{\fill}\fbox{\textboldcolor[orange]{#1}}\hspace*{\fill}}}
 
 
 

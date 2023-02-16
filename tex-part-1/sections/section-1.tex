@@ -20,8 +20,9 @@
   \pause
   
   \emptyline
-  对于不需要复习的读者，可以只注意本章中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分以明确对于特殊情况的定义、了解细节，以及要确保能够正确回答所有练习题。
+  对于不需要复习的读者，可以只注意本章中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分以明确对于特殊情况的定义、了解细节，以及要确保能够正确回答所有\alert{练习题}。
 \end{frame}
+\iffalse
 \subsection{有余数的除法}
 \begin{frame}[c]
   \progressnow*
@@ -244,6 +245,7 @@
     \textboldcolor[darkgreen]{尽量避免使用无符号类型进行 \texttt{/} 或 \texttt{\%} 运算。}
   \end{center}
 \end{frame}
+\fi
 \subsection{整除性、因数与倍数}
 \begin{frame}[c]
   \progressnow*
@@ -480,12 +482,41 @@
   观察到此事实：
   \begin{itemize}
     \item \textboldcolor[orange]{对于非零整数 $n$，如果 $d \mid n$，那么 $\frac{n}{d} \mid n$。}
-    \pause
-    \item 换句话说，正整数 $n$ 的所有正因数是\alert{两两配对}的，即 $d$ 与 $\frac{n}{d}$ 配对。
-    
-    \alert{例外}情况：如果 $d = \frac{n}{d}$，则这两个因数其实相等，这也就是说 $d^2 = n$。
   \end{itemize}
-  %
+  \pause
+  换句话说，\alert{正}整数 $n$ 的所有\alert{正}因数是\textboldcolor[orange]{两两配对}的，即 $d$ 与 $\frac{n}{d}$ 配对。
+  \pause
+  
+  \alert{例外}情况：如果 $d = \frac{n}{d}$，则这其实是同一个因数，这也就是说 \alert{$d^2 = n$}。
+  \pause
+  \begin{center}
+    \textboldcolor[orange]{$\text{$n$ 是完全平方数} \iff \text{$n$ 有着奇数个正因数}$}
+  \end{center}
+  \pause
+  进一步考察每对因数中的较小者：不妨设 $d \le \frac{n}{d}$。
+  \pause
+  \begin{itemize}
+    \item 这意味着 $d \le \sqrt{n}$。
+    \pause
+    \item 于是，\textboldcolor[orange]{$n$ 的因数个数最多为 $2 \sqrt{n}$}。
+  \end{itemize}
+  \pause
+  \begin{center}
+    \textboldcolor[darkgreen]{它们是关于因数分布的三个最基本、也最重要的结论。}
+  \end{center}
+\end{frame}
+\begin{frame}
+  \frametitle{图示}
+  \PKMissing{这里需要一张图片}
+\end{frame}
+\begin{frame}
+  \frametitle{因数个数}
+  \alert{因数个数}是数论中的重要函数，将 $n$ 的因数个数记作 $d(n)$。
+  
+  上文我们证明了 $n$ 的因数个数最多为 $2 \sqrt{n}$。
+  \begin{center}
+    咕嘟
+  \end{center}
 \end{frame}
 \begin{frame}
   \frametitle{开放性问题}
