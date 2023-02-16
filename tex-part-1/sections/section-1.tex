@@ -20,7 +20,7 @@
   \pause
   
   \emptyline
-  对于不需要复习的读者，可以只注意本节中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分以明确对于特殊情况的定义、了解细节，以及要确保能够正确回答所有练习题。
+  对于不需要复习的读者，可以只注意本章中使用\textboldcolor[darkgreen]{绿色粗体字}标注的部分以明确对于特殊情况的定义、了解细节，以及要确保能够正确回答所有练习题。
 \end{frame}
 \subsection{有余数的除法}
 \begin{frame}[c]
@@ -265,7 +265,7 @@
     即 $0 \mid 0$，但是对于所有 $n \ne 0$ 均有 $0 \nmid n$。
   \end{definition}
   \pause
-  请注意，这里 \textboldcolor[darkgreen]{$a, b$ 均可以为任意整数}。第四节会揭示考虑 $0$ 的原因。
+  请注意，这里 \textboldcolor[darkgreen]{$a, b$ 均可以为任意整数}。第四章会揭示考虑 $0$ 的原因。
   \pause
   
   \emptyline
@@ -332,7 +332,7 @@
   \pause
   \begin{enumerate}
     \setcounter{enumi}{6}
-    \item 对于 $n$ 个数 $a_1, \ldots, a_n$，如果 $d$ 整除每个 $a_i$，那么
+    \item 对于 $n$ 个数 $a_1, \ldots, a_n$，如果 $d$ 分别整除每个 $a_i$，那么
     \begin{center}
       \textboldcolor[orange]{$d \mid (k_1 a_1 + k_2 a_2 + \cdots + k_n a_n)$}。
     \end{center}
@@ -343,18 +343,145 @@
   经过上面的练习题，我们发现：
   \pause
   \begin{itemize}
-    \item “整除”与“小于等于”较为类似。因为可以写“$a \mid a$”和“$a \mid b \mid c$”，甚至还有 $a \mid b \implies \lvert a \rvert \le \lvert b \rvert$ 的性质（除了 $0$）。但它们的不同之处在于，对任意两个数总有其中一个小于等于另一个，但有可能它们互不整除对方。
+    \item “整除”与“小于等于”较为类似。因为可以写“$a \mid a$”和“$a \mid b \mid c$”，甚至还有 $a \mid b \implies \lvert a \rvert \le \lvert b \rvert$ 的性质（除了 $0$）。但它们的不同之处在于，对任意两个数总有其中一个小于等于另一个，但有可能它们\alert{互不整除}对方。
     \pause
-    \item 在谈论整除的时候，互为相反数的 $a$ 与 $-a$ 是等价的，可以互换。
-    \pause
-    \item 如果 $d$ 是 $a_1, \ldots, a_n$ 每一个的因数，则 $d$ 也是 $a_1, \ldots, a_n$ 的任何\fdf{整系数线性组合}的因数。
+    \item 在谈论整除的时候，互为\alert{相反数}的 $a$ 与 $-a$ 是等价的，可以互换。
     
-    上文中，$(k_1 a_1 + k_2 a_2 + \cdots + k_n a_n)$ 就是 $a_{1 \sim n}$ 的一个整系数线性组合。
+    由于此性质，当谈论“一个数的因数”时，通常都是对于一\alert{正}整数谈论它的\alert{正}因数。\textboldcolor[orange]{有时需要结合语境判断“因数”是否包含负因数。}
+    \pause
+    \item 称上文中的 $(k_1 a_1 + k_2 a_2 + \cdots + k_n a_n)$ 为 $a_1, \ldots, a_n$ 的\fdf{整系数线性组合}。
+    
+    那么，如果有 $d$ 分别是 $a_{1 \sim n}$ 每一个的因数，则 $d$ 也是 $a_{1 \sim n}$ 的任何整系数线性组合的因数。
   \end{itemize}
+\end{frame}
+\subsubsection{因数分布}
+\begin{frame}[c]
+  \progressnow
+\end{frame}
+\begin{frame}
+  \frametitle{引入}
+  本小节中，我们研究固定整数 $n$ 时，$n$ 的所有因数的分布。
+  \pause
+  
+  列出以下正整数 $n$ 的所有正因数 $d$，并按从小到大的顺序排列。
+  \pause
+  \begin{enumerate}
+    \item $n = 12$。
+    \pause
+    \begin{center}
+      \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {Q[c, 2.5em]|[darkgray]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[darkgray]Q[lightgray!50!white]Q[lightgray!20!white]|[darkgray]}}
+        编号 & 1 & 2 & 3 & 4 & 5 & 6 \\
+        $d$ &
+        \visible<4->{%
+          \tikz[remember picture, baseline = (d12-1.base)]
+            \node[inner sep = 0pt] (d12-1) {$1$};%
+        } &
+        \visible<4->{%
+          \tikz[remember picture, baseline = (d12-2.base)]
+            \node[inner sep = 0pt] (d12-2) {$2$};%
+        } &
+        \visible<4->{%
+          \tikz[remember picture, baseline = (d12-3.base)]
+            \node[inner sep = 0pt] (d12-3) {$3$};%
+        } &
+        \visible<4->{%
+          \tikz[remember picture, baseline = (d12-4.base)]
+            \node[inner sep = 0pt] (d12-4) {$4$};%
+        } &
+        \visible<4->{%
+          \tikz[remember picture, baseline = (d12-6.base)]
+            \node[inner sep = 0pt] (d12-6) {$6$};%
+        } & \visible<4->{%
+          \tikz[remember picture, baseline = (d12-12.base)]
+            \node[inner sep = 0pt] (d12-12) {$12$};%
+        } \\
+      \end{tblr}
+    \end{center}
+    \vspace{2pt}
+    \pause
+    \pause
+    \item $n = 36$。
+    \pause
+    \begin{center}
+      \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {Q[c, 2.5em]|[darkgray]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[darkgray]Q[lightgray!50!white]Q[lightgray!20!white]|[darkgray]}}
+        编号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+        $d$ &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-1.base)]
+            \node[inner sep = 0pt] (d36-1) {$1$};%
+        } &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-2.base)]
+            \node[inner sep = 0pt] (d36-2) {$2$};%
+        } &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-3.base)]
+            \node[inner sep = 0pt] (d36-3) {$3$};%
+        } &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-4.base)]
+            \node[inner sep = 0pt] (d36-4) {$4$};%
+        } &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-6.base)]
+            \node[inner sep = 0pt] (d36-6) {$6$};%
+        } &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-9.base)]
+            \node[inner sep = 0pt] (d36-9) {$9$};%
+        } &
+        \visible<7->{%
+          \tikz[remember picture, baseline = (d36-12.base)]
+            \node[inner sep = 0pt] (d36-12) {$12$};%
+        } & \visible<7->{%
+          \tikz[remember picture, baseline = (d36-18.base)]
+            \node[inner sep = 0pt] (d36-18) {$18$};%
+        } & \visible<7->{%
+          \tikz[remember picture, baseline = (d36-36.base)]
+            \node[inner sep = 0pt] (d36-36) {$36$};%
+        } \\
+      \end{tblr}
+    \end{center}
+  \end{enumerate}
+  \pause
+  \pause
+  \emptyline
+  上面两个例子中，正数第 $i$ 个数与倒数第 $i$ 个数有什么关系？
+  \pause
+  \tikz[remember picture, overlay, shorten < = 2pt, shorten > = 2pt]
+    \draw[<->, thick, purple] (d12-1) to[bend right = 16] (d12-12);
+  \pause
+  \tikz[remember picture, overlay, shorten < = 2pt, shorten > = 2pt]
+    \draw[<->, thick, purple] (d12-2) to[bend right = 13] (d12-6);
+  \pause
+  \tikz[remember picture, overlay, shorten < = 2pt, shorten > = 2pt]
+    \draw[<->, thick, purple] (d12-3) to (d12-4);
+  \pause
+  \tikz[remember picture, overlay, shorten < = 2pt, shorten > = 2pt]
+    \draw[<->, thick, purple] (d36-1) to[bend right = 12] (d36-36);
+  \pause
+  \begin{tikzpicture}[remember picture, overlay, shorten < = 2pt, shorten > = 2pt]
+    \draw[<->, thick, purple] (d36-2) to[bend right = 11.5] (d36-18);
+    \draw[<->, thick, purple] (d36-3) to[bend right = 11.5] (d36-12);
+    \draw[<->, thick, purple] (d36-4) to[bend right = 11] (d36-9);
+  \end{tikzpicture}
+  \pause
+  \tikz[remember picture, overlay, shorten < = 1pt, shorten > = 1pt]
+    \draw[<->, thick, purple] (d36-6) to[in = 60, out = 120, looseness = 8] (d36-6);
+  \pause
+  \alert{它们相乘等于 $n$，为什么？}
 \end{frame}
 \begin{frame}
   \frametitle{因数分布}
-  \PKMissing{别急}
+  观察到此事实：
+  \begin{itemize}
+    \item \textboldcolor[orange]{对于非零整数 $n$，如果 $d \mid n$，那么 $\frac{n}{d} \mid n$。}
+    \pause
+    \item 换句话说，正整数 $n$ 的所有正因数是\alert{两两配对}的，即 $d$ 与 $\frac{n}{d}$ 配对。
+    
+    \alert{例外}情况：如果 $d = \frac{n}{d}$，则这两个因数其实相等，这也就是说 $d^2 = n$。
+  \end{itemize}
+  %
 \end{frame}
 \begin{frame}
   \frametitle{开放性问题}
