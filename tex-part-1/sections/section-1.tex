@@ -109,8 +109,8 @@
   \frametitle{\Cpp{} 中\textbf{内置类型}的 \texttt{/} 和 \texttt{\%} 运算符}
   在 \Cpp{} 中，提供了\alert{除法运算符}“\texttt{/}”和\alert{求余运算符}“\texttt{\%}”以支持 \Cpp{} 程序进行相关计算。它们的形式为：
   \begin{itemize}
-    \item “\texttt{\textcolor{darkgray}{左操作数} / \textcolor{darkgray}{右操作数}}”，
-    \item “\texttt{\textcolor{darkgray}{左操作数} \% \textcolor{darkgray}{右操作数}}”。
+    \item “\texttt{\textcolor{gray}{左操作数} / \textcolor{gray}{右操作数}}”，
+    \item “\texttt{\textcolor{gray}{左操作数} \% \textcolor{gray}{右操作数}}”。
   \end{itemize}
   \pause
   
@@ -290,7 +290,7 @@
   \frametitle{简单规律}
   关于整除的一些简单规律：
   \pause
-  \begin{enumerate}
+  \begin{itemize}
     \item $1$ 和 $-1$ 整除所有整数。
     \pause
     \item 所有整数整除 $0$。
@@ -298,7 +298,7 @@
     \item 对于\alert{正}整数 $a$，$a$ 是 $a$ 的最大因数，也是 $a$ 的最小\alert{正}倍数。
     
     并且，$-a$ 是 $a$ 的最小因数，也是 $a$ 的最大负倍数。
-  \end{enumerate}
+  \end{itemize}
   \pause
   使用“因数与倍数”的语言，上面的前两条应该如何说？
   \pause
@@ -509,11 +509,47 @@
 \end{frame}
 \begin{frame}
   \frametitle{因数个数}
-  \alert{因数个数}是数论中的重要函数，将 $n$ 的因数个数记作 $d(n)$。
-  
-  上文我们证明了 $n$ 的因数个数最多为 $2 \sqrt{n}$。
+  \alert{因数个数}是数论中的重要函数。
+  \begin{definition}[因数个数函数]
+    对于正整数 $n$，将 $n$ 的正因数个数记作 $d(n)$。
+    
+    \fdf{因数个数函数 $d(n)$} 的定义域是\alert{正整数}。
+  \end{definition}
+  \pause
+  上文我们证明了 $d(n) \le 2 \sqrt{n}$。
+  \pause
   \begin{center}
-    咕嘟
+    \SetTblrInner{rowsep = 1pt}
+    \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {Q[c, 2.5em]|[lightgray!50!gray]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[gray]Q[lightgray!50!white]Q[lightgray!20!white]|[lightgray]Q[lightgray!50!white]Q[lightgray!20!white]|[gray]}}
+      $n$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$ \\
+      $d(n)$ & $1$ & $2$ & $2$ & $3$ & $2$ & $4$ & $2$ & $4$ & $3$ & $4$ & $2$ & $6$ \\
+      $n$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$ & $21$ & $22$ & $23$ & $24$ \\
+      $d(n)$ & $2$ & $4$ & $4$ & $5$ & $2$ & $6$ & $2$ & $6$ & $4$ & $4$ & $2$ & $8$ \\
+    \end{tblr}
+  \end{center}
+\end{frame}
+\begin{frame}
+  \frametitle{因数个数的估计}
+  随着 $n$ 的增大，$d(n)$ 的值忽大忽小。关于 $d(1 \sim n)$ 中的最大值，有
+  \begin{center}
+    \SetTblrInner{rowsep = 2pt}
+    \SetTblrInner{colsep = 6pt}
+    \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {c|[lightgray!50!gray]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[gray]Q[lightgray!50!white]Q[lightgray!20!white]|[lightgray]Q[lightgray!50!white]Q[lightgray!20!white]|[lightgray]Q[lightgray!50!white]Q[lightgray!20!white]|[gray]}}
+      $n \le$ & ${10}^1$ & ${10}^2$ & ${10}^3$ & ${10}^4$ & ${10}^5$ & ${10}^6$ \\
+      $\max d(n)$ & $4$ & $12$ & $32$ & $64$ & $128$ & $240$ \\
+      $n \le$ & ${10}^7$ & ${10}^8$ & ${10}^9$ & ${10}^{10}$ & ${10}^{11}$ & ${10}^{12}$ \\
+      $\max d(n)$ & $448$ & $768$ & $1344$ & $2304$ & $4032$ & $6720$ \\
+      $n \le$ &  ${10}^{13}$ & ${10}^{14}$ & ${10}^{15}$ & ${10}^{16}$ & ${10}^{17}$ & ${10}^{18}$ \\
+      $\max d(n)$ & $10752$ & $17280$ & $26880$ & $41472$ & $64512$ & $103680$ \\
+    \end{tblr}
+  \end{center}
+  \pause
+  可以看出，使用 $\sqrt[3]{n}$ 对 $d(n)$ 的上界进行估计在 ${10}^{18}$ 范围内比较合适。
+\end{frame}
+\begin{frame}[c]
+  \frametitle{因数个数的图像}
+  \begin{center}
+    \includegraphics[scale = 0.85]{pics/number_of_divisors.pdf}
   \end{center}
 \end{frame}
 \begin{frame}
