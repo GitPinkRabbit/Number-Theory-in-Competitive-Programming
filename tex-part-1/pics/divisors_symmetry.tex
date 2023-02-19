@@ -1,0 +1,67 @@
+\documentclass[tikz, beamer, crop, border = 0.4pt]{standalone}
+
+\usepackage[fontset = none]{ctex}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+\usefonttheme{professionalfonts}
+
+\setCJKmainfont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{Source Han Serif SC}
+\setCJKsansfont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{Source Han Sans SC}
+\setCJKmonofont[ItalicFont = LXGW WenKai, BoldItalicFont = LXGW WenKai Bold]{FZHeiFangS}
+
+\begin{document}
+\usetikzlibrary{positioning, decorations.pathreplacing, backgrounds}
+\definecolor{color01}{rgb}{0.60,0.00,0.00}
+\definecolor{color02}{rgb}{0.60,0.40,0.00}
+\definecolor{color03}{rgb}{0.40,0.60,0.00}
+\definecolor{color04}{rgb}{0.00,0.60,0.00}
+\definecolor{color05}{rgb}{0.00,0.60,0.40}
+\definecolor{color06}{rgb}{0.00,0.40,0.60}
+\definecolor{color07}{rgb}{0.00,0.00,0.60}
+\definecolor{color08}{rgb}{0.40,0.00,0.60}
+\definecolor{color09}{rgb}{0.60,0.00,0.40}
+\begin{tikzpicture}[every node/.style = {circle, minimum size = .85cm, draw, very thick}]
+  \node[draw=color01] at (-6, -1) {$1$};
+  \node[draw=color02] at (-4.5, -1) {$2$};
+  \node[draw=color03] at (-3, -1) {$3$};
+  \node[draw=color04] at (-1.5, -1) {$4$};
+  \node[draw=color05] (core) at (0, -1) {$6$};
+  \node[draw=color06] at (1.5, -1) {$9$};
+  \node[draw=color07] at (3, -1) {$12$};
+  \node[draw=color08] at (4.5, -1) {$18$};
+  \node[draw=color09] at (6, -1) {$36$};
+  \node[draw=color01] at (6, 1) {$1$};
+  \node[draw=color02] at (4.5, 1) {$2$};
+  \node[draw=color03] at (3, 1) {$3$};
+  \node[draw=color04] at (1.5, 1) {$4$};
+  \node[draw=color05] at (0, 1) {$6$};
+  \node[draw=color06] at (-1.5, 1) {$9$};
+  \node[draw=color07] at (-3, 1) {$12$};
+  \node[draw=color08] at (-4.5, 1) {$18$};
+  \node[draw=color09] at (-6, 1) {$36$};
+  \draw[<->, very thick, red] (-6, -0.575) -- (-6, 0.575);
+  \draw[<->, very thick, red] (-4.5, -0.575) -- (-4.5, 0.575);
+  \draw[<->, very thick, red] (-3, -0.575) -- (-3, 0.575);
+  \draw[<->, very thick, red] (-1.5, -0.575) -- (-1.5, 0.575);
+  \draw[<->, very thick, red] (-0, -0.575) -- (-0, 0.575);
+  \draw[<->, very thick, red] (1.5, -0.575) -- (1.5, 0.575);
+  \draw[<->, very thick, red] (3, -0.575) -- (3, 0.575);
+  \draw[<->, very thick, red] (4.5, -0.575) -- (4.5, 0.575);
+  \draw[<->, very thick, red] (6, -0.575) -- (6, 0.575);
+  \draw[gray, semithick] (-8.3, -3) rectangle (6.75, 1.7);
+  \draw[lightgray!50!gray, semithick] (-8.3, -1.7) to (6.75, -1.7);
+  \node[rectangle, minimum size = 1pt, draw = none] at (-7.5, -1) {\color{orange}$\bm{d =}$};
+  \node[rectangle, minimum size = 1pt, draw = none] at (-7.5, 1) {\color{orange}$\bm{\dfrac{n}{d} =}$};
+  \draw[decorate, decoration = {brace, amplitude = 3mm, mirror}, semithick] (-6.5, -1.8) to (0.5, -1.8);
+  \node[rectangle, minimum size = 1pt, draw = none, below] at (-3, -2.1) {$\le \sqrt{n}$};
+  \node[rectangle, minimum size = 1pt, thin, node distance = 5mm and 3mm, below right = of core, align = center] (mark) {$d = \sqrt{n}$\\$n = d^2$};
+  \draw (core.south east) -- (mark.north west);
+  \begin{scope}[on background layer]
+    \fill[color = yellow!15!white] (-6.75, -1.7) rectangle (0, 1.7);
+    \fill[color = blue!12!white] (0, -1.7) rectangle (6.75, 1.7);
+    \draw[lightgray!50!gray, dash dot, thick] (0, -1.7) to (0, 1.7);
+  \end{scope}
+\end{tikzpicture}
+\end{document}

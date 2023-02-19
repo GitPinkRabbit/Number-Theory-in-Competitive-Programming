@@ -369,6 +369,7 @@
     \item $n = 12$。
     \pause
     \begin{center}
+      \SetTblrInner{rowsep = 1pt}
       \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {Q[c, 2.5em]|[darkgray]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[darkgray]Q[lightgray!50!white]Q[lightgray!20!white]|[darkgray]}}
         编号 & 1 & 2 & 3 & 4 & 5 & 6 \\
         $d$ &
@@ -404,6 +405,7 @@
     \item $n = 36$。
     \pause
     \begin{center}
+      \SetTblrInner{rowsep = 1pt}
       \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {Q[c, 2.5em]|[darkgray]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[darkgray]Q[lightgray!50!white]Q[lightgray!20!white]|[darkgray]}}
         编号 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
         $d$ &
@@ -503,9 +505,11 @@
     \textboldcolor[darkgreen]{它们是关于因数分布的三个最基本、也最重要的结论。}
   \end{center}
 \end{frame}
-\begin{frame}
+\begin{frame}[c]
   \frametitle{图示}
-  \PKMissing{这里需要一张图片}
+  \begin{center}
+    \includegraphics[scale = 0.85]{pics/divisors_symmetry.pdf}
+  \end{center}
 \end{frame}
 \begin{frame}
   \frametitle{因数个数}
@@ -533,7 +537,6 @@
   随着 $n$ 的增大，$d(n)$ 的值忽大忽小。关于 $d(1 \sim n)$ 中的最大值，有
   \begin{center}
     \SetTblrInner{rowsep = 2pt}
-    \SetTblrInner{colsep = 6pt}
     \begin{tblr}{width = 0.98\linewidth, vline{3-Y} = {white}, colspec = {c|[lightgray!50!gray]X[c]X[c]X[c]X[c]X[c]X[c]}, rowspec = {|[gray]Q[lightgray!50!white]Q[lightgray!20!white]|[lightgray]Q[lightgray!50!white]Q[lightgray!20!white]|[lightgray]Q[lightgray!50!white]Q[lightgray!20!white]|[gray]}}
       $n \le$ & ${10}^1$ & ${10}^2$ & ${10}^3$ & ${10}^4$ & ${10}^5$ & ${10}^6$ \\
       $\max d(n)$ & $4$ & $12$ & $32$ & $64$ & $128$ & $240$ \\
