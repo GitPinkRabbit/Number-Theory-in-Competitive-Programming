@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2023/02/17 PinkRabbit Slide class]
+[2023/03/16 PinkRabbit Slide class]
 
 
 
@@ -310,13 +310,13 @@
 \NewDocumentCommand{\textboldcolor}{o m}{%
   \IfNoValueTF{#1}{%
     \ifmmode%
-      \bm{#2}%
+      {\bm{{#2}}}%
     \else%
       {\bfseries{}\boldmath{}#2\unboldmath{}}%
     \fi%
   }{%
     \ifmmode%
-      \textcolor{#1}{\bm{#2}}%
+      \textcolor{#1}{\bm{{#2}}}%
     \else%
       \textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}%
     \fi
