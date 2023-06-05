@@ -1,7 +1,44 @@
 % !TeX root = ../NTCP-Part-1.tex
 
 \section{基础知识}
-\begin{frame}{别急}\PKMissing{别急}\end{frame} % delete this ==================
+\begin{frame}
+  \frametitle{引入}
+  本章将介绍两个基础概念：“\alert{同余}”和“\alert{最大公因数与最小公倍数}”。后续册次中有大量内容依赖于它们。
+  \begin{center}
+    \huge\fbox{\quad$\equiv \pmod{m}$\quad}
+  \end{center}
+  \begin{center}
+    \huge\fbox{\quad$\gcd$, $\lcm$\quad}
+  \end{center}
+  \pause
+  
+  \emptyline
+  本章将引导读者通过\textbf{形式化}的数学推导证明有关这些概念的诸多性质，同时也从\textbf{直观}的角度进行一定的解释。掌握这些能力对学习数论大有裨益。
+\end{frame}
+\begin{frame}
+  \frametitle{引入 -- 同余}
+  “同余”这一概念，类似于我们熟悉的“相等”的概念，它是后者在\textbf{模意义下}的类比。我们将使用两种方式（整除和余数）来定义同余，然后说明两种方式一致，并将证明同余是一种“等价关系”。
+  \pause
+  
+  \emptyline
+  第六章（取模计算入门）将广泛使用同余的概念。在接下来三册中，同余更是占据了学习内容的核心地位。
+\end{frame}
+\begin{frame}
+  \frametitle{引入 -- 最大公因数与最小公倍数}
+  最大公因数与最小公倍数是整除关系中的核心概念。
+  \pause
+  \begin{itemize}
+    \item 它们性质丰富、对理解概念帮助很大（见第四章（整除结构））。
+    \pause
+    \item 并且，在应用层面上，它们广泛出现于模型转化后的题目中。
+    \pause
+    \item 同时，它们也具有计算上的优越性（见 3.3 节（辗转相除法））。
+  \end{itemize}
+  \pause
+  
+  \emptyline
+  最大公因数联系、沟通了数论中的诸多方面，所以在后续册次中，最大公因数将频繁出现。
+\end{frame}
 \subsection{同余}
 \begin{frame}[c]
   \progressnow*
