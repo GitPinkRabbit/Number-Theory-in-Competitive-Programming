@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2023/03/16 PinkRabbit Slide class]
+[2023/05/16 PinkRabbit Slide class]
 
 
 
@@ -319,7 +319,7 @@
       \textcolor{#1}{\bm{{#2}}}%
     \else%
       \textcolor{#1}{\bfseries{}\boldmath{}#2\unboldmath{}}%
-    \fi
+    \fi%
   }%
 }
 
