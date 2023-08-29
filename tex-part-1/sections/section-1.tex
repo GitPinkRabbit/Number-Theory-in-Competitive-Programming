@@ -313,17 +313,23 @@
   \frametitle{练习题}
   仅使用定义，试着证明关于整除性的这些性质（出现的字母都表示整数）：
   \pause
+  \begin{mymulticols}[l][l]{2}
+    \begin{enumerate}
+      \item $a \mid a$ 且 $a \mid (-a)$ 且 $(-a) \mid a$。
+      \pause
+      \item 如果 $a \mid b$ 且 $b \mid c$，那么 $a \mid c$。
+    \end{enumerate}
+  \end{mymulticols}
+  \pause
   \begin{enumerate}
-    \setlength{\itemsep}{2pt}
-    \item $a \mid a$ 且 $a \mid (-a)$ 且 $(-a) \mid a$。
-    \pause
-    \item 如果 $a \mid b$ 且 $b \mid c$，那么 $a \mid c$。
-    \pause
+    \setcounter{enumi}{2}
     \item 如果 $a \mid b$ 且 $b \ne 0$，那么 $\lvert a \rvert \le \lvert b \rvert$。
     \pause
     \item 如果 $a \mid b$ 且 $b \mid a$，那么 $a = \pm b$。
     \pause
     \item 如果 $a \mid b$，那么 $a \mid (k \cdot b)$ 且 $(k \cdot a) \mid (k \cdot b)$。
+    \pause
+    \item 如果 $(k \cdot a) \mid (k \cdot b)$，那么 $a \mid b$。
     \pause
     \item 如果 $d \mid a$ 且 $d \mid b$，那么 $d \mid (a \pm b)$。
   \end{enumerate}
@@ -331,7 +337,7 @@
   进一步地，利用上面的性质，试着证明这个很有用的推论：
   \pause
   \begin{enumerate}
-    \setcounter{enumi}{6}
+    \setcounter{enumi}{7}
     \item 对于 $n$ 个数 $a_1, \ldots, a_n$，如果 $d$ 分别整除每个 $a_i$，那么
     \begin{center}
       \textboldcolor[orange]{$d \mid (k_1 a_1 + k_2 a_2 + \cdots + k_n a_n)$}。
@@ -487,7 +493,7 @@
   换句话说，\alert{正}整数 $n$ 的所有\alert{正}因数是\textboldcolor[orange]{两两配对}的，即 $d$ 与 $\frac{n}{d}$ 配对。
   \pause
   
-  \alert{例外}情况：如果 $d = \frac{n}{d}$，则它们其实是同一个因数，这也就是说 \alert{$d^2 = n$}。
+  \alert{例外}情况：如果 $d = \frac{n}{d}$，则它们其实是同一个因数，这也就是说 \textboldcolor[red]{$d^2 = n$}。
   \pause
   \begin{center}
     \textboldcolor[orange]{$\text{$n$ 是完全平方数} \iff \text{$n$ 有着奇数个正因数}$}
@@ -511,13 +517,28 @@
   \begin{center}
     \includegraphics[scale = 0.85]{pics/divisors_symmetry.pdf}
   \end{center}
+  \pause
   你能从图示中看出上文的三个基本结论吗？
 \end{frame}
-\begin{frame}
+\begin{frame}[fragile]
   \frametitle{枚举因数}
   根据上文的结论，可以在 $\mathcal O (\sqrt{n})$ 的时间内对所有正因数进行枚举。
+  \pause
   
-  \PKMissing{别急}
+  \emptyline
+  要枚举所有因数，只需枚举每对因数中的较小者 $d$，而较大者可以通过 $\frac{n}{d}$ 计算得到。于是，$d$ 的枚举范围就是 $1 \sim \sqrt{n}$，要注意在 $d^2 = n$ 时避免重复。
+  \pause
+  
+  \begin{minted}[autogobble]{cpp}
+    void enumerate_divisors(int n) {
+      for (int d = 1; d * d <= n; ++d) if (n % d == 0) {
+        // d 是因数（一对中的较小者）
+        if (d * d != n) { // 如果 (n / d) 与 d 不同
+          // (n / d) 是因数（一对中的较大者）
+        }
+      }
+    }
+  \end{minted}
 \end{frame}
 \begin{frame}
   \frametitle{因数个数}
@@ -620,7 +641,22 @@
 \end{frame}
 \begin{frame}
   \frametitle{素数分布}
-  \PKMissing{别急}
+  尽管素数的概念很简单，但关于素数分布的基本问题仍困扰着数学界。例如素数的通项公式、Goldbach 猜想、Riemann 猜想等。
+  \pause
+  
+  \emptyline
+  不过我们仍能回答一些基本问题，例如：
+  \begin{itemize}
+    \item 有无穷多个素数吗？
+    \item 为什么 $2$ 是唯一的偶素数？任两个不同的素数互不整除吗？
+    \item 在 $1 \sim n$ 的正整数中，大约一共有多少素数？
+    \item 素数的“密度”是如何变化的？
+  \end{itemize}
+  \pause
+  在 $1 \sim 100$ 中，一共有 $25$ 个素数，然而在 $701 \sim 800$ 中，一共只有 $14$ 个素数。这是否说明随着数值的增大，素数变得越来越稀疏？
+\end{frame}
+\begin{frame}
+  \frametitle{素数分布（图示）}
 \end{frame}
 \begin{frame}
   \frametitle{开放性问题}
