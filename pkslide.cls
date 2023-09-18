@@ -242,7 +242,7 @@
       \PKAboutInfoText
     \end{frame}%
   }{}
-  
+
   \begin{frame}[c]
     \frametitle{目录}
     \setbeamerfont{section in toc}{size = \small}
@@ -373,17 +373,17 @@
 
 
 % author、institute 信息
-\newcommand{\PKAuthorPDFName}{小粉兔\ 测试}
-\newrobustcmd{\PKAuthorLongName}{\begin{tabular}[t]{@{}c@{}}小粉兔\ 测试\\PinkRabbit Test\end{tabular}}
-\newrobustcmd{\PKAuthorShortName}{PRTest}
-\newrobustcmd{\PKInstituteLongName}{百京带学\\Baijing Oniversity}
-\newrobustcmd{\PKInstituteShortName}{BaiJO}
+\newcommand{\PKAuthorPDFName}{占位符\ 测试}
+\newrobustcmd{\PKAuthorLongName}{\begin{tabular}[t]{@{}c@{}}占位符\ 测试\\Placeholder Test\end{tabular}}
+\newrobustcmd{\PKAuthorShortName}{PHTest}
+\newrobustcmd{\PKInstituteLongName}{占位符研究所\\Placeholder Institute}
+\newrobustcmd{\PKInstituteShortName}{PHI}
 % usage: \firstauthor{realname}[nickname][shortname]
 % if <nickname> not specified, empty
 % if <shortname> not specified, if <nickname> also not specified, <realname>, otherwise <nickname>
 \NewDocumentCommand{\firstauthor}{m o o}{%
   \renewcommand{\PKAuthorPDFName}{#1}
-  \renewrobustcmd{\PKAuthorLongName}{\IfNoValueT{#2}{#1}{\begin{tabular}[t]{@{}c@{}}#1\\#2\end{tabular}}}
+  \renewrobustcmd{\PKAuthorLongName}{\IfNoValueTF{#2}{#1}{\begin{tabular}[t]{@{}c@{}}#1\\#2\end{tabular}}}
   \renewrobustcmd{\PKAuthorShortName}{\IfValueTF{#3}{#3}{\IfValueTF{#2}{#2}{#1}}}%
 }
 % usage: \firstinstitute{name}[englishname]{shortname}
@@ -397,7 +397,7 @@
 % if <shortname> not specified, if <nickname> also not specified, <realname>, otherwise <nickname>
 \NewDocumentCommand{\addauthor}{m o o}{%
   \appto\PKAuthorPDFName{\and#1}
-  \appto\PKAuthorLongName{\and\IfNoValueT{#2}{#1}{\begin{tabular}[t]{@{}c@{}}#1\\#2\end{tabular}}}
+  \appto\PKAuthorLongName{\and\IfNoValueTF{#2}{#1}{\begin{tabular}[t]{@{}c@{}}#1\\#2\end{tabular}}}
   \appto\PKAuthorShortName{\and\IfValueTF{#3}{#3}{\IfValueTF{#2}{#2}{#1}}}%
 }
 % usage: \addinstitute{name}[englishname]{shortname}
