@@ -3,7 +3,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{../pkslide}
-[2023/05/16 PinkRabbit Slide class]
+[2023/10/21 PinkRabbit Slide class]
 
 
 
