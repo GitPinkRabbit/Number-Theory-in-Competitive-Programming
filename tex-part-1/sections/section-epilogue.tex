@@ -144,11 +144,11 @@
   \pause
   
   \emptyline
-  例如，计算 \texttt{-4 \% 3u} 时，产生的公共类型为 \texttt{unsigned int}，此时先将 \texttt{-4} 转换得到 \texttt{4294967292u}，进行除法得到结果 \texttt{1431655764u}，与期望的 \texttt{-1} 不同。
+  例如，计算 \texttt{-5 / 3u} 时，产生的公共类型为 \texttt{unsigned int}，此时先将 \texttt{-5} 转换得到 \texttt{4294967291u}，进行除法得到结果 \texttt{1431655763u}，与期望的 \texttt{-1} 不同。
   \pause
   同样地，良好的实践是：
   \begin{center}
-    \textboldcolor[darkgreen]{尽量避免\CJKunderdot[format=\color{darkgreen}]{混合使用}有符号和无符号类型进行 \texttt{/} 或 \texttt{\%} 运算。}
+    \textboldcolor[darkgreen]{尽量避免\CJKunderdot[format=\color{darkgreen}]{混合使用}有、无符号类型进行 \texttt{/} 或 \texttt{\%} 运算（及其他算术运算）。}
   \end{center}
 \end{frame}
 \subsection*{附录 B}
